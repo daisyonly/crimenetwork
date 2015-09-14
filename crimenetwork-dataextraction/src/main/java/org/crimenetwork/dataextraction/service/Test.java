@@ -1,6 +1,5 @@
 package org.crimenetwork.dataextraction.service;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import org.crimenetwork.mongodb.entity.Case;
@@ -18,11 +17,13 @@ import org.springframework.stereotype.Service;
 @Service("gotest")
 public class Test {
 	@Autowired
-    private CaseBaseDao caseBaseDao;
-	
-	@Autowired
 	@Qualifier("caseDao")
 	BasicRepository<Case> caseDao;
+	
+	@Autowired
+	@Qualifier("caseBaseDao")
+    private CaseBaseDao caseBaseDao;
+	
 
     public void findAll(int page)
     {
