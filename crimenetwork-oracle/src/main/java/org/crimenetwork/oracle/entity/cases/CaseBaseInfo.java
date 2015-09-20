@@ -1,4 +1,4 @@
-package org.crimenetwork.oracle.entity;
+package org.crimenetwork.oracle.entity.cases;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

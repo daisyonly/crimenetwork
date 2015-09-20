@@ -50,7 +50,7 @@ public class BasicRepository<T> implements DAO<T>{
 	}
 	@PostConstruct
 	private void init(){
-		collection = MongoDbUtil.getCollection(getCollectionName());
+		collection = mongoTemplate.getCollection(getCollectionName());
 	}
 	/**
 	 * 获取当前类的日志，用于继承情况：子类或父类<p/>
@@ -73,6 +73,7 @@ public class BasicRepository<T> implements DAO<T>{
 	 * @return
 	 */
 	protected String getCollectionName(){
+		
 		return mongoTemplate.getCollectionName(entityType);
 
 	}

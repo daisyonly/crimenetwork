@@ -20,7 +20,7 @@
 	<context:component-scan base-package="org.crimenetwork">
 	</context:component-scan>
 	
-	<import resource="classpath*:database/oracle/datasource.xml"/>
-	<import resource="classpath*:database/mangodb/datasource.xml"/>
+	<import resource="classpath*:database/oracle/datasourse.xml"/>
+	<import resource="classpath*:database/mongodb/datasourse.xml"/>
 
 </beans>

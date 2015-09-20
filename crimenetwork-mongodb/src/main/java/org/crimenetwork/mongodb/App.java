@@ -9,6 +9,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 import org.springframework.core.io.InputStreamResource;
+import org.springframework.data.mongodb.core.MongoTemplate;
 
 
 /**
@@ -22,23 +23,20 @@ public class App
 		
 		String[] springConfig2  = 
 			{
-				"classpath:/database/mangodb/datasource1.xml" 
+				"classpath:/database/mongodb/datasourse.xml" 
 			};
-		
-		App app=new App();
-		
-		InputStream in = Thread.currentThread().getContextClassLoader().getResourceAsStream("datasource111.xml");
-		System.out.println(in);
-		ApplicationContext context2 = 
-				new GenericXmlApplicationContext(new InputStreamResource(in));
-				//new classpath
-				//new classpa
-				//new ClassPathXmlApplicationContext("classpath*:datasource111.xml");
+		//"classpath:database/mongodb/datasourse.xml" 
+		ApplicationContext context2 = new ClassPathXmlApplicationContext(springConfig2);
 		//mongoTemplate
-		context2.getBean("mongoTemplate");
-		//BasicRepository<Case> caseDao = (BasicRepository<Case>) context2.getBean("caseDao");
-		//System.out.println(caseDao);
 		
+		BasicRepository<Case> caseDao = (BasicRepository<Case>) context2.getBean("caseDao");
+		System.out.println(caseDao);
+		MongoTemplate tt = (MongoTemplate) context2.getBean("mongoTemplate");
+		System.out.println(tt);
+		Case ca = new Case();
+		ca.setCaseId("123");
+		ca.setBriefInfo("hello");
+		caseDao.saveAndUpdate(ca);
 		
 
 		

@@ -1,13 +1,13 @@
 package org.crimenetwork.oracle.repository;
 
-import org.crimenetwork.oracle.entity.CaseBaseInfo;
+import org.crimenetwork.oracle.entity.cases.CaseInfo;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.RepositoryDefinition;
 
 
 
-@RepositoryDefinition(domainClass = CaseBaseInfo.class, idClass = Long.class) 
+@RepositoryDefinition(domainClass = CaseInfo.class, idClass = Long.class) 
 public interface CaseBaseDao{
-    public Page<CaseBaseInfo> findAll(Pageable pageable); 
+    public Page<CaseInfo> findAll(Pageable pageable); 
 }

@@ -17,24 +17,12 @@ public class App
     {
     	String[] springConfig  = 
 			{	"classpath:dataextraction/applicationContext.xml", 
-				"classpath*:database/oracle/datasource.xml",
-				"classpath*:database/mangodb/datasource.xml" 
 			};
 		
 		ApplicationContext context = 
 				new ClassPathXmlApplicationContext(springConfig);
 		
-		String[] springConfig2  = 
-			{
-				"classpath*:database/mangodb/datasource.xml" 
-			};
-		
-		ApplicationContext context2 = 
-				new ClassPathXmlApplicationContext(springConfig2);
-		
-		
-		BasicRepository<Case> caseDao = (BasicRepository<Case>) context2.getBean("caseDao");
-		System.out.println(caseDao);
+
 		
 		Test gotest = (Test) context.getBean("gotest");
 

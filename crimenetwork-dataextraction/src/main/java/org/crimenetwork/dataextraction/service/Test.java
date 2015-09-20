@@ -4,7 +4,8 @@ import java.util.List;
 
 import org.crimenetwork.mongodb.entity.Case;
 import org.crimenetwork.mongodb.repository.BasicRepository;
-import org.crimenetwork.oracle.entity.CaseBaseInfo;
+import org.crimenetwork.oracle.entity.cases.CaseBaseInfo;
+import org.crimenetwork.oracle.entity.cases.CaseInfo;
 import org.crimenetwork.oracle.repository.CaseBaseDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -27,13 +28,12 @@ public class Test {
 
     public void findAll(int page)
     {
-    	Page<CaseBaseInfo> readPage = caseBaseDao.findAll(new PageRequest(page-1, 10));
-    	process(readPage.getContent());
-    	
+    	Page<CaseInfo> readPage = caseBaseDao.findAll(new PageRequest(page-1, 10));
+    	process(readPage.getContent());   	
     }
     
-    private void process(List<CaseBaseInfo> list){
-    	for(CaseBaseInfo cbi:list){
+    private void process(List<CaseInfo> list){
+    	for(CaseInfo cbi:list){
     		Case ca =new Case();
     		ca.setBriefInfo(cbi.getBriefInfo());
     		ca.setCaseId(cbi.getCaseId());

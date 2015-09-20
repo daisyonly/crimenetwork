@@ -23,6 +23,8 @@
 		<groupId>cn.iscas</groupId>
 		<artifactId>crimenetwork-oracle</artifactId>
 		<version>${project.version}</version>
-	</dependency>      
+	</dependency>
+	
+	      
   </dependencies>
 </project>

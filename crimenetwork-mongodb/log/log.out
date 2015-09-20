@@ -1,0 +1,2 @@
+Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@17e9134: startup date [Wed Sep 16 20:20:03 CST 2015]; root of context hierarchy
+Loading XML bean definitions from class path resource [database/mongodb/datasourse.xml]
