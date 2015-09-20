@@ -6,9 +6,12 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -30,6 +33,8 @@ public class UserInfo implements java.io.Serializable {
 	@Column(name="user_id")
 	private Long userId;//
 	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="gender")
 	private Gender gender;//
 
 	@Column(name="location_code")
@@ -48,24 +53,6 @@ public class UserInfo implements java.io.Serializable {
 	private String mobilePhone;
 	
 	
-	private Set interactionInfos = new HashSet(0);
-	
-	private Set suspectInfos = new HashSet(0);
-	
-	private Set replyInfos = new HashSet(0);
-	
-	private Set infos = new HashSet(0);
-	
-	private Set currencyCharacterTrains = new HashSet(0);
-	
-	private Set blacklistInfos = new HashSet(0);
-	
-	private Set caseInfos = new HashSet(0);
-	
-	private Set jiabiBaseInfos = new HashSet(0);
-	
-	private Set commonLogs = new HashSet(0);
-
 	// Constructors
 
 	/** default constructor */
@@ -76,10 +63,7 @@ public class UserInfo implements java.io.Serializable {
 	public UserInfo(Gender gender, LocationCode locationCode,
 			String policeNum, String username,
 			String password, String trueName, String unit, String position,
-			Timestamp birthday, Timestamp lastLoginTime, Boolean isLiaisonMan,String officePhone,String mobilePhone,
-			Set interactionInfos,
-			Set suspectInfos, Set replyInfos, Set userRoles, Set infos,
-			Set currencyCharacterTrains, Set blacklistInfos, Set caseInfos,Set jiabiBaseInfos,Set commonLogs) {
+			Timestamp birthday, Timestamp lastLoginTime, Boolean isLiaisonMan,String officePhone,String mobilePhone) {
 		this.gender = gender;
 		this.locationCode = locationCode;
 		this.policeNum = policeNum;
@@ -93,15 +77,6 @@ public class UserInfo implements java.io.Serializable {
 		this.isLiaisonMan=isLiaisonMan;
 		this.officePhone=officePhone;
 		this.mobilePhone=mobilePhone;	
-		this.interactionInfos = interactionInfos;
-		this.suspectInfos = suspectInfos;
-		this.replyInfos = replyInfos;
-		this.infos = infos;
-		this.currencyCharacterTrains = currencyCharacterTrains;
-		this.blacklistInfos = blacklistInfos;
-		this.caseInfos = caseInfos;
-		this.jiabiBaseInfos = jiabiBaseInfos;
-		this.commonLogs=commonLogs;
 	}
 
 	// Property accessors
@@ -196,72 +171,6 @@ public class UserInfo implements java.io.Serializable {
 		this.lastLoginTime = lastLoginTime;
 	}
 
-	public Set getInteractionInfos() {
-		return this.interactionInfos;
-	}
-
-	public void setInteractionInfos(Set interactionInfos) {
-		this.interactionInfos = interactionInfos;
-	}
-
-	public Set getSuspectInfos() {
-		return this.suspectInfos;
-	}
-
-	public void setSuspectInfos(Set suspectInfos) {
-		this.suspectInfos = suspectInfos;
-	}
-
-	public Set getReplyInfos() {
-		return this.replyInfos;
-	}
-
-	public void setReplyInfos(Set replyInfos) {
-		this.replyInfos = replyInfos;
-	}
-
-
-	
-
-	public Set getInfos() {
-		return this.infos;
-	}
-
-	public void setInfos(Set infos) {
-		this.infos = infos;
-	}
-
-	public Set getCurrencyCharacterTrains() {
-		return this.currencyCharacterTrains;
-	}
-
-	public void setCurrencyCharacterTrains(Set currencyCharacterTrains) {
-		this.currencyCharacterTrains = currencyCharacterTrains;
-	}
-
-	public Set getBlacklistInfos() {
-		return this.blacklistInfos;
-	}
-
-	public void setBlacklistInfos(Set blacklistInfos) {
-		this.blacklistInfos = blacklistInfos;
-	}
-
-	public Set getCaseInfos() {
-		return this.caseInfos;
-	}
-
-	public void setCaseInfos(Set caseInfos) {
-		this.caseInfos = caseInfos;
-	}
-
-	public Set getJiabiBaseInfos() {
-		return jiabiBaseInfos;
-	}
-
-	public void setJiabiBaseInfos(Set jiabiBaseInfos) {
-		this.jiabiBaseInfos = jiabiBaseInfos;
-	}
 
 	public String getOfficePhone() {
 		return officePhone;
@@ -286,14 +195,5 @@ public class UserInfo implements java.io.Serializable {
 	public void setIsLiaisonMan(Boolean isLiaisonMan) {
 		this.isLiaisonMan = isLiaisonMan;
 	}
-
-	public Set getCommonLogs() {
-		return commonLogs;
-	}
-
-	public void setCommonLogs(Set commonLogs) {
-		this.commonLogs = commonLogs;
-	}
-	
 
 }

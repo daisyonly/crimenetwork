@@ -1,15 +1,27 @@
 package org.crimenetwork.oracle.entity.currency;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 /**
  * JiabiExtendInfo entity. @author MyEclipse Persistence Tools
  */
 
 @SuppressWarnings("serial")
+@Entity
+@Table(name="jiabi_extend_info",schema="system")
 public class JiabiExtendInfo implements java.io.Serializable {
 
 	// Fields
-
+	@Id
 	private Long jeiid;
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="fmid")
 	private JiabiBaseInfo jiabiBaseInfo;
 	private String thick;
 	private Double white;

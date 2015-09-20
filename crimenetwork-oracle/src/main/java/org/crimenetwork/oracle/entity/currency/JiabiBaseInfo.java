@@ -19,8 +19,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import org.crimenetwork.oracle.entity.CaseCurrency;
-import org.crimenetwork.oracle.entity.cases.CaseInfo;
+import org.crimenetwork.oracle.entity.cases.CaseBaseInfo;
 import org.crimenetwork.oracle.entity.share.LocationCode;
 import org.crimenetwork.oracle.entity.share.UserInfo;
 import org.hibernate.annotations.NotFound;
@@ -100,17 +99,15 @@ public class JiabiBaseInfo{
 	
 	@OneToMany(mappedBy="jiabiBaseInfo")
 	private Set<JiabiExtendInfo> jiabiExtendInfos = new HashSet<JiabiExtendInfo>(0);
-	@OneToMany(mappedBy="jiabiBaseInfo")
-	private Set<JiabiBasePic> jiabiBasePics = new HashSet<JiabiBasePic>(0);
 	
 	@OneToMany(mappedBy="jiabiBaseInfo")
-	private Set<CaseCurrency> caseCurrencies = new HashSet<CaseCurrency>(0);
+	private Set<JiabiBasePic> jiabiBasePics = new HashSet<JiabiBasePic>(0);
 	
 	@ManyToMany
 	@JoinTable(name="case_currency",
 	joinColumns=@JoinColumn(name="fmid"),
 	inverseJoinColumns=@JoinColumn(name="case_id"))
-	private List<CaseInfo> caseInfos;
+	private List<CaseBaseInfo> caseInfos;
 	@ManyToMany	
 	@JoinTable(name="forge_type_list",
 	joinColumns=@JoinColumn(name="jiabi_base_info_id"),
@@ -263,17 +260,11 @@ public class JiabiBaseInfo{
 		this.jiabiBasePics = jiabiBasePics;
 	}
 	
-	public Set<CaseCurrency> getCaseCurrencies() {
-		return caseCurrencies;
-	}
-	public void setCaseCurrencies(Set<CaseCurrency> caseCurrencies) {
-		this.caseCurrencies = caseCurrencies;
-	}
 	
-	public List<CaseInfo> getCaseInfos() {
+	public List<CaseBaseInfo> getCaseInfos() {
 		return caseInfos;
 	}
-	public void setCaseInfos(List<CaseInfo> caseInfos) {
+	public void setCaseInfos(List<CaseBaseInfo> caseInfos) {
 		this.caseInfos = caseInfos;
 	}
 	public String getRemark() {

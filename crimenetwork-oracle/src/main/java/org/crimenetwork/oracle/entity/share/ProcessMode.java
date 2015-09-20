@@ -1,16 +1,10 @@
-package org.crimenetwork.oracle.entity;
-
-import java.util.HashSet;
-import java.util.Set;
+package org.crimenetwork.oracle.entity.share;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.crimenetwork.oracle.entity.share.IBasicCode;
-import org.crimenetwork.oracle.entity.suspect.SuspectInfo;
 
 
 @Entity
@@ -20,8 +14,7 @@ public class ProcessMode implements IBasicCode{
 	private String code;
 	@Column
 	private String description;
-	@OneToMany(mappedBy="accent")
-	private Set<SuspectInfo> suspectInfos = new HashSet<SuspectInfo>();
+	
 	public String getCode() {
 		return code;
 	}
@@ -34,12 +27,7 @@ public class ProcessMode implements IBasicCode{
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Set<SuspectInfo> getSuspectInfos() {
-		return suspectInfos;
-	}
-	public void setSuspectInfos(Set<SuspectInfo> suspectInfos) {
-		this.suspectInfos = suspectInfos;
-	}
+	
 	public String getName() {
 		return name;
 	}

@@ -1,4 +1,4 @@
-package org.crimenetwork.oracle.entity.suspect;
+package org.crimenetwork.oracle.entity.share;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,14 +6,19 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 
+
+
 /**
- * Occupation entity. @author MyEclipse Persistence Tools
+ * Gender entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name="occupation",schema="system")
-public class Occupation {
+@Table(name="SIF", schema="SYSTEM")
+public class Sif implements IBasicCode{
+
 	@Id
 	private String code;
+	@Column
+	private String name;
 	@Column
 	private String description;
 	
@@ -23,19 +28,17 @@ public class Occupation {
 	public void setCode(String code) {
 		this.code = code;
 	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	@Column
-	private String name;
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 }

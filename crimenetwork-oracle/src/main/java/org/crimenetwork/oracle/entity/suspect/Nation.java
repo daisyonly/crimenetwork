@@ -24,7 +24,7 @@ public class Nation implements IBasicCode{
 	@Column
 	private String description;
 	@OneToMany(mappedBy="nation")
-	private Set<SuspectInfo> suspectInfos = new HashSet<SuspectInfo>();
+	private Set<SuspectBaseInfo> suspectInfos = new HashSet<SuspectBaseInfo>();
 	public String getCode() {
 		return code;
 	}
@@ -37,10 +37,10 @@ public class Nation implements IBasicCode{
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Set<SuspectInfo> getSuspectInfos() {
+	public Set<SuspectBaseInfo> getSuspectInfos() {
 		return suspectInfos;
 	}
-	public void setSuspectInfos(Set<SuspectInfo> suspectInfos) {
+	public void setSuspectInfos(Set<SuspectBaseInfo> suspectInfos) {
 		this.suspectInfos = suspectInfos;
 	}
 	public String getName() {

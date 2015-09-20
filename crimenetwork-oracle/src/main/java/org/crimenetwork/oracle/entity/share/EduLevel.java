@@ -1,4 +1,4 @@
-package org.crimenetwork.oracle.entity;
+package org.crimenetwork.oracle.entity.share;
 
 
 import javax.persistence.Column;
@@ -8,8 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
-import org.crimenetwork.oracle.entity.share.IBasicCode;
 
 
 /**
@@ -22,6 +20,7 @@ public class EduLevel implements IBasicCode{
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq")
 	@SequenceGenerator(name="seq", sequenceName="SEQUENCE_1")
 	private String code;
+	
 	@Column
 	private String description;
 	

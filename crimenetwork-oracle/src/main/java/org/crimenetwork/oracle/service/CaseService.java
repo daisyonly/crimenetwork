@@ -1,7 +1,6 @@
 package org.crimenetwork.oracle.service;
 
 import org.crimenetwork.oracle.entity.cases.CaseBaseInfo;
-import org.crimenetwork.oracle.entity.cases.CaseInfo;
 import org.crimenetwork.oracle.repository.CaseBaseDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -16,7 +15,7 @@ public class CaseService {
     @Autowired
     private CaseBaseDao caseBaseDao;
 
-    public Page<CaseInfo> findAll(int page)
+    public Page<CaseBaseInfo> findAll(int page)
     {
         return  caseBaseDao.findAll(new PageRequest(page-1, 10));
     }

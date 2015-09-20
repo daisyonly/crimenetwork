@@ -20,8 +20,7 @@ public class CurrentState implements IBasicCode{
 	private String code;
 	@Column
 	private String description;
-	@OneToMany(mappedBy="accent")
-	private Set<SuspectInfo> suspectInfos = new HashSet<SuspectInfo>();
+	
 	public String getCode() {
 		return code;
 	}
@@ -34,12 +33,7 @@ public class CurrentState implements IBasicCode{
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Set<SuspectInfo> getSuspectInfos() {
-		return suspectInfos;
-	}
-	public void setSuspectInfos(Set<SuspectInfo> suspectInfos) {
-		this.suspectInfos = suspectInfos;
-	}
+	
 	public String getName() {
 		return name;
 	}

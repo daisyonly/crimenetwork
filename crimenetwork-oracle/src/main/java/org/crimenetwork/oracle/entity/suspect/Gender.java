@@ -20,11 +20,7 @@ public class Gender implements IBasicCode{
 	private String code;
 	@Column
 	private String description;
-//	@OneToMany(mappedBy="gender")
-//	private Set<SuspectInfo> suspectInfos = new HashSet<SuspectInfo>();
-//	@OneToMany(mappedBy="gender")
-//	private Set<BlacklistInfo> blacklistInfos = new HashSet<BlacklistInfo>();
-	
+
 	public String getCode() {
 		return code;
 	}
@@ -37,18 +33,7 @@ public class Gender implements IBasicCode{
 	public void setDescription(String description) {
 		this.description = description;
 	}
-//	public Set<SuspectInfo> getSuspectInfos() {
-//		return suspectInfos;
-//	}
-//	public void setSuspectInfos(Set<SuspectInfo> suspectInfos) {
-//		this.suspectInfos = suspectInfos;
-//	}
-//	public Set<BlacklistInfo> getBlacklistInfos() {
-//		return blacklistInfos;
-//	}
-//	public void setBlacklistInfos(Set<BlacklistInfo> blacklistInfos) {
-//		this.blacklistInfos = blacklistInfos;
-//	}
+
 	public String getName() {
 		return name;
 	}

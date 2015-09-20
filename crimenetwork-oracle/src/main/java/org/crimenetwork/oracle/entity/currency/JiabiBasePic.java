@@ -1,6 +1,16 @@
 package org.crimenetwork.oracle.entity.currency;
 
-import org.crimenetwork.oracle.entity.share.PicType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
 
 
 /**
@@ -8,12 +18,18 @@ import org.crimenetwork.oracle.entity.share.PicType;
  */
 
 @SuppressWarnings("serial")
+@Entity
+@Table(name="jiabi_base_pic",schema="SYSTEM")
 public class JiabiBasePic implements java.io.Serializable {
 
 	// Fields
-
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq")
+	@SequenceGenerator(name="seq", sequenceName="SEQUENCE_1")	
 	private Long fbpid;
-	private PicType picType;
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="fmid")
 	private JiabiBaseInfo jiabiBaseInfo;
 	private Long cfid;
 	private Long smallCfid;
@@ -27,10 +43,9 @@ public class JiabiBasePic implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public JiabiBasePic(PicType picType, JiabiBaseInfo jiabiBaseInfo,
+	public JiabiBasePic(JiabiBaseInfo jiabiBaseInfo,
 			Long cfid, Long smallCfid, Long smallCfid400,
 			Long smallCfid96) {
-		this.picType = picType;
 		this.jiabiBaseInfo = jiabiBaseInfo;
 		this.cfid = cfid;
 		this.smallCfid = smallCfid;
@@ -46,14 +61,6 @@ public class JiabiBasePic implements java.io.Serializable {
 
 	public void setFbpid(Long fbpid) {
 		this.fbpid = fbpid;
-	}
-
-	public PicType getPicType() {
-		return this.picType;
-	}
-
-	public void setPicType(PicType picType) {
-		this.picType = picType;
 	}
 
 	public JiabiBaseInfo getJiabiBaseInfo() {
