@@ -29,6 +29,7 @@
 		<commons-beanutils.version>1.9.2</commons-beanutils.version>
 		<commons.version>3.1</commons.version>		
 		<guava.version>17.0</guava.version>
+		<commons-beanutils.version>1.9.2</commons-beanutils.version>
 	</properties>
 	<dependencies>
 		<!-- spring framework start -->

@@ -32,5 +32,17 @@
 			<version>${nosqlunit.version}</version>
 			<scope>test</scope>
 		</dependency>
+		<!-- Start:reflection Api -->
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>${commons-beanutils.version}</version>
+		</dependency>
+		<!-- End:reflection Api -->
+		<dependency>
+			<groupId>cn.iscas</groupId>
+			<artifactId>crimenetwork-oracle</artifactId>
+			<version>${project.version}</version>
+		</dependency>
   </dependencies>
 </project>
