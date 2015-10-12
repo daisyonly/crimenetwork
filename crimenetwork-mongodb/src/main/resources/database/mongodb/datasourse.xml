@@ -13,7 +13,7 @@
 	 <context:component-scan base-package="org.crimenetwork">
 	</context:component-scan>
 	 
-	<mongo:mongo id="mongo" host="133.133.133.122" port="27017" />
+	<mongo:mongo id="mongo" host="127.0.0.1" port="27017" />
 	<mongo:db-factory id="mongoDbFactory" dbname="cccis-data" mongo-ref="mongo"/>
 	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
 		<constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
@@ -21,13 +21,24 @@
 	
 	<bean id="caseConvertor" class="org.crimenetwork.mongodb.repository.DBConvertor">
     	<constructor-arg>
-        	<value type="java.lang.Class">org.crimenetwork.mongodb.entity.Case</value>
+        	<value type="java.lang.Class">org.crimenetwork.mongodb.entity.cases.MCaseBaseInfo</value>
     	</constructor-arg>
 	</bean>
 	
 	<bean id="caseDao" class="org.crimenetwork.mongodb.repository.BasicRepository">
-    	<constructor-arg type="java.lang.Class" value="org.crimenetwork.mongodb.entity.Case"/>
+    	<constructor-arg type="java.lang.Class" value="org.crimenetwork.mongodb.entity.cases.MCaseBaseInfo"/>
     	<constructor-arg ref="caseConvertor"/>
+	</bean>
+	
+	<bean id="suspectConvertor" class="org.crimenetwork.mongodb.repository.DBConvertor">
+    	<constructor-arg>
+        	<value type="java.lang.Class">org.crimenetwork.mongodb.entity.suspect.MSuspectBaseInfo</value>
+    	</constructor-arg>
+	</bean>
+	
+	<bean id="suspectDao" class="org.crimenetwork.mongodb.repository.BasicRepository">
+    	<constructor-arg type="java.lang.Class" value="org.crimenetwork.mongodb.entity.suspect.MSuspectBaseInfo"/>
+    	<constructor-arg ref="suspectConvertor"/>
 	</bean>
 
 </beans>

@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 
 
 
-@Service("caseService")
-public class CaseService {
+@Service("oracleCaseService")
+public class OracleCaseService {
 
     @Autowired
     private CaseBaseDao caseBaseDao;

@@ -6,6 +6,7 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,10 +18,9 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 
-
-
+import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.crimenetwork.oracle.entity.currency.JiabiBaseInfo;
-import org.crimenetwork.oracle.entity.sharenew.Location;
+import org.crimenetwork.oracle.entity.share.Location;
 import org.crimenetwork.oracle.entity.suspect.SuspectBaseInfo;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
@@ -44,20 +44,21 @@ public class CaseBaseInfo {
 	@Column(name="seized_amount")
 	private Float seizedAmount;
 	
-	@ManyToMany
+	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(name="case_suspect",
 		joinColumns=@JoinColumn(name="case_id"),
 		inverseJoinColumns=@JoinColumn(name="suspect_id")
 	)
 	private Set<SuspectBaseInfo> suspects = new HashSet<SuspectBaseInfo>();
 	
-	@ManyToMany
+	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(name="case_currency",
 		joinColumns=@JoinColumn(name="case_id"),
 		inverseJoinColumns=@JoinColumn(name="fmid"))
 	private Set<JiabiBaseInfo> counterfeitMoneys = new HashSet<JiabiBaseInfo>();
 	@Column(name="brief_info")
 	private String briefInfo;
+	
 	@ManyToOne
 	@JoinColumn(name="case_happen_location")
 	@NotFound(action=NotFoundAction.IGNORE)
@@ -121,6 +122,11 @@ public class CaseBaseInfo {
 	}
 	public void setCaseHappenLocation(Location caseHappenLocation) {
 		this.caseHappenLocation = caseHappenLocation;
+	}
+	@Override
+	public String toString() {
+		
+		return ToStringBuilder.reflectionToString(this);
 	}
 	
 }

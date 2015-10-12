@@ -39,10 +39,6 @@
 			<version>${commons-beanutils.version}</version>
 		</dependency>
 		<!-- End:reflection Api -->
-		<dependency>
-			<groupId>cn.iscas</groupId>
-			<artifactId>crimenetwork-oracle</artifactId>
-			<version>${project.version}</version>
-		</dependency>
+		
   </dependencies>
 </project>

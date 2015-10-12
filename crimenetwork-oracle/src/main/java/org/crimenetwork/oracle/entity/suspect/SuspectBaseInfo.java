@@ -19,8 +19,9 @@ import javax.persistence.Table;
 
 
 
+
 import org.crimenetwork.oracle.entity.cases.CaseBaseInfo;
-import org.crimenetwork.oracle.entity.sharenew.Location;
+import org.crimenetwork.oracle.entity.share.Location;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 
@@ -49,7 +50,7 @@ public class SuspectBaseInfo {
 	private Gender gender;
 	@Column(name="phone_number")
 	private String phoneNumber;
-	@ManyToMany(fetch = FetchType.LAZY)
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name="case_suspect",
 		joinColumns=@JoinColumn(name="suspect_id"),
 		inverseJoinColumns=@JoinColumn(name="case_id")

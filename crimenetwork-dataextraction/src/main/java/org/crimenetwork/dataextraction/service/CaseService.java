@@ -1,8 +1,8 @@
 package org.crimenetwork.dataextraction.service;
 
-import java.util.List;
 
-import org.crimenetwork.mongodb.entity.Case;
+import org.crimenetwork.dataextraction.convert.instance.CaseConverter;
+import org.crimenetwork.mongodb.entity.cases.MCaseBaseInfo;
 import org.crimenetwork.mongodb.repository.BasicRepository;
 import org.crimenetwork.oracle.entity.cases.CaseBaseInfo;
 import org.crimenetwork.oracle.repository.CaseBaseDao;
@@ -14,11 +14,11 @@ import org.springframework.stereotype.Service;
 
 
 
-@Service("gotest")
-public class Test {
+@Service("caseService")
+public class CaseService {
 	@Autowired
 	@Qualifier("caseDao")
-	BasicRepository<Case> caseDao;
+	BasicRepository<MCaseBaseInfo> caseDao;
 	
 	@Autowired
 	@Qualifier("caseBaseDao")
@@ -28,20 +28,21 @@ public class Test {
     public void findAll(int page)
     {
     	Page<CaseBaseInfo> readPage = caseBaseDao.findAll(new PageRequest(page-1, 10));
-    	process(readPage.getContent());   	
+    	CaseConverter caseConverter = new CaseConverter();
+    	for(CaseBaseInfo cbi:readPage.getContent()){
+    		MCaseBaseInfo mCaseBaseInfo=(MCaseBaseInfo) caseConverter.convert(cbi);
+    		try {
+    			caseDao.saveAndUpdate(mCaseBaseInfo);
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+				
+			}
+    		
+    	}
+    		
     }
     
-    private void process(List<CaseBaseInfo> list){
-    	for(CaseBaseInfo cbi:list){
-    		Case ca =new Case();
-    		ca.setBriefInfo(cbi.getBriefInfo());
-    		ca.setCaseId(cbi.getCaseId());
-    		ca.setCaseName(cbi.getCaseName());
-    		ca.setRegisterUnit(cbi.getRegisterUnit());
-    		ca.setSeizedAmount(cbi.getSeizedAmount());
-    		caseDao.saveAndUpdate(ca);
-    	}
-
-    }
+    
 
 }

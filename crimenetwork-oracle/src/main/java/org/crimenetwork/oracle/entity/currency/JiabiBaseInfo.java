@@ -2,7 +2,6 @@ package org.crimenetwork.oracle.entity.currency;
 
 import java.sql.Timestamp;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -18,10 +17,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
-import org.crimenetwork.oracle.entity.cases.CaseBaseInfo;
-import org.crimenetwork.oracle.entity.share.LocationCode;
-import org.crimenetwork.oracle.entity.share.UserInfo;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 
@@ -33,24 +28,22 @@ public class JiabiBaseInfo{
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq")
 	@SequenceGenerator(name="seq", sequenceName="SEQUENCE_1")
 	private Long fmid;
-	@ManyToOne
-	@JoinColumn(name="den_location")
-	private LocationCode locationCode;
-	@ManyToOne
+	
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="currency_type_id")
 	private CurrencyType currencyType;
 	
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="version")
 	private VersionType versionType;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="category ")
 	private CategoryType categoryType;
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="denomination")
 	private DenominationType denominationType;//假币面额
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="data_from")
 	private DataFrom dataFrom;//假币来源
 	@Column
@@ -62,7 +55,7 @@ public class JiabiBaseInfo{
 	private String identifyId;
 	@Column(name="identify_id1")
 	private String identifyId1;
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@NotFound(action=NotFoundAction.IGNORE)
 	@JoinColumn(name="identify_id2")
 	private ClassificationNumber identifyId2;
@@ -73,9 +66,7 @@ public class JiabiBaseInfo{
 	
 	@Column(name="receive_time")
 	private Timestamp receiveTime;
-	@ManyToOne
-	@JoinColumn(name="create_user")
-	private UserInfo createUser;
+	
 	@Column(name="create_time")
 	private Timestamp createTime;
 	@Column
@@ -97,18 +88,14 @@ public class JiabiBaseInfo{
 	@Column
 	private String piaoyang_number;
 	
-	@OneToMany(mappedBy="jiabiBaseInfo")
+	@OneToMany(mappedBy="jiabiBaseInfo",fetch=FetchType.EAGER)
 	private Set<JiabiExtendInfo> jiabiExtendInfos = new HashSet<JiabiExtendInfo>(0);
 	
-	@OneToMany(mappedBy="jiabiBaseInfo")
+	@OneToMany(mappedBy="jiabiBaseInfo",fetch=FetchType.EAGER)
 	private Set<JiabiBasePic> jiabiBasePics = new HashSet<JiabiBasePic>(0);
 	
-	@ManyToMany
-	@JoinTable(name="case_currency",
-	joinColumns=@JoinColumn(name="fmid"),
-	inverseJoinColumns=@JoinColumn(name="case_id"))
-	private List<CaseBaseInfo> caseInfos;
-	@ManyToMany	
+	
+	@ManyToMany	(fetch=FetchType.EAGER)
 	@JoinTable(name="forge_type_list",
 	joinColumns=@JoinColumn(name="jiabi_base_info_id"),
 	inverseJoinColumns=@JoinColumn(name="forge_type_id"))
@@ -119,12 +106,7 @@ public class JiabiBaseInfo{
 	public void setFmid(Long fmid) {
 		this.fmid = fmid;
 	}
-	public LocationCode getLocationCode() {
-		return locationCode;
-	}
-	public void setLocationCode(LocationCode locationCode) {
-		this.locationCode = locationCode;
-	}
+
 	public CurrencyType getCurrencyType() {
 		return currencyType;
 	}
@@ -210,12 +192,7 @@ public class JiabiBaseInfo{
 	public void setReceiveTime(Timestamp receiveTime) {
 		this.receiveTime = receiveTime;
 	}
-	public UserInfo getCreateUser() {
-		return createUser;
-	}
-	public void setCreateUser(UserInfo createUser) {
-		this.createUser = createUser;
-	}
+	
 	public Timestamp getCreateTime() {
 		return createTime;
 	}
@@ -261,12 +238,7 @@ public class JiabiBaseInfo{
 	}
 	
 	
-	public List<CaseBaseInfo> getCaseInfos() {
-		return caseInfos;
-	}
-	public void setCaseInfos(List<CaseBaseInfo> caseInfos) {
-		this.caseInfos = caseInfos;
-	}
+	
 	public String getRemark() {
 		return remark;
 	}

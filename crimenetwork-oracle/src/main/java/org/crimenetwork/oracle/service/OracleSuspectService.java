@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 
 
 
-@Service("suspectService")
-public class SuspectService {
+@Service("oracleSuspectService")
+public class OracleSuspectService {
 
     @Autowired
     private SuspectBaseDao suspectBaseDao;

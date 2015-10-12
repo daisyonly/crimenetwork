@@ -32,8 +32,14 @@ public class JiabiBasePic implements java.io.Serializable {
 	@JoinColumn(name="fmid")
 	private JiabiBaseInfo jiabiBaseInfo;
 	private Long cfid;
+	
+	@Column(name="small_cfid")
 	private Long smallCfid;
+	
+	@Column(name="small_cfid_400")
 	private Long smallCfid400;
+	
+	@Column(name="small_cfid_96")
 	private Long smallCfid96;
 
 	// Constructors

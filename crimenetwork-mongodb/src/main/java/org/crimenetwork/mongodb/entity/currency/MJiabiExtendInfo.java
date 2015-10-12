@@ -1,117 +1,39 @@
-package org.crimenetwork.oracle.entity.currency;
+package org.crimenetwork.mongodb.entity.currency;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+
 
 
 
 @SuppressWarnings("serial")
-@Entity
-@Table(name="jiabi_extend_info",schema="system")
-public class JiabiExtendInfo implements java.io.Serializable {
+public class MJiabiExtendInfo implements java.io.Serializable {
 
-	// Fields
-	@Id
 	private Long jeiid;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="fmid")
-	private JiabiBaseInfo jiabiBaseInfo;
 	private String thick;
 	private Double white;
 	private Double quantity;
 	private Double angle;
 	private String fibre;//纤维种类
-	
-	@Column(name="fluore_color")
 	private String fluoreColor;//光波下颜色
-	
-	@Column(name="back_fluore_Color")
 	private String backFluoreColor;//背面团花荧光颜色
-	
-	@Column(name="is_netline")
 	private Boolean isNetline;//网纹有无
-	
-	@Column(name="is_safeline")
 	private Boolean isSafeline;//安全线有无
-	
-	@Column(name="is_color_fibreline")
 	private Boolean isColorFibreline;//彩色纤维丝有无
-	
-	@Column(name="is_fluore_fibreline")
 	private Boolean isFluoreFibreline;//荧光纤维丝有无
-	
-	@Column(name="is_printink")
 	private Boolean isPrintink;//反光油墨有无
-	
-	@Column(name="is_waterprint")
 	private Boolean isWaterprint;//水印有无
-	
-	@Column(name="is_guanzihao_inteval")
 	private Boolean isGuanzihaoInteval;//冠字号间距相等否
-	
-	@Column(name="is_aoban_tezheng")
 	private Boolean isAobanTezheng;//凹版特征有无
-	
-	@Column(name="is_fluore")
 	private Boolean isFluore;//荧光100有无
-	
-	@Column(name="is_light_ink")
 	private Boolean isLightInk;//光变油墨有无
-	
-	@Column(name="safeline_word")
 	private String safelineWord;//安全线烫印文字
-	
-	@Column(name="safeline_length")
 	private String safelineLength;
-	
-	@Column(name="safeline_width")
 	private String safelineWidth;
 
-	// Constructors
 
-	/** default constructor */
-	public JiabiExtendInfo() {
+	public MJiabiExtendInfo() {
 	}
 
-	/** full constructor */
-	public JiabiExtendInfo(JiabiBaseInfo jiabiBaseInfo, String thick,
-			Double white, Double quantity, Double angle, String fibre,
-			String fluoreColor, String backFluoreColor, Boolean isNetline,
-			Boolean isSafeline, Boolean isColorFibreline,
-			Boolean isFluoreFibreline, Boolean isPrintink,
-			Boolean isWaterprint, Boolean isGuanzihaoInteval,
-			Boolean isAobanTezheng, Boolean isFluore, Boolean isLightInk,
-			String safelineWord, String safelineLength, String safelineWidth) {
-		this.jiabiBaseInfo = jiabiBaseInfo;
-		this.thick = thick;
-		this.white = white;
-		this.quantity = quantity;
-		this.angle = angle;
-		this.fibre = fibre;
-		this.fluoreColor = fluoreColor;
-		this.backFluoreColor = backFluoreColor;
-		this.isNetline = isNetline;
-		this.isSafeline = isSafeline;
-		this.isColorFibreline = isColorFibreline;
-		this.isFluoreFibreline = isFluoreFibreline;
-		this.isPrintink = isPrintink;
-		this.isWaterprint = isWaterprint;
-		this.isGuanzihaoInteval = isGuanzihaoInteval;
-		this.isAobanTezheng = isAobanTezheng;
-		this.isFluore = isFluore;
-		this.isLightInk = isLightInk;
-		this.safelineWord = safelineWord;
-		this.safelineLength = safelineLength;
-		this.safelineWidth = safelineWidth;
-	}
-
-	// Property accessors
 
 	public Long getJeiid() {
 		return this.jeiid;
@@ -121,14 +43,7 @@ public class JiabiExtendInfo implements java.io.Serializable {
 		this.jeiid = jeiid;
 	}
 
-	public JiabiBaseInfo getJiabiBaseInfo() {
-		return this.jiabiBaseInfo;
-	}
-
-	public void setJiabiBaseInfo(JiabiBaseInfo jiabiBaseInfo) {
-		this.jiabiBaseInfo = jiabiBaseInfo;
-	}
-
+	
 	public String getThick() {
 		return this.thick;
 	}

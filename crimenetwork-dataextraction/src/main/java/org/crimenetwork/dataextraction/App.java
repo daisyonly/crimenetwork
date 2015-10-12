@@ -1,6 +1,8 @@
 package org.crimenetwork.dataextraction;
 
-import org.crimenetwork.dataextraction.service.Test;
+
+import org.crimenetwork.dataextraction.service.CaseService;
+import org.crimenetwork.dataextraction.service.SuspectService;
 import org.crimenetwork.mongodb.entity.Case;
 import org.crimenetwork.mongodb.repository.BasicRepository;
 import org.springframework.context.ApplicationContext;
@@ -22,11 +24,14 @@ public class App
 		ApplicationContext context = 
 				new ClassPathXmlApplicationContext(springConfig);
 		
-
 		
-		Test gotest = (Test) context.getBean("gotest");
+		//CaseService caseService = (CaseService) context.getBean("caseService");
 
-		gotest.findAll(1);
+		//caseService.findAll(1);
+		
+		SuspectService suspectService = (SuspectService) context.getBean("suspectService");
+
+		suspectService.findAll(1);
         System.out.println( "Hello World!" );
     }
 }
