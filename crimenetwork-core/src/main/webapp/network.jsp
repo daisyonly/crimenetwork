@@ -17,9 +17,10 @@
 }
 #mynetwork{
     width: 100%;
-	height: 100%;
+	height: 500pt;
 }
 </style>
+<link href="lib/vis/vis.css" rel="stylesheet" type="text/css" />
 <!-- Bootstrap Core CSS -->
 <link href="lib/bootstrap/bootstrap.css" rel="stylesheet">
 
