@@ -10,13 +10,13 @@
 
 <title>SB Admin - Bootstrap Admin Template</title>
 <style type="text/css">
-.test1111 {
-    transform:scale(1,2);
-    display: block;
-    height: 600px;
-}
-#mynetwork {
+
+.changeHeight {
 	width: 100%;
+	height: 100%;
+}
+#mynetwork{
+    width: 100%;
 	height: 100%;
 }
 </style>
@@ -64,7 +64,7 @@
 								Tooltips
 							</h3>
 						</div>
-						<div class="panel-body">
+						<div class="panel-body changeHeight">
 							<div class="checkbox">
 								<input id="checkbox1" class="styled" type="checkbox"> <label
 									for="checkbox1"> Default </label>
@@ -97,7 +97,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-8 test1111">
+				<div class="col-lg-8">
 					<div class="panel panel-primary">
 						<div class="panel-heading">
 							<h3 class="panel-title">
@@ -105,7 +105,7 @@
 								Example with Tooltips and Raw Data
 							</h3>
 						</div>
-						<div class="panel-body">						 
+						<div class="panel-body changeHeight">						 
 							<div id="mynetwork"></div>						
 						</div>
 					</div>
