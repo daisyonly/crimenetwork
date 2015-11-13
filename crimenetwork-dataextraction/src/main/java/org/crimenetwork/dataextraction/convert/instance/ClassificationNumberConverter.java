@@ -9,7 +9,8 @@ public class ClassificationNumberConverter extends Converter<MClassificationNumb
 	@Override
 	protected void setManualField(ClassificationNumber from,
 			MClassificationNumber to) {
-		
+		DenominationTypeConverter dtc=new DenominationTypeConverter();
+		to.setDenominationType(dtc.convert(from.getDenominationType()));
 	}
 
 }

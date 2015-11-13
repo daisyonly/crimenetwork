@@ -12,8 +12,8 @@ public class SuspectConverter extends Converter<MSuspectBaseInfo, SuspectBaseInf
 
 	@Override
 	protected void setManualField(SuspectBaseInfo from, MSuspectBaseInfo to) {
-		to.setNation(from.getNation().getName());		
-		to.setGender(from.getGender().getName());
+		if(from.getNation()!=null)to.setNation(from.getNation().getName());		
+		if(from.getGender()!=null) to.setGender(from.getGender().getName());
 		if(from.getNativeLocation()!=null){
 			LocationConverter locationConverter=new LocationConverter();
 			MLocation mm=locationConverter.convert(from.getNativeLocation());

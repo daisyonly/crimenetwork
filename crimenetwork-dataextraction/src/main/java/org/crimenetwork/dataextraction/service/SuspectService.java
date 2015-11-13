@@ -1,6 +1,5 @@
 package org.crimenetwork.dataextraction.service;
 
-
 import org.crimenetwork.dataextraction.convert.instance.SuspectConverter;
 import org.crimenetwork.mongodb.entity.suspect.MSuspectBaseInfo;
 import org.crimenetwork.mongodb.repository.BasicRepository;
@@ -25,6 +24,8 @@ public class SuspectService {
 
     public void findAll(int page)
     {
+    	long count = suspectBaseDao.count();
+    	System.out.println(count);
     	Page<SuspectBaseInfo> readPage = suspectBaseDao.findAll(new PageRequest(page-1, 10));
     	SuspectConverter suspectConverter = new SuspectConverter();
     	for(SuspectBaseInfo cbi:readPage.getContent()){
@@ -40,6 +41,30 @@ public class SuspectService {
     	}
     		
     }
+    
+    public void moveALLData()
+    {
+    	int onepage=1000;
+    	long count = suspectBaseDao.count();
+    	SuspectConverter suspectConverter = new SuspectConverter();
+    	for(int i=0;i<=count/onepage;i++){
+    		Page<SuspectBaseInfo> readPage = suspectBaseDao.findAll(new PageRequest(i, onepage));
+    		for(SuspectBaseInfo cbi:readPage.getContent()){
+        		MSuspectBaseInfo mCaseBaseInfo=(MSuspectBaseInfo) suspectConverter.convert(cbi);
+        		try {
+        			suspectDao.saveAndUpdate(mCaseBaseInfo);
+    			} catch (Exception e) {
+    				// TODO: handle exception
+    				e.printStackTrace();
+    				
+    			}    		
+        	}
+    		System.out.println("The number of completed items: "+(i*onepage+readPage.getContent().size()));
+    	}
+    		
+    }
+    
+    
     
     
 

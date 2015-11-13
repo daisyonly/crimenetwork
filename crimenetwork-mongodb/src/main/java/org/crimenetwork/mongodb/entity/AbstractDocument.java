@@ -1,7 +1,5 @@
 package org.crimenetwork.mongodb.entity;
 
-import java.math.BigInteger;
-
 import org.bson.types.ObjectId;
 import org.crimenetwork.mongodb.utils.ManualField;
 import org.springframework.data.annotation.Id;

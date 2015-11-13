@@ -31,7 +31,7 @@ public class App
 		
 		SuspectService suspectService = (SuspectService) context.getBean("suspectService");
 
-		suspectService.findAll(1);
+		suspectService.moveALLData();
         System.out.println( "Hello World!" );
     }
 }

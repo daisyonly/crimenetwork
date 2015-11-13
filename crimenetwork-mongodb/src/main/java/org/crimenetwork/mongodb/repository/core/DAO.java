@@ -1,7 +1,5 @@
 package org.crimenetwork.mongodb.repository.core;
 
-import java.util.List;
-
 import org.crimenetwork.mongodb.repository.DBQuery;
 
 import com.mongodb.DBCursor;

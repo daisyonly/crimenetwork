@@ -7,7 +7,7 @@ import org.crimenetwork.mongodb.entity.suspect.Gender;
 
 
 
-public class UserInfo implements java.io.Serializable {
+public class UserInfo{
 	
 	private Long userId;//
 	

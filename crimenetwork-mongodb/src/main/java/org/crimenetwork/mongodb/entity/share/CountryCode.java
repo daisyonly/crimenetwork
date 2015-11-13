@@ -3,7 +3,7 @@ package org.crimenetwork.mongodb.entity.share;
 
 
 
-public class CountryCode implements java.io.Serializable ,IBasicCode {
+public class CountryCode{
 
 	
 	private String countryCode;

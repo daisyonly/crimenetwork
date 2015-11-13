@@ -7,12 +7,10 @@ import javax.annotation.PostConstruct;
 
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.crimenetwork.mongodb.repository.core.DAO;
-import org.crimenetwork.mongodb.utils.MongoDbUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.stereotype.Repository;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCollection;
@@ -124,7 +122,7 @@ public class BasicRepository<T> implements DAO<T>{
 
 	@Override
 	public void dropAll() {
-		// TODO Auto-generated method stub
+		
 		this.dropCollection();
 	}
 	@Override
@@ -142,7 +140,6 @@ public class BasicRepository<T> implements DAO<T>{
 	}
 	@Override
 	public int count(DBCursor cursor) {
-		// TODO Auto-generated method stub
 		int res = -1;
 		try{
 			res = cursor.size();
@@ -156,12 +153,11 @@ public class BasicRepository<T> implements DAO<T>{
 	}
 	@Override
 	public void update(T obj, String keyNames) {
-		// TODO Auto-generated method stub
 		update(convertor.convertToDB(obj),keyNames);
 	}
 	@Override
 	public boolean saveAndUpdate(T obj) {
-		// TODO Auto-generated method stub
+		
 		try {
 			getLogger().debug(
 					"saveAndUpdate :" + obj + " in " + getCollectionName());
@@ -176,12 +172,12 @@ public class BasicRepository<T> implements DAO<T>{
 	}
 	@Override
 	public boolean saveAndUpdate(DBObject obj) {
-		// TODO Auto-generated method stub
+		
 		return saveAndUpdate(convertor.convertToPojo(obj));
 	}
 	@Override
 	public T findOne(DBCursor cursor) {
-		// TODO Auto-generated method stub
+		
 		if(cursor == null) return null;
 		T t = null;
 		try{
@@ -200,7 +196,7 @@ public class BasicRepository<T> implements DAO<T>{
 	}
 	@Override
 	public T findById(Object id) {
-		// TODO Auto-generated method stub
+		
 		return findOneByName(id,"_id");
 	}
 	@Override
@@ -212,7 +208,7 @@ public class BasicRepository<T> implements DAO<T>{
 	}
 	@Override
 	public WriteResult dropById(Object id) {
-		// TODO Auto-generated method stub
+		
 		BasicDBObject document = new BasicDBObject();
 		document.put("_id",id);
 		return collection.remove(document);

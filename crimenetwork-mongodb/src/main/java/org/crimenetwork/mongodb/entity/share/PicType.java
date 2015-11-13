@@ -3,11 +3,7 @@ package org.crimenetwork.mongodb.entity.share;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * PicType entity. @author MyEclipse Persistence Tools
- */
-
-public class PicType implements java.io.Serializable {
+public class PicType {
 
 	// Fields
 

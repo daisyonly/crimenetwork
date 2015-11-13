@@ -2,9 +2,6 @@ package org.crimenetwork.mongodb.utils;
 
 import java.net.UnknownHostException;
 
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.core.env.Environment;
-
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.MongoClient;
@@ -29,6 +26,7 @@ public class MongoDbUtil {
 	private DB database;
 	private static MongoDbUtil uniqueInstance;
 	private static MongoClient mongo;
+	@SuppressWarnings("deprecation")
 	private MongoDbUtil(){
 		try {
 			Builder builder = new MongoClientOptions.Builder();
@@ -59,7 +57,8 @@ public class MongoDbUtil {
      * A MongoDB client with internal connection pooling. For most applications
      * @return
      */
-    public static synchronized MongoClient getMongo(){
+    @SuppressWarnings("static-access")
+	public static synchronized MongoClient getMongo(){
     	if(uniqueInstance == null){
     		uniqueInstance = new MongoDbUtil();
     	}

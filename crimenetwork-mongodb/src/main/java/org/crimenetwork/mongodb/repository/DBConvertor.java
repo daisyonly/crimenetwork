@@ -6,7 +6,6 @@ import java.util.Map.Entry;
 import org.crimenetwork.mongodb.repository.core.Converter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.stereotype.Component;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;

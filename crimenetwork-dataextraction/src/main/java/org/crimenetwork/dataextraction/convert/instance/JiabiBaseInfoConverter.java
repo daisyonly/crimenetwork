@@ -1,6 +1,8 @@
 package org.crimenetwork.dataextraction.convert.instance;
 
 import org.crimenetwork.dataextraction.convert.Converter;
+import org.crimenetwork.mongodb.entity.currency.MClassificationNumber;
+import org.crimenetwork.mongodb.entity.currency.MDenominationType;
 import org.crimenetwork.mongodb.entity.currency.MJiabiBaseInfo;
 import org.crimenetwork.mongodb.entity.currency.MJiabiBasePic;
 import org.crimenetwork.mongodb.entity.currency.MJiabiExtendInfo;
@@ -31,6 +33,18 @@ public class JiabiBaseInfoConverter extends Converter<MJiabiBaseInfo, JiabiBaseI
 				MJiabiBasePic mjb=jbc2.convert(jb);
 				to.getJiabiBasePics().add(mjb);
 			}
+		}
+		
+		ClassificationNumberConverter cnc=new ClassificationNumberConverter();
+		if(from.getIdentifyId2()!=null){		
+			MClassificationNumber mjb=cnc.convert(from.getIdentifyId2());
+			to.setIdentifyId2(mjb);			
+		}
+		
+		DenominationTypeConverter dtc=new DenominationTypeConverter();
+		if(from.getDenominationType()!=null){		
+				MDenominationType mjb=dtc.convert(from.getDenominationType());
+				to.setDenominationType(mjb);			
 		}
 	}
 

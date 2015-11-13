@@ -2,10 +2,7 @@ package org.crimenetwork.mongodb.entity.currency;
 
 
 
-public class MJiabiBasePic implements java.io.Serializable {
-
-	
-	private static final long serialVersionUID = 1L;
+public class MJiabiBasePic{
 
 	private Long fbpid;
 	private Long cfid;

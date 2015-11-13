@@ -2,7 +2,6 @@ package org.crimenetwork.mongodb.repository;
 
 import com.mongodb.DBObject;
 import com.mongodb.QueryBuilder;
-import com.mongodb.QueryOperators;
 /**
  * 查询构造类，用于构造带条件的查询
  * <pre>

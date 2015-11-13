@@ -1,5 +1,7 @@
 package org.crimenetwork.mongodb.entity.currency;
 
+import org.crimenetwork.mongodb.utils.ManualField;
+
 
 public class MClassificationNumber {
 	
@@ -25,8 +27,7 @@ public class MClassificationNumber {
 
 	private Long backSmallCfid96;
 	
-	
-	
+	@ManualField
 	private MDenominationType denominationType;
 	public String getCode() {
 		return code;

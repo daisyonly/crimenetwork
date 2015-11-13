@@ -1,14 +1,12 @@
 package org.crimenetwork.mongodb;
 
 
-import java.io.InputStream;
+
 
 import org.crimenetwork.mongodb.entity.Case;
 import org.crimenetwork.mongodb.repository.BasicRepository;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.context.support.GenericXmlApplicationContext;
-import org.springframework.core.io.InputStreamResource;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
 
@@ -18,7 +16,8 @@ import org.springframework.data.mongodb.core.MongoTemplate;
  */
 public class App 
 {
-    public static void main( String[] args )
+    @SuppressWarnings({ "resource", "unchecked" })
+	public static void main( String[] args )
     {
 		
 		String[] springConfig2  = 
