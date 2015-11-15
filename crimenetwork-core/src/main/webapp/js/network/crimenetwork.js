@@ -54,30 +54,63 @@ $(document).ready(function(){
 			label : '团伙'
 		});
 
-		nodes
-				.push({
+		nodes.push({
 					id : 4,
 					label : '案件A',
 					group : 'cases',
 					value : 8,
 					title : '案发地点：××省××市 <br/> 案发时间：×年×月×日 <br/> 案件编号：××××××× <br/> 简要案情：××××××××'
-				});
-		nodes
-				.push({
+		});
+		nodes.push({
 					id : 5,
 					label : '案件B',
 					group : 'cases',
 					value : 8,
 					title : '案发地点：××省××市 <br/> 案发时间：×年×月×日 <br/> 案件编号：××××××× <br/> 简要案情：××××××××'
-				});
-		nodes
-				.push({
+		});
+		nodes.push({
 					id : 6,
 					label : '案件C',
 					group : 'cases',
 					value : 8,
 					title : '案发地点：××省××市 <br/> 案发时间：×年×月×日 <br/> 案件编号：××××××× <br/> 简要案情：××××××××'
-				});
+		});
+		
+		nodes.push({
+			id : 20,
+			label : '通讯设备A',
+			group : 'phone',
+			value : 8,
+			title : '通话记录：******'
+		});
+		
+		edges.push({
+			from : 1,
+			to : 20,
+			length : 200,
+			width : WIDTH_SCALE * 1,	
+			color : BLACK,
+			title : '号码：138 8888 8888'
+		});
+		
+		edges.push({
+			from : 20,
+			to : 2,
+			length : 200,
+			width : WIDTH_SCALE * 1,	
+			color : BLACK,
+			title : '号码：138 8888 3333'
+		});
+		
+		edges.push({
+			from : 4,
+			to : 5,
+			length : 400,
+			width : WIDTH_SCALE * 2,
+			dashes : [ 2, 2, 10, 10 ],
+			color : BLACK,
+			title : '通话记录：×××××××'
+		});
 
 		edges.push({
 			from : 4,
@@ -205,6 +238,16 @@ $(document).ready(function(){
 				}
 			},
 			groups : {
+				phone : {
+					shape: 'image', 
+					image: DIR + 'phone-icon.png',
+					font : {
+						size : 25,
+
+					},
+					size : 25,
+					
+				},
 				suspect : {
 					shape: 'image', 
 					image: DIR + 'Person-icon.png',
@@ -213,7 +256,7 @@ $(document).ready(function(){
 
 					},
 					size : 25,
-					color : '#C5000B' // red
+					
 				},
 				cases : {
 					shape: 'image', 
@@ -223,7 +266,7 @@ $(document).ready(function(){
 
 					},
 					size : 25,
-					color : "#2B7CE9" // blue
+					
 				},
 
 				jiabi : {
@@ -234,7 +277,7 @@ $(document).ready(function(){
 
 					},
 					size : 25,
-					color : "#109618" // green
+					
 				}
 			}
 		};

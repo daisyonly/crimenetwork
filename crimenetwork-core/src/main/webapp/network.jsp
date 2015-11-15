@@ -10,13 +10,27 @@
 
 <title>SB Admin - Bootstrap Admin Template</title>
 <style type="text/css">
-
 .changeHeight {
 	width: 100%;
 	height: 100%;
 }
-#mynetwork{
-    width: 100%;
+
+.bemiddle {
+	vertical-align: middle;
+}
+
+.checkbox{padding-left:20px;margin:6px 0}
+
+.labelNomal {
+	font-weight: normal;
+}
+
+.inlinehere {
+	display: inline-block;
+}
+
+#mynetwork {
+	width: 100%;
 	height: 500pt;
 }
 </style>
@@ -30,7 +44,7 @@
 <link href="lib/build.css" rel="stylesheet" />
 
 <!-- Custom Fonts -->
-<link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet"
+<link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet"
 	type="text/css">
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -58,41 +72,89 @@
 
 			<div class="row">
 				<div class="col-lg-4">
-					<div class="panel panel-green">
+					<div class="panel panel-primary">
 						<div class="panel-heading">
 							<h3 class="panel-title">
-								<i class="fa fa-long-arrow-right"></i> Pie Chart Example with
-								Tooltips
+								<i class="fa fa-long-arrow-right"></i> 
+								请输入：
 							</h3>
 						</div>
 						<div class="panel-body changeHeight">
-							<div class="checkbox">
-								<input id="checkbox1" class="styled" type="checkbox"> <label
-									for="checkbox1"> Default </label>
+							<div class="form-group">
+								<label>嫌疑人：</label> <input class="form-control">
 							</div>
-							<div class="checkbox checkbox-primary">
-								<input id="checkbox2" class="styled" type="checkbox" checked>
-								<label for="checkbox2"> Primary </label>
+							<div class="form-group">
+								<label>案件：</label> <input class="form-control">
 							</div>
-							<div class="checkbox checkbox-success">
-								<input id="checkbox3" class="styled" type="checkbox"> <label
-									for="checkbox3"> Success </label>
-							</div>
-							<div class="checkbox checkbox-info">
-								<input id="checkbox4" class="styled" type="checkbox"> <label
-									for="checkbox4"> Info </label>
-							</div>
-							<div class="checkbox checkbox-warning">
-								<input id="checkbox5" type="checkbox" class="styled" checked>
-								<label for="checkbox5"> Warning </label>
-							</div>
-							<div class="checkbox checkbox-danger">
-								<input id="checkbox6" type="checkbox" class="styled" checked>
-								<label for="checkbox6"> Check me out </label>
+							<div class="form-group">
+								<label>假币：</label> <input class="form-control">
 							</div>
 
+							<label>请选取关系：</label>
+							
+
+							<div class="table-responsive">
+								<table class="table table-hover">
+
+									<tbody class="bemiddle">
+										<tr>
+											<td>
+												<div class="checkbox checkbox-primary">
+													<input id="checkbox1" class="styled" type="checkbox">
+													<label for="checkbox1"> 人 —— 案件 </label>
+												</div>
+											</td>
+											<td>
+												<div class="form-inline">
+													<label class="labelNomal">层数：</label> <input
+														class="form-control">
+												</div>
+											</td>
+
+										</tr>
+										<tr>
+											<td>
+												<div class="checkbox checkbox-primary">
+													<input id="checkbox2" class="styled" type="checkbox"
+														checked> <label for="checkbox2"> 人 —— 假币 </label>
+												</div>
+											</td>
+											<td><div class="form-inline">
+													<label class="labelNomal">层数：</label> <input
+														class="form-control">
+												</div></td>
+
+										</tr>
+										<tr>
+											<td><div class="checkbox checkbox-primary">
+													<input id="checkbox3" class="styled" type="checkbox">
+													<label for="checkbox3"> 案件 —— 假币 </label>
+												</div></td>
+											<td><div class="form-inline">
+													<label class="labelNomal">层数：</label> <input
+														class="form-control">
+												</div></td>
+
+										</tr>
+										<tr>
+											<td><div class="checkbox checkbox-primary">
+													<input id="checkbox4" class="styled" type="checkbox">
+													<label for="checkbox4"> 人 —— 通讯</label>
+												</div></td>
+											<td><div class="form-inline">
+													<label class="labelNomal">层数：</label> <input
+														class="form-control">
+												</div></td>
+
+										</tr>
+
+									</tbody>
+								</table>
+							</div>
+
+
 							<div class="text-right">
-								<button type="button" class="btn btn-primary">Primary</button>
+								<button type="button" class="btn btn-primary">生成</button>
 							</div>
 
 						</div>
@@ -102,12 +164,12 @@
 					<div class="panel panel-primary">
 						<div class="panel-heading">
 							<h3 class="panel-title">
-								<i class="fa fa-long-arrow-right"></i> Multiple Axes Line Graph
-								Example with Tooltips and Raw Data
+								<i class="fa fa-long-arrow-right"></i> 
+								网络生成如下：
 							</h3>
 						</div>
-						<div class="panel-body changeHeight">						 
-							<div id="mynetwork"></div>						
+						<div class="panel-body changeHeight">
+							<div id="mynetwork"></div>
 						</div>
 					</div>
 				</div>
