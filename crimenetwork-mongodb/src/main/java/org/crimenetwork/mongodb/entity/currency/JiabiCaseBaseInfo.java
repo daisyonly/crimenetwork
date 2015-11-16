@@ -1,4 +1,4 @@
-package org.crimenetwork.mongodb.entity.cases;
+package org.crimenetwork.mongodb.entity.currency;
 
 import java.util.Date;
 import java.util.HashSet;
@@ -6,14 +6,14 @@ import java.util.Set;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.crimenetwork.mongodb.entity.AbstractDocument;
-import org.crimenetwork.mongodb.entity.currency.BaseJiabiInfo;
+import org.crimenetwork.mongodb.entity.cases.CaseSuspectBaseInfo;
 import org.crimenetwork.mongodb.entity.share.MLocation;
 import org.crimenetwork.mongodb.utils.ManualField;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
 @Document
-public class MCaseBaseInfo extends AbstractDocument{
+public class JiabiCaseBaseInfo extends AbstractDocument{
 	
 	private String caseId;
 	
@@ -29,9 +29,6 @@ public class MCaseBaseInfo extends AbstractDocument{
 	
 	@ManualField
 	private Set<CaseSuspectBaseInfo> suspects = new HashSet<CaseSuspectBaseInfo>();
-	
-	@ManualField
-	private Set<BaseJiabiInfo> counterfeitMoneys = new HashSet<BaseJiabiInfo>();
 	
 	private String briefInfo;
 	
@@ -82,13 +79,6 @@ public class MCaseBaseInfo extends AbstractDocument{
 	}
 	public void setSuspects(Set<CaseSuspectBaseInfo> suspects) {
 		this.suspects = suspects;
-	}
-	
-	public Set<BaseJiabiInfo> getCounterfeitMoneys() {
-		return counterfeitMoneys;
-	}
-	public void setCounterfeitMoneys(Set<BaseJiabiInfo> counterfeitMoneys) {
-		this.counterfeitMoneys = counterfeitMoneys;
 	}
 	
 	public MLocation getCaseHappenLocation() {

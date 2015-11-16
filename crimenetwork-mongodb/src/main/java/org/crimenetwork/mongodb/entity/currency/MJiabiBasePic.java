@@ -17,7 +17,7 @@ public class MJiabiBasePic{
 	}
 
 	/** full constructor */
-	public MJiabiBasePic(MJiabiBaseInfo jiabiBaseInfo,
+	public MJiabiBasePic(BaseJiabiInfo jiabiBaseInfo,
 			Long cfid, Long smallCfid, Long smallCfid400,
 			Long smallCfid96) {
 		this.cfid = cfid;

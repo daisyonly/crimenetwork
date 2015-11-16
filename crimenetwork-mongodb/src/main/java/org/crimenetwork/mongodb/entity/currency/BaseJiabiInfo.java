@@ -8,7 +8,7 @@ import org.crimenetwork.mongodb.utils.ManualField;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
-public class MJiabiBaseInfo{
+public class BaseJiabiInfo{
 	
 	private Long fmid;	
 	

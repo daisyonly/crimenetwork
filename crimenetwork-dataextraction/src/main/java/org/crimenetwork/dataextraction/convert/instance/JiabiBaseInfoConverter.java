@@ -3,17 +3,17 @@ package org.crimenetwork.dataextraction.convert.instance;
 import org.crimenetwork.dataextraction.convert.Converter;
 import org.crimenetwork.mongodb.entity.currency.MClassificationNumber;
 import org.crimenetwork.mongodb.entity.currency.MDenominationType;
-import org.crimenetwork.mongodb.entity.currency.MJiabiBaseInfo;
+import org.crimenetwork.mongodb.entity.currency.BaseJiabiInfo;
 import org.crimenetwork.mongodb.entity.currency.MJiabiBasePic;
 import org.crimenetwork.mongodb.entity.currency.MJiabiExtendInfo;
 import org.crimenetwork.oracle.entity.currency.JiabiBaseInfo;
 import org.crimenetwork.oracle.entity.currency.JiabiBasePic;
 import org.crimenetwork.oracle.entity.currency.JiabiExtendInfo;
 
-public class JiabiBaseInfoConverter extends Converter<MJiabiBaseInfo, JiabiBaseInfo>{
+public class JiabiBaseInfoConverter extends Converter<BaseJiabiInfo, JiabiBaseInfo>{
 
 	@Override
-	protected void setManualField(JiabiBaseInfo from, MJiabiBaseInfo to) {
+	protected void setManualField(JiabiBaseInfo from, BaseJiabiInfo to) {
 		// TODO Auto-generated method stub
 		to.setCurrencyType(from.getCurrencyType().getName());
 		to.setCategoryType(from.getCategoryType().getName());

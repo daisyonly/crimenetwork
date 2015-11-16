@@ -1,7 +1,7 @@
 package org.crimenetwork.dataextraction.convert.instance;
 
 import org.crimenetwork.dataextraction.convert.Converter;
-import org.crimenetwork.mongodb.entity.currency.MJiabiBaseInfo;
+import org.crimenetwork.mongodb.entity.currency.BaseJiabiInfo;
 import org.crimenetwork.mongodb.entity.share.MLocation;
 import org.crimenetwork.mongodb.entity.suspect.SuspectCaseBaseInfo;
 import org.crimenetwork.oracle.entity.cases.CaseBaseInfo;
@@ -21,7 +21,7 @@ public class SuspectCaseConverter extends Converter<SuspectCaseBaseInfo, CaseBas
 		JiabiBaseInfoConverter jbc=new JiabiBaseInfoConverter();
 		if(!from.getSuspects().isEmpty()){
 			for(JiabiBaseInfo jb : from.getCounterfeitMoneys()){
-				MJiabiBaseInfo mjb=jbc.convert(jb);
+				BaseJiabiInfo mjb=jbc.convert(jb);
 				to.getCounterfeitMoneys().add(mjb);
 			}
 		}

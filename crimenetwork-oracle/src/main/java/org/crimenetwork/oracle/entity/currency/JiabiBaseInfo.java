@@ -2,6 +2,7 @@ package org.crimenetwork.oracle.entity.currency;
 
 import java.sql.Timestamp;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -17,8 +18,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import org.crimenetwork.oracle.entity.cases.CaseBaseInfo;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
+
 
 @Entity
 @Table(name="jiabi_base_info",schema="system")
@@ -36,6 +40,12 @@ public class JiabiBaseInfo{
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="version")
 	private VersionType versionType;
+	
+	@ManyToMany
+	@JoinTable(name="case_currency",
+	joinColumns=@JoinColumn(name="fmid"),
+	inverseJoinColumns=@JoinColumn(name="case_id"))
+	private List<CaseBaseInfo> caseInfos;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="category ")
