@@ -18,7 +18,7 @@ public class SuspectCaseConverter extends Converter<SuspectCaseBaseInfo, CaseBas
 			to.setCaseHappenLocation(mm);		
 		}
 		
-		JiabiBaseInfoConverter jbc=new JiabiBaseInfoConverter();
+		BaseJiabiInfoConverter jbc=new BaseJiabiInfoConverter();
 		if(!from.getSuspects().isEmpty()){
 			for(JiabiBaseInfo jb : from.getCounterfeitMoneys()){
 				BaseJiabiInfo mjb=jbc.convert(jb);

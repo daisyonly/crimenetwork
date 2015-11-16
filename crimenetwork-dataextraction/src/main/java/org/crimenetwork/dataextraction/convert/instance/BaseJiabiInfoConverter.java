@@ -10,7 +10,7 @@ import org.crimenetwork.oracle.entity.currency.JiabiBaseInfo;
 import org.crimenetwork.oracle.entity.currency.JiabiBasePic;
 import org.crimenetwork.oracle.entity.currency.JiabiExtendInfo;
 
-public class JiabiBaseInfoConverter extends Converter<BaseJiabiInfo, JiabiBaseInfo>{
+public class BaseJiabiInfoConverter extends Converter<BaseJiabiInfo, JiabiBaseInfo>{
 
 	@Override
 	protected void setManualField(JiabiBaseInfo from, BaseJiabiInfo to) {
