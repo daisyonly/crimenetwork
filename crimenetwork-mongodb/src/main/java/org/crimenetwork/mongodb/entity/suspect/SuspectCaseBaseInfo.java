@@ -3,8 +3,6 @@ package org.crimenetwork.mongodb.entity.suspect;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-
-import org.crimenetwork.mongodb.entity.AbstractDocument;
 import org.crimenetwork.mongodb.entity.currency.BaseJiabiInfo;
 import org.crimenetwork.mongodb.entity.share.MLocation;
 import org.crimenetwork.mongodb.utils.ManualField;
@@ -12,7 +10,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 
 @Document
-public class SuspectCaseBaseInfo extends AbstractDocument{
+public class SuspectCaseBaseInfo{
+	
+	@ManualField
+	private Long cId;
 	
 	private String caseId;
 	
@@ -36,6 +37,14 @@ public class SuspectCaseBaseInfo extends AbstractDocument{
 	}
 	public void setBriefInfo(String briefInfo) {
 		this.briefInfo = briefInfo;
+	}
+	
+	public Long getcId() {
+		return cId;
+	}
+
+	public void setcId(Long cId) {
+		this.cId = cId;
 	}
 	
 	public String getCaseId() {

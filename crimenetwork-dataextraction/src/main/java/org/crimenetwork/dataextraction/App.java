@@ -2,6 +2,7 @@ package org.crimenetwork.dataextraction;
 
 
 import org.crimenetwork.dataextraction.service.CaseService;
+import org.crimenetwork.dataextraction.service.JiabiService;
 import org.crimenetwork.dataextraction.service.SuspectService;
 import org.crimenetwork.mongodb.entity.Case;
 import org.crimenetwork.mongodb.repository.BasicRepository;
@@ -25,13 +26,17 @@ public class App
 				new ClassPathXmlApplicationContext(springConfig);
 		
 		
-		//CaseService caseService = (CaseService) context.getBean("caseService");
+		CaseService caseService = (CaseService) context.getBean("caseService");
 
-		//caseService.findAll(1);
+		caseService.moveALLData();
 		
 		SuspectService suspectService = (SuspectService) context.getBean("suspectService");
 
 		suspectService.moveALLData();
+		
+		JiabiService jiabiService = (JiabiService) context.getBean("jiabiService");
+
+		jiabiService.moveALLData();
         System.out.println( "Hello World!" );
     }
 }

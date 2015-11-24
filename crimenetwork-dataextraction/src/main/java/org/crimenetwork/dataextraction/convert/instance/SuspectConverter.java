@@ -1,7 +1,6 @@
 package org.crimenetwork.dataextraction.convert.instance;
 
 import org.crimenetwork.dataextraction.convert.Converter;
-import org.crimenetwork.mongodb.entity.cases.CaseSuspectBaseInfo;
 import org.crimenetwork.mongodb.entity.share.MLocation;
 import org.crimenetwork.mongodb.entity.suspect.MSuspectBaseInfo;
 import org.crimenetwork.mongodb.entity.suspect.SuspectCaseBaseInfo;
@@ -12,6 +11,7 @@ public class SuspectConverter extends Converter<MSuspectBaseInfo, SuspectBaseInf
 
 	@Override
 	protected void setManualField(SuspectBaseInfo from, MSuspectBaseInfo to) {
+		if(from.getId()!= null) to.setsId(from.getId());
 		if(from.getNation()!=null)to.setNation(from.getNation().getName());		
 		if(from.getGender()!=null) to.setGender(from.getGender().getName());
 		if(from.getNativeLocation()!=null){

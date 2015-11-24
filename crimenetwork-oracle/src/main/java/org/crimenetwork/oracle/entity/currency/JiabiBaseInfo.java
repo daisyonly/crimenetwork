@@ -28,6 +28,7 @@ import org.hibernate.annotations.NotFoundAction;
 @Table(name="jiabi_base_info",schema="system")
 //假币信息
 public class JiabiBaseInfo{
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq")
 	@SequenceGenerator(name="seq", sequenceName="SEQUENCE_1")
@@ -41,7 +42,7 @@ public class JiabiBaseInfo{
 	@JoinColumn(name="version")
 	private VersionType versionType;
 	
-	@ManyToMany
+	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(name="case_currency",
 	joinColumns=@JoinColumn(name="fmid"),
 	inverseJoinColumns=@JoinColumn(name="case_id"))
@@ -115,6 +116,13 @@ public class JiabiBaseInfo{
 	}
 	public void setFmid(Long fmid) {
 		this.fmid = fmid;
+	}
+	
+	public List<CaseBaseInfo> getCaseInfos() {
+		return caseInfos;
+	}
+	public void setCaseInfos(List<CaseBaseInfo> caseInfos) {
+		this.caseInfos = caseInfos;
 	}
 
 	public CurrencyType getCurrencyType() {

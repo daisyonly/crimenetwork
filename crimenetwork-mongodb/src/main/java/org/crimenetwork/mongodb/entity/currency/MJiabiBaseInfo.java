@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.crimenetwork.mongodb.utils.ManualField;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -222,6 +223,18 @@ public class MJiabiBaseInfo{
 	public void setCaseNo(String caseNo) {
 		this.caseNo = caseNo;
 	}
+	public Set<JiabiCaseBaseInfo> getCaseInfos() {
+		return caseInfos;
+	}
+	public void setCaseInfos(Set<JiabiCaseBaseInfo> caseInfos) {
+		this.caseInfos = caseInfos;
+	}
+	
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this);
+	}
+	
 	
 	
 }

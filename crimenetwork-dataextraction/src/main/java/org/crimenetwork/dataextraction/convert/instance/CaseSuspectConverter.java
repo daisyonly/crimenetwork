@@ -9,9 +9,11 @@ public class CaseSuspectConverter extends Converter<CaseSuspectBaseInfo, Suspect
 
 	@Override
 	protected void setManualField(SuspectBaseInfo from, CaseSuspectBaseInfo to) {
-		// TODO Auto-generated method stub
-		to.setGender(from.getGender().getName());
-		to.setNation(from.getNation().getName());
+		
+		if(from.getId()!= null) to.setsId(from.getId());
+		
+		if(from.getGender()!=null)to.setGender(from.getGender().getName());
+		if(from.getNation()!=null)to.setNation(from.getNation().getName());
 		if(from.getNativeLocation()!=null){
 			LocationConverter locationConverter=new LocationConverter();
 			MLocation mm=locationConverter.convert(from.getNativeLocation());

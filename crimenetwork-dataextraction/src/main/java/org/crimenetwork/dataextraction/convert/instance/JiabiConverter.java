@@ -1,20 +1,21 @@
 package org.crimenetwork.dataextraction.convert.instance;
 
 import org.crimenetwork.dataextraction.convert.Converter;
+import org.crimenetwork.mongodb.entity.currency.JiabiCaseBaseInfo;
 import org.crimenetwork.mongodb.entity.currency.MClassificationNumber;
 import org.crimenetwork.mongodb.entity.currency.MDenominationType;
-import org.crimenetwork.mongodb.entity.currency.BaseJiabiInfo;
+import org.crimenetwork.mongodb.entity.currency.MJiabiBaseInfo;
 import org.crimenetwork.mongodb.entity.currency.MJiabiBasePic;
 import org.crimenetwork.mongodb.entity.currency.MJiabiExtendInfo;
+import org.crimenetwork.oracle.entity.cases.CaseBaseInfo;
 import org.crimenetwork.oracle.entity.currency.JiabiBaseInfo;
 import org.crimenetwork.oracle.entity.currency.JiabiBasePic;
 import org.crimenetwork.oracle.entity.currency.JiabiExtendInfo;
 
-public class BaseJiabiInfoConverter extends Converter<BaseJiabiInfo, JiabiBaseInfo>{
+public class JiabiConverter extends Converter<MJiabiBaseInfo, JiabiBaseInfo>{
 
 	@Override
-	protected void setManualField(JiabiBaseInfo from, BaseJiabiInfo to) {
-		// TODO Auto-generated method stub
+	protected void setManualField(JiabiBaseInfo from, MJiabiBaseInfo to) {
 		if(from.getCurrencyType()!=null) to.setCurrencyType(from.getCurrencyType().getName());
 		if(from.getCategoryType()!=null) to.setCategoryType(from.getCategoryType().getName());
 		if(from.getVersionType()!=null) to.setVersionType(from.getVersionType().getName());
@@ -43,8 +44,16 @@ public class BaseJiabiInfoConverter extends Converter<BaseJiabiInfo, JiabiBaseIn
 		
 		DenominationTypeConverter dtc=new DenominationTypeConverter();
 		if(from.getDenominationType()!=null){		
-				MDenominationType mjb=dtc.convert(from.getDenominationType());
-				to.setDenominationType(mjb);			
+			MDenominationType mjb=dtc.convert(from.getDenominationType());
+			to.setDenominationType(mjb);			
+		}
+		
+		JiabiCaseConverter jcc=new JiabiCaseConverter();
+		if(from.getCaseInfos()!=null){
+			for(CaseBaseInfo cbi:from.getCaseInfos()){
+				JiabiCaseBaseInfo jcbi=jcc.convert(cbi);
+				to.getCaseInfos().add(jcbi);
+			}
 		}
 	}
 

@@ -44,6 +44,7 @@ public class SuspectService {
     
     public void moveALLData()
     {
+    	System.out.println("Process suspect data start.");
     	int onepage=1000;
     	long count = suspectBaseDao.count();
     	SuspectConverter suspectConverter = new SuspectConverter();
@@ -55,17 +56,12 @@ public class SuspectService {
         			suspectDao.saveAndUpdate(mCaseBaseInfo);
     			} catch (Exception e) {
     				// TODO: handle exception
-    				e.printStackTrace();
-    				
+    				e.printStackTrace();   				
     			}    		
         	}
     		System.out.println("The number of completed items: "+(i*onepage+readPage.getContent().size()));
     	}
-    		
+    	System.out.println("Process suspect data end.");
+    	System.out.println();
     }
-    
-    
-    
-    
-
 }

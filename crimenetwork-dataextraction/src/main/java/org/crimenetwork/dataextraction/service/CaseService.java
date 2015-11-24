@@ -39,8 +39,30 @@ public class CaseService {
 				
 			}
     		
+    	}  		
+    }
+    
+    public void moveALLData()
+    {
+    	System.out.println("Process case data start.");
+    	int onepage=1000;
+    	long count = caseBaseDao.count();
+    	CaseConverter caseConverter = new CaseConverter();
+    	for(int i=0;i<=count/onepage;i++){
+    		Page<CaseBaseInfo> readPage = caseBaseDao.findAll(new PageRequest(i, onepage));
+    		for(CaseBaseInfo cbi:readPage.getContent()){
+    			MCaseBaseInfo mCaseBaseInfo=(MCaseBaseInfo) caseConverter.convert(cbi);
+        		try {
+        			caseDao.saveAndUpdate(mCaseBaseInfo);
+    			} catch (Exception e) {
+    				// TODO: handle exception
+    				e.printStackTrace();   				
+    			}    		
+        	}
+    		System.out.println("The number of completed items: "+(i*onepage+readPage.getContent().size()));
     	}
-    		
+    	System.out.println("Process case data end.");
+    	System.out.println();
     }
     
     

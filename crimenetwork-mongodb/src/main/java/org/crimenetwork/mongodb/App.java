@@ -3,7 +3,10 @@ package org.crimenetwork.mongodb;
 
 
 
+import java.util.List;
+
 import org.crimenetwork.mongodb.entity.Case;
+import org.crimenetwork.mongodb.entity.currency.MJiabiBaseInfo;
 import org.crimenetwork.mongodb.repository.BasicRepository;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -27,16 +30,13 @@ public class App
 		//"classpath:database/mongodb/datasourse.xml" 
 		ApplicationContext context2 = new ClassPathXmlApplicationContext(springConfig2);
 		//mongoTemplate
+
+		BasicRepository<MJiabiBaseInfo> jiabiDao = (BasicRepository<MJiabiBaseInfo>) context2.getBean("jiabiDao");		
 		
-		BasicRepository<Case> caseDao = (BasicRepository<Case>) context2.getBean("caseDao");
-		System.out.println(caseDao);
-		MongoTemplate tt = (MongoTemplate) context2.getBean("mongoTemplate");
-		System.out.println(tt);
-		Case ca = new Case();
-		ca.setCaseId("123");
-		ca.setBriefInfo("hello");
-		caseDao.saveAndUpdate(ca);
-		
+		List<MJiabiBaseInfo> result=jiabiDao.findAllByName("X8G8450597", "guanzihao");
+		for(MJiabiBaseInfo m : result){
+			System.out.println(m);
+		}
 
 		
         System.out.println( "Hello World!" );

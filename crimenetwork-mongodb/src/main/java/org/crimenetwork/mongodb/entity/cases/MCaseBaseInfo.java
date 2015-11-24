@@ -15,6 +15,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 public class MCaseBaseInfo extends AbstractDocument{
 	
+	@ManualField
+	private Long cId;
+	
 	private String caseId;
 	
 	private String caseName;
@@ -37,9 +40,21 @@ public class MCaseBaseInfo extends AbstractDocument{
 	
 	@ManualField
 	private MLocation caseHappenLocation;
+	
+	
+	
+	public Long getcId() {
+		return cId;
+	}
+
+	public void setcId(Long cId) {
+		this.cId = cId;
+	}
+
 	public String getBriefInfo() {
 		return briefInfo;
 	}
+	
 	public void setBriefInfo(String briefInfo) {
 		this.briefInfo = briefInfo;
 	}

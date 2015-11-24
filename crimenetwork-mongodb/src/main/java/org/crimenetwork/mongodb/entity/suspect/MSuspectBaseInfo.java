@@ -10,6 +10,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 public class MSuspectBaseInfo extends AbstractDocument{
 
+	@ManualField
+	private Long sId;
 	
 	private String suspectId;
 	
@@ -37,6 +39,12 @@ public class MSuspectBaseInfo extends AbstractDocument{
 		this.nation = nation;
 	}
 	
+	public Long getsId() {
+		return sId;
+	}
+	public void setsId(Long sId) {
+		this.sId = sId;
+	}
 	public String getSuspectId() {
 		return suspectId;
 	}

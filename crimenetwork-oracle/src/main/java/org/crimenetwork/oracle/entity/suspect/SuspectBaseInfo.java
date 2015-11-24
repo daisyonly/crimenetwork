@@ -33,7 +33,7 @@ public class SuspectBaseInfo {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq")
 	@SequenceGenerator(name="seq", sequenceName="SEQUENCE_1")
-	private long id;
+	private Long id;
 	@Column(name="suspect_id")
 	private String suspectId;
 	@Column
@@ -67,10 +67,10 @@ public class SuspectBaseInfo {
 	public void setNation(Nation nation) {
 		this.nation = nation;
 	}
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getSuspectId() {

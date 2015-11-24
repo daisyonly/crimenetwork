@@ -5,7 +5,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.crimenetwork.mongodb.entity.AbstractDocument;
 import org.crimenetwork.mongodb.entity.cases.CaseSuspectBaseInfo;
 import org.crimenetwork.mongodb.entity.share.MLocation;
 import org.crimenetwork.mongodb.utils.ManualField;
@@ -13,7 +12,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 
 @Document
-public class JiabiCaseBaseInfo extends AbstractDocument{
+public class JiabiCaseBaseInfo{
+	@ManualField
+	private Long cId;
 	
 	private String caseId;
 	
@@ -34,6 +35,14 @@ public class JiabiCaseBaseInfo extends AbstractDocument{
 	
 	@ManualField
 	private MLocation caseHappenLocation;
+	
+	
+	public Long getcId() {
+		return cId;
+	}
+	public void setcId(Long cId) {
+		this.cId = cId;
+	}
 	public String getBriefInfo() {
 		return briefInfo;
 	}

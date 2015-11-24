@@ -11,7 +11,11 @@ public class SuspectCaseConverter extends Converter<SuspectCaseBaseInfo, CaseBas
 
 	@Override
 	protected void setManualField(CaseBaseInfo from, SuspectCaseBaseInfo to) {
-		// TODO Auto-generated method stub
+		
+		if(from.getId()!=null){
+			to.setcId(from.getId());
+		}
+		
 		if(from.getCaseHappenLocation()!=null){
 			LocationConverter locationConverter=new LocationConverter();
 			MLocation mm=locationConverter.convert(from.getCaseHappenLocation());

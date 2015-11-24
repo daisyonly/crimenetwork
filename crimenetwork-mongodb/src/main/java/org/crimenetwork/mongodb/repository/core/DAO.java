@@ -94,5 +94,5 @@ public interface DAO<T>{
 	 */
 	public T findById(Object id);
 	public WriteResult dropById(Object id);
-	public T findOneByName(Object id,String name);
+	public T findOneByAttributeName(String attributeName,Object value);
 }

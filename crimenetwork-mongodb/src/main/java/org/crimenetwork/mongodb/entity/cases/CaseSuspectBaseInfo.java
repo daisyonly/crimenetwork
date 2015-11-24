@@ -8,7 +8,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 public class CaseSuspectBaseInfo {
 	
-	private long id;
+	@ManualField
+	private Long sId;
 	
 	private String suspectId;
 	
@@ -30,11 +31,12 @@ public class CaseSuspectBaseInfo {
 	public void setNation(String nation) {
 		this.nation = nation;
 	}
-	public long getId() {
-		return id;
+	
+	public Long getsId() {
+		return sId;
 	}
-	public void setId(long id) {
-		this.id = id;
+	public void setsId(Long sId) {
+		this.sId = sId;
 	}
 	public String getSuspectId() {
 		return suspectId;

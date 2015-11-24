@@ -1,6 +1,8 @@
 	package org.crimenetwork.mongodb.repository;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
@@ -194,15 +196,41 @@ public class BasicRepository<T> implements DAO<T>{
 		}
 		return t;
 	}
-	@Override
-	public T findById(Object id) {
-		
-		return findOneByName(id,"_id");
+	
+	
+	public List<T> findALL(DBCursor cursor) {		
+		if(cursor == null) return null;		
+		List<T> ts=new ArrayList<T>();
+		try{
+			while(cursor.hasNext()){
+				DBObject obj = cursor.next();
+				ts.add(convertor.convertToPojo(obj));				
+			}
+		}catch(Exception e){
+			getLogger().error("错误:find one by cursor throw error:"+cursor);
+			getLogger().error(ExceptionUtils.getStackTrace(e));
+		}finally{
+			if(cursor != null) cursor.close();
+		}
+		return ts;
 	}
-	@Override
-	public T findOneByName(Object id,String name){
+	
+	public List<T> findAllByAttributeName(String name,Object value){
 		DBQuery query  = new DBQuery();
-		query.equalsOperation(name, id);
+		query.equalsOperation(name, value);
+		List<T> ts = findALL(findQuery(query));
+		return ts;
+	}
+	
+	@Override
+	public T findById(Object id) {		
+		return findOneByAttributeName("_id",id);
+	}
+	
+	@Override
+	public T findOneByAttributeName(String attributeName,Object value){
+		DBQuery query  = new DBQuery();
+		query.equalsOperation(attributeName, value);
 		T t = findOne(findQuery(query));
 		return t;
 	}
