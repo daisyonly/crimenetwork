@@ -5,12 +5,10 @@ package org.crimenetwork.mongodb;
 
 import java.util.List;
 
-import org.crimenetwork.mongodb.entity.Case;
 import org.crimenetwork.mongodb.entity.currency.MJiabiBaseInfo;
 import org.crimenetwork.mongodb.repository.BasicRepository;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.data.mongodb.core.MongoTemplate;
 
 
 /**
@@ -33,7 +31,7 @@ public class App
 
 		BasicRepository<MJiabiBaseInfo> jiabiDao = (BasicRepository<MJiabiBaseInfo>) context2.getBean("jiabiDao");		
 		
-		List<MJiabiBaseInfo> result=jiabiDao.findAllByName("X8G8450597", "guanzihao");
+		List<MJiabiBaseInfo> result=jiabiDao.findAllByAttributeName("X8G8450597", "guanzihao");
 		for(MJiabiBaseInfo m : result){
 			System.out.println(m);
 		}

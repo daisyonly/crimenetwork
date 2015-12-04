@@ -111,6 +111,7 @@ public class JiabiBaseInfo{
 	joinColumns=@JoinColumn(name="jiabi_base_info_id"),
 	inverseJoinColumns=@JoinColumn(name="forge_type_id"))
 	private Set<ForgeType> forgeTypes = new HashSet<ForgeType>(0);
+	
 	public Long getFmid() {
 		return fmid;
 	}

@@ -11,12 +11,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-
-
-/**
- * JiabiBasePic entity. @author MyEclipse Persistence Tools
- */
-
 @SuppressWarnings("serial")
 @Entity
 @Table(name="jiabi_base_pic",schema="SYSTEM")
@@ -31,7 +25,12 @@ public class JiabiBasePic implements java.io.Serializable {
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="fmid")
 	private JiabiBaseInfo jiabiBaseInfo;
+	
 	private Long cfid;
+	
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="pcid")
+	private PicType picType;
 	
 	@Column(name="small_cfid")
 	private Long smallCfid;
@@ -42,24 +41,13 @@ public class JiabiBasePic implements java.io.Serializable {
 	@Column(name="small_cfid_96")
 	private Long smallCfid96;
 
-	// Constructors
-
-	/** default constructor */
-	public JiabiBasePic() {
+	public PicType getPicType() {
+		return picType;
 	}
 
-	/** full constructor */
-	public JiabiBasePic(JiabiBaseInfo jiabiBaseInfo,
-			Long cfid, Long smallCfid, Long smallCfid400,
-			Long smallCfid96) {
-		this.jiabiBaseInfo = jiabiBaseInfo;
-		this.cfid = cfid;
-		this.smallCfid = smallCfid;
-		this.smallCfid400 = smallCfid400;
-		this.smallCfid96 = smallCfid96;
+	public void setPicType(PicType picType) {
+		this.picType = picType;
 	}
-
-	// Property accessors
 
 	public Long getFbpid() {
 		return this.fbpid;
@@ -68,7 +56,7 @@ public class JiabiBasePic implements java.io.Serializable {
 	public void setFbpid(Long fbpid) {
 		this.fbpid = fbpid;
 	}
-
+    
 	public JiabiBaseInfo getJiabiBaseInfo() {
 		return this.jiabiBaseInfo;
 	}
@@ -76,6 +64,7 @@ public class JiabiBasePic implements java.io.Serializable {
 	public void setJiabiBaseInfo(JiabiBaseInfo jiabiBaseInfo) {
 		this.jiabiBaseInfo = jiabiBaseInfo;
 	}
+	
 
 	public Long getCfid() {
 		return this.cfid;

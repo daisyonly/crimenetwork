@@ -10,5 +10,6 @@ public interface SuspectBaseDao {
 	public Page<SuspectBaseInfo> findAll(Pageable pageable); 
 	public Iterable<SuspectBaseInfo> findAll();
 	public long count();
+	public SuspectBaseInfo findById(Long id);
 
 }

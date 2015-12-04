@@ -12,4 +12,5 @@ public interface JiabiBaseDao{
 	public Page<JiabiBaseInfo> findAll(Pageable pageable); 
 	public Iterable<JiabiBaseInfo> findAll();
 	public long count(); 
+	public JiabiBaseInfo findByFmid(Long fmid);
 }
