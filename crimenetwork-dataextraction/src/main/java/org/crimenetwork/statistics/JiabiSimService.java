@@ -49,6 +49,7 @@ public class JiabiSimService {
 		result=new HashMap<String, HashMap<Integer, Double>>();
 		JiabiBaseInfo jbi=jiabiBaseDao.findByFmid(id);
 		String valueModuleType = getValueModuleType(jbi.getDenominationType().getValue_moduleType());
+		
 		DenominationType insDenominationType= denominationTypeDao.findByCode(jbi.getDenominationType().getCode());
 		Set<JiabiBaseInfo> candidateJiabi= insDenominationType.getJiabiBaseInfos();
 		
