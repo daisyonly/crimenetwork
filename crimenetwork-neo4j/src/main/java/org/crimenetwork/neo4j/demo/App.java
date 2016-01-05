@@ -66,7 +66,7 @@ public class App {
 	public static void main(String[] args) throws IOException {
 		FileUtils.deleteRecursively(new File("accessingdataneo4j.db"));
 		ApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
-//		App app = (App) context.getBean("app");
-//		app.work();
+		App app = (App) context.getBean("app");
+		app.work();
 	}
 }
