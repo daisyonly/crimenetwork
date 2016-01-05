@@ -115,6 +115,7 @@
     	<module>crimenetwork-oracle</module>
     	<module>crimenetwork-dataextraction</module>
     <module>crimenetwork-core</module>
+    <module>crimenetwork-neo4j</module>
   </modules>
   
 	<build>
