@@ -1,4 +1,4 @@
-package org.crimenetwork.oracle.entity.currency;
+package org.crimenetwork.oracle.entity.jiabisim;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -7,20 +7,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.crimenetwork.oracle.entity.share.IBasicCode;
-
-
-/**
- * DenominationType entity. @author MyEclipse Persistence Tools
- */
 @Entity
 @Table(name="jiabi_denomination_type",schema="system")
-public class DenominationType implements IBasicCode{
+public class SimDenominationType{
 	@Id
 	private String code;
 	@Column
@@ -33,13 +25,11 @@ public class DenominationType implements IBasicCode{
 	private String versionCode;
 	@Column
 	private String value_moduleType;
-	/*
-	@OneToMany(mappedBy="denominationType")
-	private Set<JiabiBaseInfo> jiabiBaseInfos = new HashSet<JiabiBaseInfo>();
+	
+	@OneToMany(fetch=FetchType.EAGER, mappedBy="denominationType")
+	private Set<SimJiabiBaseInfo> jiabiBaseInfos = new HashSet<SimJiabiBaseInfo>();
 
-	@OneToMany(mappedBy="denominationType" )
-	private Set<CurrencyCharacterTrain> currencyCharacterTrains = new HashSet<CurrencyCharacterTrain>();
-	*/
+	
 	public String getCode() {
 		return code;
 	}
@@ -52,14 +42,12 @@ public class DenominationType implements IBasicCode{
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	/*
-	public Set<JiabiBaseInfo> getJiabiBaseInfos() {
+	public Set<SimJiabiBaseInfo> getJiabiBaseInfos() {
 		return jiabiBaseInfos;
 	}
-	public void setJiabiBaseInfos(Set<JiabiBaseInfo> jiabiBaseInfos) {
+	public void setJiabiBaseInfos(Set<SimJiabiBaseInfo> jiabiBaseInfos) {
 		this.jiabiBaseInfos = jiabiBaseInfos;
 	}
-	*/
 	public String getName() {
 		return name;
 	}
@@ -79,15 +67,7 @@ public class DenominationType implements IBasicCode{
 	public void setVersionCode(String versionCode) {
 		this.versionCode = versionCode;
 	}
-	/*
-	public Set<CurrencyCharacterTrain> getCurrencyCharacterTrains() {
-		return currencyCharacterTrains;
-	}
-	public void setCurrencyCharacterTrains(
-			Set<CurrencyCharacterTrain> currencyCharacterTrains) {
-		this.currencyCharacterTrains = currencyCharacterTrains;
-	}
-	*/
+	
 	public String getValue_moduleType() {
 		return value_moduleType;
 	}

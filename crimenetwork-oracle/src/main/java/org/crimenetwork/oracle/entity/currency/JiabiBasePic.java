@@ -11,6 +11,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.crimenetwork.oracle.entity.jiabisim.SimJiabiBaseInfo;
+
+
 @SuppressWarnings("serial")
 @Entity
 @Table(name="jiabi_base_pic",schema="SYSTEM")
@@ -24,7 +27,7 @@ public class JiabiBasePic implements java.io.Serializable {
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="fmid")
-	private JiabiBaseInfo jiabiBaseInfo;
+	private SimJiabiBaseInfo jiabiBaseInfo;
 	
 	private Long cfid;
 	
@@ -57,11 +60,11 @@ public class JiabiBasePic implements java.io.Serializable {
 		this.fbpid = fbpid;
 	}
     
-	public JiabiBaseInfo getJiabiBaseInfo() {
+	public SimJiabiBaseInfo getJiabiBaseInfo() {
 		return this.jiabiBaseInfo;
 	}
 
-	public void setJiabiBaseInfo(JiabiBaseInfo jiabiBaseInfo) {
+	public void setJiabiBaseInfo(SimJiabiBaseInfo jiabiBaseInfo) {
 		this.jiabiBaseInfo = jiabiBaseInfo;
 	}
 	

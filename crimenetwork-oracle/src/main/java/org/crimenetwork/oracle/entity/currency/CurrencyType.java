@@ -22,8 +22,8 @@ public class CurrencyType implements IBasicCode{
 	private String code;
 	@Column
 	private String description;
+	
 	@OneToMany(mappedBy="currencyType")
-
 	private Set<JiabiBaseInfo> jiabiBaseInfos = new HashSet<JiabiBaseInfo>();
 
 	public String getCode() {
@@ -38,12 +38,12 @@ public class CurrencyType implements IBasicCode{
 	public void setDescription(String description) {
 		this.description = description;
 	}
-//	public Set<JiabiBaseInfo> getJiabiBaseInfos() {
-//		return jiabiBaseInfos;
-//	}
-//	public void setJiabiBaseInfos(Set<JiabiBaseInfo> jiabiBaseInfos) {
-//		this.jiabiBaseInfos = jiabiBaseInfos;
-//	}
+	public Set<JiabiBaseInfo> getJiabiBaseInfos() {
+		return jiabiBaseInfos;
+	}
+	public void setJiabiBaseInfos(Set<JiabiBaseInfo> jiabiBaseInfos) {
+		this.jiabiBaseInfos = jiabiBaseInfos;
+	}
 	public String getName() {
 		return name;
 	}

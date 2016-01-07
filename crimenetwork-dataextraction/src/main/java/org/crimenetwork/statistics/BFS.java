@@ -1,16 +1,18 @@
 package org.crimenetwork.statistics;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 
 public class BFS {
 	HashMap<String, HashSet<String>> edges;
 	HashSet<String> set;
-	int[] networkCount;
+	HashMap<Integer, List<List<String>>> networkCount;
 	public BFS(HashMap<String, HashSet<String>> edges){
 		this.edges=edges;
 	}
@@ -23,31 +25,51 @@ public class BFS {
 				if(!set.contains(end)) set.add(end);
 			}
 		}
-		networkCount=new int[1000];
+		networkCount=new HashMap<Integer, List<List<String>>>();
 	}
-	public void run(){
+	public void run(String dataPath){
 		init();
 		
 		String node=null;
-		while((node=getAnUnvisitedNode())!=null){
-			
-			int count=bfs(node);
-			networkCount[count]++;
-		}
-		for(int i=0;i<1000;i++){
-			if(networkCount[i]!=0){
-				System.out.println(i+" : " + networkCount[i]);
+		int max=0;
+		while((node=getAnUnvisitedNode())!=null){		
+			List<String> records=bfs(node);
+			int key=records.size();
+			if(max<key) max=key;
+			if(networkCount.containsKey(key)){
+				networkCount.get(key).add(records);
+			}else{
+				List<List<String>> tmp = new ArrayList<List<String>>();
+				tmp.add(records);
+				networkCount.put(key, tmp);
 			}
 		}
+		System.out.println(max);
+		FileUtil fileUtil=new FileUtil(dataPath, "out",false);
+		for(Map.Entry<Integer, List<List<String>>> entry:networkCount.entrySet()){
+			if(entry.getKey()==56) System.out.println("hahaha");
+			if(entry.getKey()<10) continue;
+			fileUtil.writeLine("##number##:"+ entry.getKey());
+			for(List<String> list:entry.getValue()){
+				for(String str: list){
+					fileUtil.write(str+",");
+				}
+				fileUtil.newLine();
+			}
+		}
+		fileUtil.close();
 	}
-	private int bfs(String start){
+	private List<String> bfs(String start){
+		List<String> records= new ArrayList<String>();
+		
 		Queue<String> queue=new LinkedList<>();
 		queue.add(start);
 		set.remove(start);
-		int count=0;
+		//int count=0;
 		while(!queue.isEmpty()){
 			String peek=queue.poll();
-			count++;
+			records.add(peek);
+			//count++;
 			if(!edges.containsKey(peek)) continue;
 			for(String node:edges.get(peek)){
 				if(set.contains(node)) {
@@ -57,7 +79,7 @@ public class BFS {
 			}
 		}
 
-		return count;
+		return records;
 	}
 	
 	
@@ -76,7 +98,7 @@ public class BFS {
 		HashMap<String, HashSet<String>> edges=
 				MapHelper.read(paths);
 		BFS insBfs=new BFS(edges);
-		insBfs.run();
+		insBfs.run("C:\\Users\\Daisy\\Desktop\\data.csv");
 	}
 
 }

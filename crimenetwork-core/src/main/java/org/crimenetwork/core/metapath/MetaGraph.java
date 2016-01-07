@@ -14,7 +14,7 @@ public class MetaGraph {
 		nodeCount= 4;
 		graph=new boolean[nodeCount][nodeCount];
 		
-		graph[MetaGraphNode.PERSON][MetaGraphNode.PERSON]=true;
+		//graph[MetaGraphNode.PERSON][MetaGraphNode.PERSON]=true;
 		graph[MetaGraphNode.JIABI][MetaGraphNode.JIABI]=true;
 		
 		graph[MetaGraphNode.JIABI][MetaGraphNode.CASES]=true;
@@ -23,11 +23,11 @@ public class MetaGraph {
 		graph[MetaGraphNode.CASES][MetaGraphNode.PERSON]=true;
 		graph[MetaGraphNode.PERSON][MetaGraphNode.CASES]=true;
 		
-		graph[MetaGraphNode.JIABI][MetaGraphNode.BANK]=true;
-		graph[MetaGraphNode.BANK][MetaGraphNode.JIABI]=true;
-		
-		graph[MetaGraphNode.PERSON][MetaGraphNode.JIABI]=true;
 		graph[MetaGraphNode.JIABI][MetaGraphNode.PERSON]=true;
+		graph[MetaGraphNode.PERSON][MetaGraphNode.JIABI]=true;
+		
+		//graph[MetaGraphNode.PERSON][MetaGraphNode.JIABI]=true;
+		//graph[MetaGraphNode.JIABI][MetaGraphNode.PERSON]=true;
 	}
 
 	public static MetaGraph getAnInstance() {
@@ -57,7 +57,7 @@ public class MetaGraph {
 			while(count-->0){
 				List<Integer> peek=queue.poll();
 				int lastNode=peek.get(peek.size()-1);
-				if(lastNode==end){
+				if(curLength==length-1){
 					res.add(peek);
 				}
 				for(int i=0;i<nodeCount;i++){
@@ -74,7 +74,7 @@ public class MetaGraph {
 	} 
 	public static void main(String[] args) {
 		MetaGraph abGraph=MetaGraph.getAnInstance();
-		List<List<Integer>> res=abGraph.getMetaPath(4, 2, 0);
+		List<List<Integer>> res=abGraph.getMetaPath(4, 0, 0);
 		for(List<Integer> list:res){
 			System.out.println(list);
 		}

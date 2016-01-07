@@ -25,8 +25,7 @@ public class VersionType implements IBasicCode{
 	private String description;
 	@Column(name="category_code", length=20)
 	private String categoryCode;
-	@OneToMany(mappedBy="versionType")
-	private Set<JiabiBaseInfo> jiabiBaseInfos = new HashSet<JiabiBaseInfo>();
+	
 	public String getCode() {
 		return code;
 	}
@@ -39,12 +38,7 @@ public class VersionType implements IBasicCode{
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Set<JiabiBaseInfo> getJiabiBaseInfos() {
-		return jiabiBaseInfos;
-	}
-	public void setJiabiBaseInfos(Set<JiabiBaseInfo> jiabiBaseInfos) {
-		this.jiabiBaseInfos = jiabiBaseInfos;
-	}
+	
 	public String getName() {
 		return name;
 	}

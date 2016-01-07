@@ -22,6 +22,7 @@ public class JiabiExtendInfo implements java.io.Serializable {
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="fmid")
 	private JiabiBaseInfo jiabiBaseInfo;
+	
 	private String thick;
 	private Double white;
 	private Double quantity;
@@ -73,46 +74,10 @@ public class JiabiExtendInfo implements java.io.Serializable {
 	@Column(name="safeline_width")
 	private String safelineWidth;
 
-	// Constructors
-
 	/** default constructor */
 	public JiabiExtendInfo() {
 	}
-
-	/** full constructor */
-	public JiabiExtendInfo(JiabiBaseInfo jiabiBaseInfo, String thick,
-			Double white, Double quantity, Double angle, String fibre,
-			String fluoreColor, String backFluoreColor, Boolean isNetline,
-			Boolean isSafeline, Boolean isColorFibreline,
-			Boolean isFluoreFibreline, Boolean isPrintink,
-			Boolean isWaterprint, Boolean isGuanzihaoInteval,
-			Boolean isAobanTezheng, Boolean isFluore, Boolean isLightInk,
-			String safelineWord, String safelineLength, String safelineWidth) {
-		this.jiabiBaseInfo = jiabiBaseInfo;
-		this.thick = thick;
-		this.white = white;
-		this.quantity = quantity;
-		this.angle = angle;
-		this.fibre = fibre;
-		this.fluoreColor = fluoreColor;
-		this.backFluoreColor = backFluoreColor;
-		this.isNetline = isNetline;
-		this.isSafeline = isSafeline;
-		this.isColorFibreline = isColorFibreline;
-		this.isFluoreFibreline = isFluoreFibreline;
-		this.isPrintink = isPrintink;
-		this.isWaterprint = isWaterprint;
-		this.isGuanzihaoInteval = isGuanzihaoInteval;
-		this.isAobanTezheng = isAobanTezheng;
-		this.isFluore = isFluore;
-		this.isLightInk = isLightInk;
-		this.safelineWord = safelineWord;
-		this.safelineLength = safelineLength;
-		this.safelineWidth = safelineWidth;
-	}
-
-	// Property accessors
-
+	
 	public Long getJeiid() {
 		return this.jeiid;
 	}

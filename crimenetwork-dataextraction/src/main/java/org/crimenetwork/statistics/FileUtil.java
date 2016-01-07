@@ -41,6 +41,24 @@ public class FileUtil {
 			e.printStackTrace();
 		}
 	}
+	public void write(String string) {
+		// TODO Auto-generated method stub
+		try {
+			out.write(string);		
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		};
+	}
+	public void newLine() {		
+		try {
+			
+			out.newLine();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		};
+	}
 
 	public void writeLine(String string) {
 		// TODO Auto-generated method stub

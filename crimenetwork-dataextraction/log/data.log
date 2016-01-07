@@ -1,116 +1,34 @@
-[1204 16:02:32 WARN ] [main--org.springframework.context.support.ClassPathXmlApplicationContext:489 ] - Exception encountered during context initialization - cancelling refresh attempt
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in URL [file:/E:/Github/crimenetwork/crimenetwork-oracle/target/classes/database/oracle/datasourse.xml]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: mappedBy reference an unknown target entity property: org.crimenetwork.oracle.entity.currency.JiabiBasePic.jiabiBaseInfo in org.crimenetwork.oracle.entity.currency.JiabiBaseInfo.jiabiBasePics
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1554)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:539)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:475)
-	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:302)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:298)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:975)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:752)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:482)
-	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:139)
-	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:93)
-	at org.crimenetwork.statistics.SimApp.main(SimApp.java:15)
-Caused by: org.hibernate.AnnotationException: mappedBy reference an unknown target entity property: org.crimenetwork.oracle.entity.currency.JiabiBasePic.jiabiBaseInfo in org.crimenetwork.oracle.entity.currency.JiabiBaseInfo.jiabiBasePics
-	at org.hibernate.cfg.annotations.CollectionBinder.bindStarToManySecondPass(CollectionBinder.java:685)
-	at org.hibernate.cfg.annotations.CollectionBinder$1.secondPass(CollectionBinder.java:645)
-	at org.hibernate.cfg.CollectionSecondPass.doSecondPass(CollectionSecondPass.java:65)
-	at org.hibernate.cfg.Configuration.originalSecondPassCompile(Configuration.java:1716)
-	at org.hibernate.cfg.Configuration.secondPassCompile(Configuration.java:1423)
-	at org.hibernate.cfg.Configuration.buildMappings(Configuration.java:1375)
-	at org.hibernate.ejb.Ejb3Configuration.buildMappings(Ejb3Configuration.java:1519)
-	at org.hibernate.ejb.EventListenerConfigurator.configure(EventListenerConfigurator.java:193)
-	at org.hibernate.ejb.Ejb3Configuration.configure(Ejb3Configuration.java:1100)
-	at org.hibernate.ejb.Ejb3Configuration.configure(Ejb3Configuration.java:689)
-	at org.hibernate.ejb.HibernatePersistence.createContainerEntityManagerFactory(HibernatePersistence.java:73)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:290)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:310)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1613)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1550)
-	... 12 more
-[1204 16:05:05 WARN ] [main--org.springframework.context.support.ClassPathXmlApplicationContext:489 ] - Exception encountered during context initialization - cancelling refresh attempt
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in URL [file:/E:/Github/crimenetwork/crimenetwork-oracle/target/classes/database/oracle/datasourse.xml]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: Associations marked as mappedBy must not define database mappings like @JoinTable or @JoinColumn: org.crimenetwork.oracle.entity.currency.JiabiBaseInfo.jiabiBasePics
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1554)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:539)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:475)
-	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:302)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:298)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:975)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:752)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:482)
-	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:139)
-	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:93)
-	at org.crimenetwork.statistics.SimApp.main(SimApp.java:15)
-Caused by: org.hibernate.AnnotationException: Associations marked as mappedBy must not define database mappings like @JoinTable or @JoinColumn: org.crimenetwork.oracle.entity.currency.JiabiBaseInfo.jiabiBasePics
-	at org.hibernate.cfg.annotations.CollectionBinder.bind(CollectionBinder.java:499)
-	at org.hibernate.cfg.AnnotationBinder.processElementAnnotations(AnnotationBinder.java:1979)
-	at org.hibernate.cfg.AnnotationBinder.processIdPropertiesIfNotAlready(AnnotationBinder.java:796)
-	at org.hibernate.cfg.AnnotationBinder.bindClass(AnnotationBinder.java:707)
-	at org.hibernate.cfg.Configuration$MetadataSourceQueue.processAnnotatedClassesQueue(Configuration.java:4035)
-	at org.hibernate.cfg.Configuration$MetadataSourceQueue.processMetadata(Configuration.java:3989)
-	at org.hibernate.cfg.Configuration.secondPassCompile(Configuration.java:1398)
-	at org.hibernate.cfg.Configuration.buildMappings(Configuration.java:1375)
-	at org.hibernate.ejb.Ejb3Configuration.buildMappings(Ejb3Configuration.java:1519)
-	at org.hibernate.ejb.EventListenerConfigurator.configure(EventListenerConfigurator.java:193)
-	at org.hibernate.ejb.Ejb3Configuration.configure(Ejb3Configuration.java:1100)
-	at org.hibernate.ejb.Ejb3Configuration.configure(Ejb3Configuration.java:689)
-	at org.hibernate.ejb.HibernatePersistence.createContainerEntityManagerFactory(HibernatePersistence.java:73)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:290)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:310)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1613)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1550)
-	... 12 more
-[1204 16:07:17 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
-[1204 16:07:17 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
-[1204 16:08:20 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
-[1204 16:08:20 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
-[1204 16:10:35 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
-[1204 16:10:35 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
-[1204 16:14:24 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
-[1204 16:14:24 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
-[1204 16:21:59 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
-[1204 16:21:59 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
-[1204 16:25:59 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
-[1204 16:25:59 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
-[1204 16:29:39 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
-[1204 16:29:39 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
-[1204 16:40:01 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
-[1204 16:40:01 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
-[1204 16:43:29 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
-[1204 16:43:29 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
-[1204 16:44:28 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
-[1204 16:44:28 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
-[1204 17:02:54 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
-[1204 17:02:54 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
-[1204 17:06:04 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
-[1204 17:06:04 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
-[1204 17:06:49 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
-[1204 17:06:49 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
-[1204 17:13:32 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
-[1204 17:13:32 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
-[1204 17:15:30 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
-[1204 17:15:30 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
-[1204 17:16:55 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
-[1204 17:16:55 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
-[1204 17:20:25 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
-[1204 17:20:25 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
-[1204 17:26:09 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
-[1204 17:26:09 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
-[1204 17:27:35 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
-[1204 17:27:35 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
-[1204 17:30:51 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
-[1204 17:30:51 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
-[1204 18:12:42 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
-[1204 18:12:42 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
-[1204 18:20:52 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
-[1204 18:20:52 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
-[1204 18:28:44 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
-[1204 18:28:44 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
-[1204 18:31:06 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
-[1204 18:31:06 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
-[1204 18:34:44 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
-[1204 18:34:44 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
+[0107 09:11:17 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
+[0107 09:11:17 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
+[0107 09:25:45 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
+[0107 09:25:45 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
+[0107 09:28:01 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
+[0107 09:28:01 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
+[0107 09:30:33 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
+[0107 09:30:33 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
+[0107 09:30:58 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
+[0107 09:30:58 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
+[0107 09:40:45 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
+[0107 09:40:45 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
+[0107 09:45:14 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
+[0107 09:45:14 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
+[0107 10:00:48 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
+[0107 10:00:48 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
+[0107 10:16:19 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
+[0107 10:16:19 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
+[0107 10:16:53 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
+[0107 10:16:53 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
+[0107 10:22:36 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
+[0107 10:22:36 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
+[0107 10:24:03 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
+[0107 10:24:03 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
+[0107 10:26:20 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
+[0107 10:26:20 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
+[0107 10:50:43 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
+[0107 10:50:43 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
+[0107 10:53:49 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
+[0107 10:53:49 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
+[0107 10:56:44 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
+[0107 10:56:44 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
+[0107 11:18:48 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
+[0107 11:18:48 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
