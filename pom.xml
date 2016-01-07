@@ -116,6 +116,7 @@
     	<module>crimenetwork-dataextraction</module>
     <module>crimenetwork-core</module>
     <module>crimenetwork-neo4j</module>
+    <module>crimenetwork-currencysim</module>
   </modules>
   
 	<build>
