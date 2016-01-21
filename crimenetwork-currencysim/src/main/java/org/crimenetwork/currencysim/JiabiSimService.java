@@ -7,13 +7,13 @@ import java.util.Map;
 import java.util.Set;
 
 
-
-
 import org.crimenetwork.oracle.entity.currency.JiabiBasePic;
 import org.crimenetwork.oracle.entity.jiabisim.SimDenominationType;
 import org.crimenetwork.oracle.entity.jiabisim.SimJiabiBaseInfo;
 import org.crimenetwork.oracle.repository.SimDenominationTypeDao;
 import org.crimenetwork.oracle.repository.SimJiabiBaseDao;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
@@ -34,18 +34,18 @@ public class JiabiSimService {
 	
 	private Dalian dalian;
 	private HashMap<String, HashMap<Integer, Double>> result;
-	private FileUtil fileUtil;
+	
+	
+	final Logger logger = LoggerFactory.getLogger(JiabiSimService.class);
+	
+	
 	
 	public void runAll(String dataPath,String logPath){
-		fileUtil=new FileUtil(logPath, "out",true);
-		dalian = new Dalian(fileUtil);
+		FileUtil fileData=new FileUtil(dataPath, "out",false);
+		FileUtil fileLog=new FileUtil(logPath, "out",false);
+		dalian = new Dalian(fileLog);
 		System.out.println("Process jiabi data start.");
-    	int onepage=1000;
-    	/*
-    	Long id=(long) 4647050;
-    	HashMap<String, HashMap<Integer, Double>> ans=getSim(id);
-		if(ans!=null)MapHelper.write("J"+id,ans, dataPath);
-		*/
+    	int onepage=1000;	
     	
     	long count = jiabiBaseDao.count();
     	for(int i=0;i<=count/onepage;i++){
@@ -55,13 +55,15 @@ public class JiabiSimService {
     		System.out.println("找1000个的时间："+(t2-t1));	
     		for(SimJiabiBaseInfo jbi:readPage.getContent()){
     			HashMap<String, HashMap<Integer, Double>> ans=getSim(jbi.getFmid());
-    			if(ans!=null)MapHelper.write("J"+jbi.getFmid(),ans, dataPath);
+    			if(ans!=null&&ans.size()!=0)
+    				MapHelper.write("J"+jbi.getFmid(),ans, fileData);
     		}
     		System.out.println("The number of completed items: "+(i*onepage+readPage.getContent().size()));
     	   
     	}
     	
-    	fileUtil.close();
+    	fileData.close();
+    	fileLog.close();
     	System.out.println("Process jiabi data end.");
 	}
 	
@@ -231,12 +233,23 @@ public class JiabiSimService {
 		for(int i=0;i<target.length && i+1<target.length;i+=2){
 			Map<String,Object> ele = new HashMap<String,Object>();
 			ele.put("fmid", target[i]);//选中的票样fmid
-			double simValue=Double.parseDouble(target[i+1])*4;
+			double simValue;
+			try {
+				simValue=Double.parseDouble(target[i+1]);
+			} catch (NumberFormatException e) {
+				logger.error("出现非数字情况:"+id+","+target[i]+","+target[i+1]);
+				continue;
+			}
+			if(queueType==Dalian.QUEUE_TYPE_ALL){
+				simValue=simValue*4;
+			}else{
+				simValue=simValue*100;
+			}
 			if(simValue<=0.0){//相似度为负数的置为0
 				simValue=0;
 			}
 			if(simValue>=100.0){//相似度大于100的置为99
-				simValue=99;
+				simValue=100;
 			}
 			updateResult(target[i],compareType,simValue);
 		}
@@ -245,6 +258,7 @@ public class JiabiSimService {
 	}
 	
 	private void updateResult(String fmid,int compareType,double simValue){
+		if(simValue==0) return;
 		String key="J"+fmid;
 		if(result.containsKey(key)){
 			result.get(key).put(compareType, simValue);

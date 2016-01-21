@@ -1,0 +1,537 @@
+[0108 10:20:52 INFO ] [main--org.springframework.context.support.ClassPathXmlApplicationContext:515 ] - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1df3255: startup date [Fri Jan 08 10:20:52 CST 2016]; root of context hierarchy
+[0108 10:20:52 INFO ] [main--org.springframework.beans.factory.xml.XmlBeanDefinitionReader:316 ] - Loading XML bean definitions from class path resource [currencysim/applicationContext.xml]
+[0108 10:20:52 INFO ] [main--org.springframework.beans.factory.xml.XmlBeanDefinitionReader:316 ] - Loading XML bean definitions from URL [file:/E:/Github/crimenetwork/crimenetwork-oracle/target/classes/database/oracle/datasourse.xml]
+[0108 10:20:53 INFO ] [main--org.springframework.beans.factory.support.DefaultListableBeanFactory:754 ] - Overriding bean definition for bean 'suspectBaseDao': replacing [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] with [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+[0108 10:20:53 INFO ] [main--org.springframework.beans.factory.support.DefaultListableBeanFactory:754 ] - Overriding bean definition for bean 'caseBaseDao': replacing [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] with [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+[0108 10:20:53 INFO ] [main--org.springframework.beans.factory.support.DefaultListableBeanFactory:754 ] - Overriding bean definition for bean 'simDenominationTypeDao': replacing [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] with [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+[0108 10:20:53 INFO ] [main--org.springframework.beans.factory.support.DefaultListableBeanFactory:754 ] - Overriding bean definition for bean 'denominationTypeDao': replacing [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] with [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+[0108 10:20:53 INFO ] [main--org.springframework.beans.factory.support.DefaultListableBeanFactory:754 ] - Overriding bean definition for bean 'jiabiBaseDao': replacing [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] with [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+[0108 10:20:53 INFO ] [main--org.springframework.beans.factory.support.DefaultListableBeanFactory:754 ] - Overriding bean definition for bean 'simJiabiBaseDao': replacing [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] with [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+[0108 10:20:53 INFO ] [main--org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:287 ] - Building JPA container EntityManagerFactory for persistence unit 'default'
+[0108 10:20:53 INFO ] [main--org.hibernate.annotations.common.Version:37 ] - Hibernate Commons Annotations 3.2.0.Final
+[0108 10:20:53 INFO ] [main--org.hibernate.cfg.Environment:603 ] - Hibernate 3.6.10.Final
+[0108 10:20:53 INFO ] [main--org.hibernate.cfg.Environment:636 ] - hibernate.properties not found
+[0108 10:20:53 INFO ] [main--org.hibernate.cfg.Environment:814 ] - Bytecode provider name : javassist
+[0108 10:20:53 INFO ] [main--org.hibernate.cfg.Environment:695 ] - using JDK 1.4 java.sql.Timestamp handling
+[0108 10:20:53 INFO ] [main--org.hibernate.ejb.Version:42 ] - Hibernate EntityManager 3.6.10.Final
+[0108 10:20:53 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.cases.CaseBaseInfo
+[0108 10:20:53 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.cases.CaseBaseInfo on table case_info
+[0108 10:20:53 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.CategoryType
+[0108 10:20:53 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.CategoryType on table jiabi_category_type
+[0108 10:20:53 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.ClassificationNumber
+[0108 10:20:53 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.ClassificationNumber on table Jiabi_identify
+[0108 10:20:53 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.CurrencyCharacterTrain
+[0108 10:20:53 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.CurrencyCharacterTrain on table currency_character_train
+[0108 10:20:53 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.CurrencyType
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.CurrencyType on table currency_type
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.DataFrom
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.DataFrom on table data_from
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.DenominationType
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.DenominationType on table jiabi_denomination_type
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.ForgeType
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.ForgeType on table forge_type
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.JiabiBaseInfo
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.JiabiBaseInfo on table jiabi_base_info
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.JiabiBasePic
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.JiabiBasePic on table jiabi_base_pic
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.JiabiExtendInfo
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.JiabiExtendInfo on table jiabi_extend_info
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.PicType
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.PicType on table pic_type
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.VersionType
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.VersionType on table jiabi_version_type
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.jiabisim.SimDenominationType
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.jiabisim.SimDenominationType on table jiabi_denomination_type
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.jiabisim.SimJiabiBaseInfo
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.jiabisim.SimJiabiBaseInfo on table jiabi_base_info
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.share.ContinentCode
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.share.ContinentCode on table continent_code
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.share.CountryCode
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.share.CountryCode on table country_code
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.share.EduLevel
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.share.EduLevel on table edu_level
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.share.Location
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.share.Location on table location_code
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.share.LocationCode
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.share.LocationCode on table location_code
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.share.ProcessMode
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.share.ProcessMode on table process_mode
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.share.Sif
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.share.Sif on table SIF
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.share.UserInfo
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.share.UserInfo on table user_info
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.suspect.CurrentState
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.suspect.CurrentState on table current_state
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.suspect.Gender
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.suspect.Gender on table gender
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.suspect.Nation
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.suspect.Nation on table nation
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.suspect.Occupation
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.suspect.Occupation on table occupation
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.suspect.SuspectBaseInfo
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.suspect.SuspectBaseInfo on table suspect_info
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.annotations.CollectionBinder:762 ] - Mapping collection: org.crimenetwork.oracle.entity.currency.CurrencyType.jiabiBaseInfos -> jiabi_base_info
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.annotations.CollectionBinder:762 ] - Mapping collection: org.crimenetwork.oracle.entity.currency.JiabiBaseInfo.jiabiBasePics -> jiabi_base_pic
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.annotations.CollectionBinder:762 ] - Mapping collection: org.crimenetwork.oracle.entity.currency.JiabiBaseInfo.jiabiExtendInfos -> jiabi_extend_info
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.annotations.CollectionBinder:762 ] - Mapping collection: org.crimenetwork.oracle.entity.jiabisim.SimDenominationType.jiabiBaseInfos -> jiabi_base_info
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.annotations.CollectionBinder:762 ] - Mapping collection: org.crimenetwork.oracle.entity.jiabisim.SimJiabiBaseInfo.jiabiBasePics -> jiabi_base_pic
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.annotations.CollectionBinder:762 ] - Mapping collection: org.crimenetwork.oracle.entity.suspect.Nation.suspectInfos -> suspect_info
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.Configuration:1676 ] - Hibernate Validator not found: ignoring
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.search.HibernateSearchEventListenerRegister:75 ] - Unable to find org.hibernate.search.event.FullTextIndexEventListener on the classpath. Hibernate Search is not enabled.
+[0108 10:20:54 INFO ] [main--org.hibernate.connection.ConnectionProviderFactory:173 ] - Initializing connection provider: org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider
+[0108 10:20:54 INFO ] [main--org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider:62 ] - Using provided datasource
+[0108 10:20:54 INFO ] [main--org.hibernate.dialect.Dialect:136 ] - Using dialect: org.hibernate.dialect.OracleDialect
+[0108 10:20:54 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
+[0108 10:20:54 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.SettingsFactory:126 ] - Database ->
+       name : Oracle
+    version : Oracle Database 11g Enterprise Edition Release 11.1.0.6.0 - Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+      major : 11
+      minor : 1
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.SettingsFactory:132 ] - Driver ->
+       name : Oracle JDBC driver
+    version : 11.2.0.1.0
+      major : 11
+      minor : 2
+[0108 10:20:54 INFO ] [main--org.hibernate.transaction.TransactionFactoryFactory:62 ] - Using default transaction strategy (direct JDBC transactions)
+[0108 10:20:54 INFO ] [main--org.hibernate.transaction.TransactionManagerLookupFactory:83 ] - No TransactionManagerLookup configured (in JTA environment, use of read-write or transactional second-level cache is not recommended)
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.SettingsFactory:179 ] - Automatic flush during beforeCompletion(): disabled
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.SettingsFactory:183 ] - Automatic session close at end of transaction: disabled
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.SettingsFactory:190 ] - JDBC batch size: 15
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.SettingsFactory:193 ] - JDBC batch updates for versioned data: disabled
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.SettingsFactory:198 ] - Scrollable result sets: enabled
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.SettingsFactory:206 ] - JDBC3 getGeneratedKeys(): disabled
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.SettingsFactory:214 ] - Connection release mode: auto
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.SettingsFactory:241 ] - Default batch fetch size: 1
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.SettingsFactory:245 ] - Generate SQL with comments: disabled
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.SettingsFactory:249 ] - Order SQL updates by primary key: disabled
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.SettingsFactory:253 ] - Order SQL inserts for batching: disabled
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.SettingsFactory:431 ] - Query translator: org.hibernate.hql.ast.ASTQueryTranslatorFactory
+[0108 10:20:54 INFO ] [main--org.hibernate.hql.ast.ASTQueryTranslatorFactory:47 ] - Using ASTQueryTranslatorFactory
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.SettingsFactory:261 ] - Query language substitutions: {}
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.SettingsFactory:266 ] - JPA-QL strict compliance: enabled
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.SettingsFactory:271 ] - Second-level cache: enabled
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.SettingsFactory:275 ] - Query cache: disabled
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.SettingsFactory:406 ] - Cache region factory : org.hibernate.cache.impl.NoCachingRegionFactory
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.SettingsFactory:285 ] - Optimize cache for minimal puts: disabled
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.SettingsFactory:294 ] - Structured second-level cache entries: disabled
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.SettingsFactory:314 ] - Echoing all SQL to stdout
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.SettingsFactory:323 ] - Statistics: disabled
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.SettingsFactory:327 ] - Deleted entity synthetic identifier rollback: disabled
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.SettingsFactory:343 ] - Default entity-mode: pojo
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.SettingsFactory:347 ] - Named query checking : enabled
+[0108 10:20:54 INFO ] [main--org.hibernate.cfg.SettingsFactory:351 ] - Check Nullability in Core (should be disabled when Bean Validation is on): enabled
+[0108 10:20:54 INFO ] [main--org.hibernate.impl.SessionFactoryImpl:202 ] - building session factory
+[0108 10:20:54 INFO ] [main--org.hibernate.type.BasicTypeRegistry:150 ] - Type registration [blob] overrides previous : org.hibernate.type.BlobType@117268b
+[0108 10:20:54 INFO ] [main--org.hibernate.type.BasicTypeRegistry:150 ] - Type registration [java.sql.Blob] overrides previous : org.hibernate.type.BlobType@117268b
+[0108 10:20:54 INFO ] [main--org.hibernate.type.BasicTypeRegistry:150 ] - Type registration [clob] overrides previous : org.hibernate.type.ClobType@afb2e7
+[0108 10:20:54 INFO ] [main--org.hibernate.type.BasicTypeRegistry:150 ] - Type registration [java.sql.Clob] overrides previous : org.hibernate.type.ClobType@afb2e7
+[0108 10:20:54 INFO ] [main--org.hibernate.type.BasicTypeRegistry:150 ] - Type registration [wrapper_materialized_blob] overrides previous : org.hibernate.type.WrappedMaterializedBlobType@716b8f
+[0108 10:20:54 INFO ] [main--org.hibernate.type.BasicTypeRegistry:150 ] - Type registration [wrapper_characters_clob] overrides previous : org.hibernate.type.CharacterArrayClobType@1f1c7d0
+[0108 10:20:54 INFO ] [main--org.hibernate.type.BasicTypeRegistry:150 ] - Type registration [characters_clob] overrides previous : org.hibernate.type.PrimitiveCharacterArrayClobType@1291e95
+[0108 10:20:54 INFO ] [main--org.hibernate.type.BasicTypeRegistry:150 ] - Type registration [materialized_clob] overrides previous : org.hibernate.type.MaterializedClobType@62a130
+[0108 10:20:54 INFO ] [main--org.hibernate.type.BasicTypeRegistry:150 ] - Type registration [materialized_blob] overrides previous : org.hibernate.type.MaterializedBlobType@9fd7b7
+[0108 10:20:55 INFO ] [main--org.hibernate.impl.SessionFactoryObjectFactory:105 ] - Not binding factory to JNDI, no JNDI name configured
+[0108 10:21:36 INFO ] [main--org.springframework.context.support.ClassPathXmlApplicationContext:515 ] - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1df3255: startup date [Fri Jan 08 10:21:36 CST 2016]; root of context hierarchy
+[0108 10:21:36 INFO ] [main--org.springframework.beans.factory.xml.XmlBeanDefinitionReader:316 ] - Loading XML bean definitions from class path resource [currencysim/applicationContext.xml]
+[0108 10:21:36 INFO ] [main--org.springframework.beans.factory.xml.XmlBeanDefinitionReader:316 ] - Loading XML bean definitions from URL [file:/E:/Github/crimenetwork/crimenetwork-oracle/target/classes/database/oracle/datasourse.xml]
+[0108 10:21:36 INFO ] [main--org.springframework.beans.factory.support.DefaultListableBeanFactory:754 ] - Overriding bean definition for bean 'suspectBaseDao': replacing [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] with [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+[0108 10:21:36 INFO ] [main--org.springframework.beans.factory.support.DefaultListableBeanFactory:754 ] - Overriding bean definition for bean 'caseBaseDao': replacing [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] with [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+[0108 10:21:36 INFO ] [main--org.springframework.beans.factory.support.DefaultListableBeanFactory:754 ] - Overriding bean definition for bean 'simDenominationTypeDao': replacing [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] with [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+[0108 10:21:36 INFO ] [main--org.springframework.beans.factory.support.DefaultListableBeanFactory:754 ] - Overriding bean definition for bean 'denominationTypeDao': replacing [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] with [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+[0108 10:21:36 INFO ] [main--org.springframework.beans.factory.support.DefaultListableBeanFactory:754 ] - Overriding bean definition for bean 'jiabiBaseDao': replacing [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] with [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+[0108 10:21:36 INFO ] [main--org.springframework.beans.factory.support.DefaultListableBeanFactory:754 ] - Overriding bean definition for bean 'simJiabiBaseDao': replacing [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] with [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+[0108 10:21:36 INFO ] [main--org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:287 ] - Building JPA container EntityManagerFactory for persistence unit 'default'
+[0108 10:21:36 INFO ] [main--org.hibernate.annotations.common.Version:37 ] - Hibernate Commons Annotations 3.2.0.Final
+[0108 10:21:36 INFO ] [main--org.hibernate.cfg.Environment:603 ] - Hibernate 3.6.10.Final
+[0108 10:21:36 INFO ] [main--org.hibernate.cfg.Environment:636 ] - hibernate.properties not found
+[0108 10:21:36 INFO ] [main--org.hibernate.cfg.Environment:814 ] - Bytecode provider name : javassist
+[0108 10:21:36 INFO ] [main--org.hibernate.cfg.Environment:695 ] - using JDK 1.4 java.sql.Timestamp handling
+[0108 10:21:37 INFO ] [main--org.hibernate.ejb.Version:42 ] - Hibernate EntityManager 3.6.10.Final
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.cases.CaseBaseInfo
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.cases.CaseBaseInfo on table case_info
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.CategoryType
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.CategoryType on table jiabi_category_type
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.ClassificationNumber
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.ClassificationNumber on table Jiabi_identify
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.CurrencyCharacterTrain
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.CurrencyCharacterTrain on table currency_character_train
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.CurrencyType
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.CurrencyType on table currency_type
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.DataFrom
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.DataFrom on table data_from
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.DenominationType
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.DenominationType on table jiabi_denomination_type
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.ForgeType
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.ForgeType on table forge_type
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.JiabiBaseInfo
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.JiabiBaseInfo on table jiabi_base_info
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.JiabiBasePic
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.JiabiBasePic on table jiabi_base_pic
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.JiabiExtendInfo
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.JiabiExtendInfo on table jiabi_extend_info
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.PicType
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.PicType on table pic_type
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.VersionType
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.VersionType on table jiabi_version_type
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.jiabisim.SimDenominationType
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.jiabisim.SimDenominationType on table jiabi_denomination_type
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.jiabisim.SimJiabiBaseInfo
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.jiabisim.SimJiabiBaseInfo on table jiabi_base_info
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.share.ContinentCode
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.share.ContinentCode on table continent_code
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.share.CountryCode
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.share.CountryCode on table country_code
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.share.EduLevel
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.share.EduLevel on table edu_level
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.share.Location
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.share.Location on table location_code
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.share.LocationCode
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.share.LocationCode on table location_code
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.share.ProcessMode
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.share.ProcessMode on table process_mode
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.share.Sif
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.share.Sif on table SIF
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.share.UserInfo
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.share.UserInfo on table user_info
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.suspect.CurrentState
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.suspect.CurrentState on table current_state
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.suspect.Gender
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.suspect.Gender on table gender
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.suspect.Nation
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.suspect.Nation on table nation
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.suspect.Occupation
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.suspect.Occupation on table occupation
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.suspect.SuspectBaseInfo
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.suspect.SuspectBaseInfo on table suspect_info
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.annotations.CollectionBinder:762 ] - Mapping collection: org.crimenetwork.oracle.entity.currency.CurrencyType.jiabiBaseInfos -> jiabi_base_info
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.annotations.CollectionBinder:762 ] - Mapping collection: org.crimenetwork.oracle.entity.currency.JiabiBaseInfo.jiabiBasePics -> jiabi_base_pic
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.annotations.CollectionBinder:762 ] - Mapping collection: org.crimenetwork.oracle.entity.currency.JiabiBaseInfo.jiabiExtendInfos -> jiabi_extend_info
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.annotations.CollectionBinder:762 ] - Mapping collection: org.crimenetwork.oracle.entity.jiabisim.SimDenominationType.jiabiBaseInfos -> jiabi_base_info
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.annotations.CollectionBinder:762 ] - Mapping collection: org.crimenetwork.oracle.entity.jiabisim.SimJiabiBaseInfo.jiabiBasePics -> jiabi_base_pic
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.annotations.CollectionBinder:762 ] - Mapping collection: org.crimenetwork.oracle.entity.suspect.Nation.suspectInfos -> suspect_info
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.Configuration:1676 ] - Hibernate Validator not found: ignoring
+[0108 10:21:37 INFO ] [main--org.hibernate.cfg.search.HibernateSearchEventListenerRegister:75 ] - Unable to find org.hibernate.search.event.FullTextIndexEventListener on the classpath. Hibernate Search is not enabled.
+[0108 10:21:37 INFO ] [main--org.hibernate.connection.ConnectionProviderFactory:173 ] - Initializing connection provider: org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider
+[0108 10:21:37 INFO ] [main--org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider:62 ] - Using provided datasource
+[0108 10:21:38 INFO ] [main--org.hibernate.dialect.Dialect:136 ] - Using dialect: org.hibernate.dialect.OracleDialect
+[0108 10:21:38 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
+[0108 10:21:38 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
+[0108 10:21:38 INFO ] [main--org.hibernate.cfg.SettingsFactory:126 ] - Database ->
+       name : Oracle
+    version : Oracle Database 11g Enterprise Edition Release 11.1.0.6.0 - Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+      major : 11
+      minor : 1
+[0108 10:21:38 INFO ] [main--org.hibernate.cfg.SettingsFactory:132 ] - Driver ->
+       name : Oracle JDBC driver
+    version : 11.2.0.1.0
+      major : 11
+      minor : 2
+[0108 10:21:38 INFO ] [main--org.hibernate.transaction.TransactionFactoryFactory:62 ] - Using default transaction strategy (direct JDBC transactions)
+[0108 10:21:38 INFO ] [main--org.hibernate.transaction.TransactionManagerLookupFactory:83 ] - No TransactionManagerLookup configured (in JTA environment, use of read-write or transactional second-level cache is not recommended)
+[0108 10:21:38 INFO ] [main--org.hibernate.cfg.SettingsFactory:179 ] - Automatic flush during beforeCompletion(): disabled
+[0108 10:21:38 INFO ] [main--org.hibernate.cfg.SettingsFactory:183 ] - Automatic session close at end of transaction: disabled
+[0108 10:21:38 INFO ] [main--org.hibernate.cfg.SettingsFactory:190 ] - JDBC batch size: 15
+[0108 10:21:38 INFO ] [main--org.hibernate.cfg.SettingsFactory:193 ] - JDBC batch updates for versioned data: disabled
+[0108 10:21:38 INFO ] [main--org.hibernate.cfg.SettingsFactory:198 ] - Scrollable result sets: enabled
+[0108 10:21:38 INFO ] [main--org.hibernate.cfg.SettingsFactory:206 ] - JDBC3 getGeneratedKeys(): disabled
+[0108 10:21:38 INFO ] [main--org.hibernate.cfg.SettingsFactory:214 ] - Connection release mode: auto
+[0108 10:21:38 INFO ] [main--org.hibernate.cfg.SettingsFactory:241 ] - Default batch fetch size: 1
+[0108 10:21:38 INFO ] [main--org.hibernate.cfg.SettingsFactory:245 ] - Generate SQL with comments: disabled
+[0108 10:21:38 INFO ] [main--org.hibernate.cfg.SettingsFactory:249 ] - Order SQL updates by primary key: disabled
+[0108 10:21:38 INFO ] [main--org.hibernate.cfg.SettingsFactory:253 ] - Order SQL inserts for batching: disabled
+[0108 10:21:38 INFO ] [main--org.hibernate.cfg.SettingsFactory:431 ] - Query translator: org.hibernate.hql.ast.ASTQueryTranslatorFactory
+[0108 10:21:38 INFO ] [main--org.hibernate.hql.ast.ASTQueryTranslatorFactory:47 ] - Using ASTQueryTranslatorFactory
+[0108 10:21:38 INFO ] [main--org.hibernate.cfg.SettingsFactory:261 ] - Query language substitutions: {}
+[0108 10:21:38 INFO ] [main--org.hibernate.cfg.SettingsFactory:266 ] - JPA-QL strict compliance: enabled
+[0108 10:21:38 INFO ] [main--org.hibernate.cfg.SettingsFactory:271 ] - Second-level cache: enabled
+[0108 10:21:38 INFO ] [main--org.hibernate.cfg.SettingsFactory:275 ] - Query cache: disabled
+[0108 10:21:38 INFO ] [main--org.hibernate.cfg.SettingsFactory:406 ] - Cache region factory : org.hibernate.cache.impl.NoCachingRegionFactory
+[0108 10:21:38 INFO ] [main--org.hibernate.cfg.SettingsFactory:285 ] - Optimize cache for minimal puts: disabled
+[0108 10:21:38 INFO ] [main--org.hibernate.cfg.SettingsFactory:294 ] - Structured second-level cache entries: disabled
+[0108 10:21:38 INFO ] [main--org.hibernate.cfg.SettingsFactory:323 ] - Statistics: disabled
+[0108 10:21:38 INFO ] [main--org.hibernate.cfg.SettingsFactory:327 ] - Deleted entity synthetic identifier rollback: disabled
+[0108 10:21:38 INFO ] [main--org.hibernate.cfg.SettingsFactory:343 ] - Default entity-mode: pojo
+[0108 10:21:38 INFO ] [main--org.hibernate.cfg.SettingsFactory:347 ] - Named query checking : enabled
+[0108 10:21:38 INFO ] [main--org.hibernate.cfg.SettingsFactory:351 ] - Check Nullability in Core (should be disabled when Bean Validation is on): enabled
+[0108 10:21:38 INFO ] [main--org.hibernate.impl.SessionFactoryImpl:202 ] - building session factory
+[0108 10:21:38 INFO ] [main--org.hibernate.type.BasicTypeRegistry:150 ] - Type registration [blob] overrides previous : org.hibernate.type.BlobType@117268b
+[0108 10:21:38 INFO ] [main--org.hibernate.type.BasicTypeRegistry:150 ] - Type registration [java.sql.Blob] overrides previous : org.hibernate.type.BlobType@117268b
+[0108 10:21:38 INFO ] [main--org.hibernate.type.BasicTypeRegistry:150 ] - Type registration [clob] overrides previous : org.hibernate.type.ClobType@afb2e7
+[0108 10:21:38 INFO ] [main--org.hibernate.type.BasicTypeRegistry:150 ] - Type registration [java.sql.Clob] overrides previous : org.hibernate.type.ClobType@afb2e7
+[0108 10:21:38 INFO ] [main--org.hibernate.type.BasicTypeRegistry:150 ] - Type registration [wrapper_materialized_blob] overrides previous : org.hibernate.type.WrappedMaterializedBlobType@716b8f
+[0108 10:21:38 INFO ] [main--org.hibernate.type.BasicTypeRegistry:150 ] - Type registration [wrapper_characters_clob] overrides previous : org.hibernate.type.CharacterArrayClobType@1f1c7d0
+[0108 10:21:38 INFO ] [main--org.hibernate.type.BasicTypeRegistry:150 ] - Type registration [characters_clob] overrides previous : org.hibernate.type.PrimitiveCharacterArrayClobType@1291e95
+[0108 10:21:38 INFO ] [main--org.hibernate.type.BasicTypeRegistry:150 ] - Type registration [materialized_clob] overrides previous : org.hibernate.type.MaterializedClobType@62a130
+[0108 10:21:38 INFO ] [main--org.hibernate.type.BasicTypeRegistry:150 ] - Type registration [materialized_blob] overrides previous : org.hibernate.type.MaterializedBlobType@9fd7b7
+[0108 10:21:38 INFO ] [main--org.hibernate.impl.SessionFactoryObjectFactory:105 ] - Not binding factory to JNDI, no JNDI name configured
+[0108 10:30:15 INFO ] [main--org.springframework.context.support.ClassPathXmlApplicationContext:515 ] - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@d26103: startup date [Fri Jan 08 10:30:15 CST 2016]; root of context hierarchy
+[0108 10:30:15 INFO ] [main--org.springframework.beans.factory.xml.XmlBeanDefinitionReader:316 ] - Loading XML bean definitions from class path resource [currencysim/applicationContext.xml]
+[0108 10:30:15 INFO ] [main--org.springframework.beans.factory.xml.XmlBeanDefinitionReader:316 ] - Loading XML bean definitions from URL [file:/E:/Github/crimenetwork/crimenetwork-oracle/target/classes/database/oracle/datasourse.xml]
+[0108 10:30:15 INFO ] [main--org.springframework.beans.factory.support.DefaultListableBeanFactory:754 ] - Overriding bean definition for bean 'denominationTypeDao': replacing [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] with [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+[0108 10:30:15 INFO ] [main--org.springframework.beans.factory.support.DefaultListableBeanFactory:754 ] - Overriding bean definition for bean 'simJiabiBaseDao': replacing [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] with [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+[0108 10:30:15 INFO ] [main--org.springframework.beans.factory.support.DefaultListableBeanFactory:754 ] - Overriding bean definition for bean 'suspectBaseDao': replacing [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] with [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+[0108 10:30:15 INFO ] [main--org.springframework.beans.factory.support.DefaultListableBeanFactory:754 ] - Overriding bean definition for bean 'jiabiBaseDao': replacing [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] with [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+[0108 10:30:15 INFO ] [main--org.springframework.beans.factory.support.DefaultListableBeanFactory:754 ] - Overriding bean definition for bean 'simDenominationTypeDao': replacing [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] with [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+[0108 10:30:15 INFO ] [main--org.springframework.beans.factory.support.DefaultListableBeanFactory:754 ] - Overriding bean definition for bean 'caseBaseDao': replacing [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] with [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+[0108 10:30:16 INFO ] [main--org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:287 ] - Building JPA container EntityManagerFactory for persistence unit 'default'
+[0108 10:30:16 INFO ] [main--org.hibernate.annotations.common.Version:37 ] - Hibernate Commons Annotations 3.2.0.Final
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.Environment:603 ] - Hibernate 3.6.10.Final
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.Environment:636 ] - hibernate.properties not found
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.Environment:814 ] - Bytecode provider name : javassist
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.Environment:695 ] - using JDK 1.4 java.sql.Timestamp handling
+[0108 10:30:16 INFO ] [main--org.hibernate.ejb.Version:42 ] - Hibernate EntityManager 3.6.10.Final
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.cases.CaseBaseInfo
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.cases.CaseBaseInfo on table case_info
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.CategoryType
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.CategoryType on table jiabi_category_type
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.ClassificationNumber
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.ClassificationNumber on table Jiabi_identify
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.CurrencyCharacterTrain
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.CurrencyCharacterTrain on table currency_character_train
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.CurrencyType
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.CurrencyType on table currency_type
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.DataFrom
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.DataFrom on table data_from
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.DenominationType
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.DenominationType on table jiabi_denomination_type
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.ForgeType
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.ForgeType on table forge_type
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.JiabiBaseInfo
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.JiabiBaseInfo on table jiabi_base_info
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.JiabiBasePic
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.JiabiBasePic on table jiabi_base_pic
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.JiabiExtendInfo
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.JiabiExtendInfo on table jiabi_extend_info
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.PicType
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.PicType on table pic_type
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.VersionType
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.VersionType on table jiabi_version_type
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.jiabisim.SimDenominationType
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.jiabisim.SimDenominationType on table jiabi_denomination_type
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.jiabisim.SimJiabiBaseInfo
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.jiabisim.SimJiabiBaseInfo on table jiabi_base_info
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.share.ContinentCode
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.share.ContinentCode on table continent_code
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.share.CountryCode
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.share.CountryCode on table country_code
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.share.EduLevel
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.share.EduLevel on table edu_level
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.share.Location
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.share.Location on table location_code
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.share.LocationCode
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.share.LocationCode on table location_code
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.share.ProcessMode
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.share.ProcessMode on table process_mode
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.share.Sif
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.share.Sif on table SIF
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.share.UserInfo
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.share.UserInfo on table user_info
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.suspect.CurrentState
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.suspect.CurrentState on table current_state
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.suspect.Gender
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.suspect.Gender on table gender
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.suspect.Nation
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.suspect.Nation on table nation
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.suspect.Occupation
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.suspect.Occupation on table occupation
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.suspect.SuspectBaseInfo
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.suspect.SuspectBaseInfo on table suspect_info
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.annotations.CollectionBinder:762 ] - Mapping collection: org.crimenetwork.oracle.entity.currency.CurrencyType.jiabiBaseInfos -> jiabi_base_info
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.annotations.CollectionBinder:762 ] - Mapping collection: org.crimenetwork.oracle.entity.currency.JiabiBaseInfo.jiabiBasePics -> jiabi_base_pic
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.annotations.CollectionBinder:762 ] - Mapping collection: org.crimenetwork.oracle.entity.currency.JiabiBaseInfo.jiabiExtendInfos -> jiabi_extend_info
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.annotations.CollectionBinder:762 ] - Mapping collection: org.crimenetwork.oracle.entity.jiabisim.SimDenominationType.jiabiBaseInfos -> jiabi_base_info
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.annotations.CollectionBinder:762 ] - Mapping collection: org.crimenetwork.oracle.entity.jiabisim.SimJiabiBaseInfo.jiabiBasePics -> jiabi_base_pic
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.annotations.CollectionBinder:762 ] - Mapping collection: org.crimenetwork.oracle.entity.suspect.Nation.suspectInfos -> suspect_info
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.Configuration:1676 ] - Hibernate Validator not found: ignoring
+[0108 10:30:16 INFO ] [main--org.hibernate.cfg.search.HibernateSearchEventListenerRegister:75 ] - Unable to find org.hibernate.search.event.FullTextIndexEventListener on the classpath. Hibernate Search is not enabled.
+[0108 10:30:16 INFO ] [main--org.hibernate.connection.ConnectionProviderFactory:173 ] - Initializing connection provider: org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider
+[0108 10:30:16 INFO ] [main--org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider:62 ] - Using provided datasource
+[0108 10:30:17 INFO ] [main--org.hibernate.dialect.Dialect:136 ] - Using dialect: org.hibernate.dialect.OracleDialect
+[0108 10:30:17 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
+[0108 10:30:17 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
+[0108 10:30:17 INFO ] [main--org.hibernate.cfg.SettingsFactory:126 ] - Database ->
+       name : Oracle
+    version : Oracle Database 11g Enterprise Edition Release 11.1.0.6.0 - Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+      major : 11
+      minor : 1
+[0108 10:30:17 INFO ] [main--org.hibernate.cfg.SettingsFactory:132 ] - Driver ->
+       name : Oracle JDBC driver
+    version : 11.2.0.1.0
+      major : 11
+      minor : 2
+[0108 10:30:17 INFO ] [main--org.hibernate.transaction.TransactionFactoryFactory:62 ] - Using default transaction strategy (direct JDBC transactions)
+[0108 10:30:17 INFO ] [main--org.hibernate.transaction.TransactionManagerLookupFactory:83 ] - No TransactionManagerLookup configured (in JTA environment, use of read-write or transactional second-level cache is not recommended)
+[0108 10:30:17 INFO ] [main--org.hibernate.cfg.SettingsFactory:179 ] - Automatic flush during beforeCompletion(): disabled
+[0108 10:30:17 INFO ] [main--org.hibernate.cfg.SettingsFactory:183 ] - Automatic session close at end of transaction: disabled
+[0108 10:30:17 INFO ] [main--org.hibernate.cfg.SettingsFactory:190 ] - JDBC batch size: 15
+[0108 10:30:17 INFO ] [main--org.hibernate.cfg.SettingsFactory:193 ] - JDBC batch updates for versioned data: disabled
+[0108 10:30:17 INFO ] [main--org.hibernate.cfg.SettingsFactory:198 ] - Scrollable result sets: enabled
+[0108 10:30:17 INFO ] [main--org.hibernate.cfg.SettingsFactory:206 ] - JDBC3 getGeneratedKeys(): disabled
+[0108 10:30:17 INFO ] [main--org.hibernate.cfg.SettingsFactory:214 ] - Connection release mode: auto
+[0108 10:30:17 INFO ] [main--org.hibernate.cfg.SettingsFactory:241 ] - Default batch fetch size: 1
+[0108 10:30:17 INFO ] [main--org.hibernate.cfg.SettingsFactory:245 ] - Generate SQL with comments: disabled
+[0108 10:30:17 INFO ] [main--org.hibernate.cfg.SettingsFactory:249 ] - Order SQL updates by primary key: disabled
+[0108 10:30:17 INFO ] [main--org.hibernate.cfg.SettingsFactory:253 ] - Order SQL inserts for batching: disabled
+[0108 10:30:17 INFO ] [main--org.hibernate.cfg.SettingsFactory:431 ] - Query translator: org.hibernate.hql.ast.ASTQueryTranslatorFactory
+[0108 10:30:17 INFO ] [main--org.hibernate.hql.ast.ASTQueryTranslatorFactory:47 ] - Using ASTQueryTranslatorFactory
+[0108 10:30:17 INFO ] [main--org.hibernate.cfg.SettingsFactory:261 ] - Query language substitutions: {}
+[0108 10:30:17 INFO ] [main--org.hibernate.cfg.SettingsFactory:266 ] - JPA-QL strict compliance: enabled
+[0108 10:30:17 INFO ] [main--org.hibernate.cfg.SettingsFactory:271 ] - Second-level cache: enabled
+[0108 10:30:17 INFO ] [main--org.hibernate.cfg.SettingsFactory:275 ] - Query cache: disabled
+[0108 10:30:17 INFO ] [main--org.hibernate.cfg.SettingsFactory:406 ] - Cache region factory : org.hibernate.cache.impl.NoCachingRegionFactory
+[0108 10:30:17 INFO ] [main--org.hibernate.cfg.SettingsFactory:285 ] - Optimize cache for minimal puts: disabled
+[0108 10:30:17 INFO ] [main--org.hibernate.cfg.SettingsFactory:294 ] - Structured second-level cache entries: disabled
+[0108 10:30:17 INFO ] [main--org.hibernate.cfg.SettingsFactory:323 ] - Statistics: disabled
+[0108 10:30:17 INFO ] [main--org.hibernate.cfg.SettingsFactory:327 ] - Deleted entity synthetic identifier rollback: disabled
+[0108 10:30:17 INFO ] [main--org.hibernate.cfg.SettingsFactory:343 ] - Default entity-mode: pojo
+[0108 10:30:17 INFO ] [main--org.hibernate.cfg.SettingsFactory:347 ] - Named query checking : enabled
+[0108 10:30:17 INFO ] [main--org.hibernate.cfg.SettingsFactory:351 ] - Check Nullability in Core (should be disabled when Bean Validation is on): enabled
+[0108 10:30:17 INFO ] [main--org.hibernate.impl.SessionFactoryImpl:202 ] - building session factory
+[0108 10:30:17 INFO ] [main--org.hibernate.type.BasicTypeRegistry:150 ] - Type registration [blob] overrides previous : org.hibernate.type.BlobType@117268b
+[0108 10:30:17 INFO ] [main--org.hibernate.type.BasicTypeRegistry:150 ] - Type registration [java.sql.Blob] overrides previous : org.hibernate.type.BlobType@117268b
+[0108 10:30:17 INFO ] [main--org.hibernate.type.BasicTypeRegistry:150 ] - Type registration [clob] overrides previous : org.hibernate.type.ClobType@afb2e7
+[0108 10:30:17 INFO ] [main--org.hibernate.type.BasicTypeRegistry:150 ] - Type registration [java.sql.Clob] overrides previous : org.hibernate.type.ClobType@afb2e7
+[0108 10:30:17 INFO ] [main--org.hibernate.type.BasicTypeRegistry:150 ] - Type registration [wrapper_materialized_blob] overrides previous : org.hibernate.type.WrappedMaterializedBlobType@716b8f
+[0108 10:30:17 INFO ] [main--org.hibernate.type.BasicTypeRegistry:150 ] - Type registration [wrapper_characters_clob] overrides previous : org.hibernate.type.CharacterArrayClobType@1f1c7d0
+[0108 10:30:17 INFO ] [main--org.hibernate.type.BasicTypeRegistry:150 ] - Type registration [characters_clob] overrides previous : org.hibernate.type.PrimitiveCharacterArrayClobType@1291e95
+[0108 10:30:17 INFO ] [main--org.hibernate.type.BasicTypeRegistry:150 ] - Type registration [materialized_clob] overrides previous : org.hibernate.type.MaterializedClobType@62a130
+[0108 10:30:17 INFO ] [main--org.hibernate.type.BasicTypeRegistry:150 ] - Type registration [materialized_blob] overrides previous : org.hibernate.type.MaterializedBlobType@9fd7b7
+[0108 10:30:17 INFO ] [main--org.hibernate.impl.SessionFactoryObjectFactory:105 ] - Not binding factory to JNDI, no JNDI name configured
+[0108 10:36:27 INFO ] [main--org.springframework.context.support.ClassPathXmlApplicationContext:515 ] - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@618821: startup date [Fri Jan 08 10:36:27 CST 2016]; root of context hierarchy
+[0108 10:36:27 INFO ] [main--org.springframework.beans.factory.xml.XmlBeanDefinitionReader:316 ] - Loading XML bean definitions from class path resource [currencysim/applicationContext.xml]
+[0108 10:36:27 INFO ] [main--org.springframework.beans.factory.xml.XmlBeanDefinitionReader:316 ] - Loading XML bean definitions from URL [file:/E:/Github/crimenetwork/crimenetwork-oracle/target/classes/database/oracle/datasourse.xml]
+[0108 10:36:27 INFO ] [main--org.springframework.beans.factory.support.DefaultListableBeanFactory:754 ] - Overriding bean definition for bean 'jiabiBaseDao': replacing [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] with [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+[0108 10:36:27 INFO ] [main--org.springframework.beans.factory.support.DefaultListableBeanFactory:754 ] - Overriding bean definition for bean 'simDenominationTypeDao': replacing [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] with [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+[0108 10:36:27 INFO ] [main--org.springframework.beans.factory.support.DefaultListableBeanFactory:754 ] - Overriding bean definition for bean 'simJiabiBaseDao': replacing [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] with [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+[0108 10:36:27 INFO ] [main--org.springframework.beans.factory.support.DefaultListableBeanFactory:754 ] - Overriding bean definition for bean 'suspectBaseDao': replacing [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] with [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+[0108 10:36:27 INFO ] [main--org.springframework.beans.factory.support.DefaultListableBeanFactory:754 ] - Overriding bean definition for bean 'denominationTypeDao': replacing [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] with [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+[0108 10:36:27 INFO ] [main--org.springframework.beans.factory.support.DefaultListableBeanFactory:754 ] - Overriding bean definition for bean 'caseBaseDao': replacing [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] with [Root bean: class [org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null]
+[0108 10:36:28 INFO ] [main--org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:287 ] - Building JPA container EntityManagerFactory for persistence unit 'default'
+[0108 10:36:28 INFO ] [main--org.hibernate.annotations.common.Version:37 ] - Hibernate Commons Annotations 3.2.0.Final
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.Environment:603 ] - Hibernate 3.6.10.Final
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.Environment:636 ] - hibernate.properties not found
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.Environment:814 ] - Bytecode provider name : javassist
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.Environment:695 ] - using JDK 1.4 java.sql.Timestamp handling
+[0108 10:36:28 INFO ] [main--org.hibernate.ejb.Version:42 ] - Hibernate EntityManager 3.6.10.Final
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.cases.CaseBaseInfo
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.cases.CaseBaseInfo on table case_info
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.CategoryType
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.CategoryType on table jiabi_category_type
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.ClassificationNumber
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.ClassificationNumber on table Jiabi_identify
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.CurrencyCharacterTrain
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.CurrencyCharacterTrain on table currency_character_train
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.CurrencyType
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.CurrencyType on table currency_type
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.DataFrom
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.DataFrom on table data_from
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.DenominationType
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.DenominationType on table jiabi_denomination_type
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.ForgeType
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.ForgeType on table forge_type
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.JiabiBaseInfo
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.JiabiBaseInfo on table jiabi_base_info
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.JiabiBasePic
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.JiabiBasePic on table jiabi_base_pic
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.JiabiExtendInfo
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.JiabiExtendInfo on table jiabi_extend_info
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.PicType
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.PicType on table pic_type
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.currency.VersionType
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.currency.VersionType on table jiabi_version_type
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.jiabisim.SimDenominationType
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.jiabisim.SimDenominationType on table jiabi_denomination_type
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.jiabisim.SimJiabiBaseInfo
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.jiabisim.SimJiabiBaseInfo on table jiabi_base_info
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.share.ContinentCode
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.share.ContinentCode on table continent_code
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.share.CountryCode
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.share.CountryCode on table country_code
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.share.EduLevel
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.share.EduLevel on table edu_level
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.share.Location
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.share.Location on table location_code
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.share.LocationCode
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.share.LocationCode on table location_code
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.share.ProcessMode
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.share.ProcessMode on table process_mode
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.share.Sif
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.share.Sif on table SIF
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.share.UserInfo
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.share.UserInfo on table user_info
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.suspect.CurrentState
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.suspect.CurrentState on table current_state
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.suspect.Gender
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.suspect.Gender on table gender
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.suspect.Nation
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.suspect.Nation on table nation
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.suspect.Occupation
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.suspect.Occupation on table occupation
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.AnnotationBinder:532 ] - Binding entity from annotated class: org.crimenetwork.oracle.entity.suspect.SuspectBaseInfo
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.annotations.EntityBinder:530 ] - Bind entity org.crimenetwork.oracle.entity.suspect.SuspectBaseInfo on table suspect_info
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.annotations.CollectionBinder:762 ] - Mapping collection: org.crimenetwork.oracle.entity.currency.CurrencyType.jiabiBaseInfos -> jiabi_base_info
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.annotations.CollectionBinder:762 ] - Mapping collection: org.crimenetwork.oracle.entity.currency.JiabiBaseInfo.jiabiBasePics -> jiabi_base_pic
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.annotations.CollectionBinder:762 ] - Mapping collection: org.crimenetwork.oracle.entity.currency.JiabiBaseInfo.jiabiExtendInfos -> jiabi_extend_info
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.annotations.CollectionBinder:762 ] - Mapping collection: org.crimenetwork.oracle.entity.jiabisim.SimDenominationType.jiabiBaseInfos -> jiabi_base_info
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.annotations.CollectionBinder:762 ] - Mapping collection: org.crimenetwork.oracle.entity.jiabisim.SimJiabiBaseInfo.jiabiBasePics -> jiabi_base_pic
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.annotations.CollectionBinder:762 ] - Mapping collection: org.crimenetwork.oracle.entity.suspect.Nation.suspectInfos -> suspect_info
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.Configuration:1676 ] - Hibernate Validator not found: ignoring
+[0108 10:36:28 INFO ] [main--org.hibernate.cfg.search.HibernateSearchEventListenerRegister:75 ] - Unable to find org.hibernate.search.event.FullTextIndexEventListener on the classpath. Hibernate Search is not enabled.
+[0108 10:36:28 INFO ] [main--org.hibernate.connection.ConnectionProviderFactory:173 ] - Initializing connection provider: org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider
+[0108 10:36:28 INFO ] [main--org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider:62 ] - Using provided datasource
+[0108 10:36:29 INFO ] [main--org.hibernate.dialect.Dialect:136 ] - Using dialect: org.hibernate.dialect.OracleDialect
+[0108 10:36:29 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
+[0108 10:36:29 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
+[0108 10:36:29 INFO ] [main--org.hibernate.cfg.SettingsFactory:126 ] - Database ->
+       name : Oracle
+    version : Oracle Database 11g Enterprise Edition Release 11.1.0.6.0 - Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+      major : 11
+      minor : 1
+[0108 10:36:29 INFO ] [main--org.hibernate.cfg.SettingsFactory:132 ] - Driver ->
+       name : Oracle JDBC driver
+    version : 11.2.0.1.0
+      major : 11
+      minor : 2
+[0108 10:36:29 INFO ] [main--org.hibernate.transaction.TransactionFactoryFactory:62 ] - Using default transaction strategy (direct JDBC transactions)
+[0108 10:36:29 INFO ] [main--org.hibernate.transaction.TransactionManagerLookupFactory:83 ] - No TransactionManagerLookup configured (in JTA environment, use of read-write or transactional second-level cache is not recommended)
+[0108 10:36:29 INFO ] [main--org.hibernate.cfg.SettingsFactory:179 ] - Automatic flush during beforeCompletion(): disabled
+[0108 10:36:29 INFO ] [main--org.hibernate.cfg.SettingsFactory:183 ] - Automatic session close at end of transaction: disabled
+[0108 10:36:29 INFO ] [main--org.hibernate.cfg.SettingsFactory:190 ] - JDBC batch size: 15
+[0108 10:36:29 INFO ] [main--org.hibernate.cfg.SettingsFactory:193 ] - JDBC batch updates for versioned data: disabled
+[0108 10:36:29 INFO ] [main--org.hibernate.cfg.SettingsFactory:198 ] - Scrollable result sets: enabled
+[0108 10:36:29 INFO ] [main--org.hibernate.cfg.SettingsFactory:206 ] - JDBC3 getGeneratedKeys(): disabled
+[0108 10:36:29 INFO ] [main--org.hibernate.cfg.SettingsFactory:214 ] - Connection release mode: auto
+[0108 10:36:29 INFO ] [main--org.hibernate.cfg.SettingsFactory:241 ] - Default batch fetch size: 1
+[0108 10:36:29 INFO ] [main--org.hibernate.cfg.SettingsFactory:245 ] - Generate SQL with comments: disabled
+[0108 10:36:29 INFO ] [main--org.hibernate.cfg.SettingsFactory:249 ] - Order SQL updates by primary key: disabled
+[0108 10:36:29 INFO ] [main--org.hibernate.cfg.SettingsFactory:253 ] - Order SQL inserts for batching: disabled
+[0108 10:36:29 INFO ] [main--org.hibernate.cfg.SettingsFactory:431 ] - Query translator: org.hibernate.hql.ast.ASTQueryTranslatorFactory
+[0108 10:36:29 INFO ] [main--org.hibernate.hql.ast.ASTQueryTranslatorFactory:47 ] - Using ASTQueryTranslatorFactory
+[0108 10:36:29 INFO ] [main--org.hibernate.cfg.SettingsFactory:261 ] - Query language substitutions: {}
+[0108 10:36:29 INFO ] [main--org.hibernate.cfg.SettingsFactory:266 ] - JPA-QL strict compliance: enabled
+[0108 10:36:29 INFO ] [main--org.hibernate.cfg.SettingsFactory:271 ] - Second-level cache: enabled
+[0108 10:36:29 INFO ] [main--org.hibernate.cfg.SettingsFactory:275 ] - Query cache: disabled
+[0108 10:36:29 INFO ] [main--org.hibernate.cfg.SettingsFactory:406 ] - Cache region factory : org.hibernate.cache.impl.NoCachingRegionFactory
+[0108 10:36:29 INFO ] [main--org.hibernate.cfg.SettingsFactory:285 ] - Optimize cache for minimal puts: disabled
+[0108 10:36:29 INFO ] [main--org.hibernate.cfg.SettingsFactory:294 ] - Structured second-level cache entries: disabled
+[0108 10:36:29 INFO ] [main--org.hibernate.cfg.SettingsFactory:323 ] - Statistics: disabled
+[0108 10:36:29 INFO ] [main--org.hibernate.cfg.SettingsFactory:327 ] - Deleted entity synthetic identifier rollback: disabled
+[0108 10:36:29 INFO ] [main--org.hibernate.cfg.SettingsFactory:343 ] - Default entity-mode: pojo
+[0108 10:36:29 INFO ] [main--org.hibernate.cfg.SettingsFactory:347 ] - Named query checking : enabled
+[0108 10:36:29 INFO ] [main--org.hibernate.cfg.SettingsFactory:351 ] - Check Nullability in Core (should be disabled when Bean Validation is on): enabled
+[0108 10:36:29 INFO ] [main--org.hibernate.impl.SessionFactoryImpl:202 ] - building session factory
+[0108 10:36:29 INFO ] [main--org.hibernate.type.BasicTypeRegistry:150 ] - Type registration [wrapper_characters_clob] overrides previous : org.hibernate.type.CharacterArrayClobType@1e7c47
+[0108 10:36:29 INFO ] [main--org.hibernate.type.BasicTypeRegistry:150 ] - Type registration [characters_clob] overrides previous : org.hibernate.type.PrimitiveCharacterArrayClobType@de1fb5
+[0108 10:36:29 INFO ] [main--org.hibernate.type.BasicTypeRegistry:150 ] - Type registration [materialized_blob] overrides previous : org.hibernate.type.MaterializedBlobType@74bff1
+[0108 10:36:29 INFO ] [main--org.hibernate.type.BasicTypeRegistry:150 ] - Type registration [blob] overrides previous : org.hibernate.type.BlobType@3b9f2b
+[0108 10:36:29 INFO ] [main--org.hibernate.type.BasicTypeRegistry:150 ] - Type registration [java.sql.Blob] overrides previous : org.hibernate.type.BlobType@3b9f2b
+[0108 10:36:29 INFO ] [main--org.hibernate.type.BasicTypeRegistry:150 ] - Type registration [clob] overrides previous : org.hibernate.type.ClobType@1ea1ba6
+[0108 10:36:29 INFO ] [main--org.hibernate.type.BasicTypeRegistry:150 ] - Type registration [java.sql.Clob] overrides previous : org.hibernate.type.ClobType@1ea1ba6
+[0108 10:36:29 INFO ] [main--org.hibernate.type.BasicTypeRegistry:150 ] - Type registration [materialized_clob] overrides previous : org.hibernate.type.MaterializedClobType@1e9b7b2
+[0108 10:36:29 INFO ] [main--org.hibernate.type.BasicTypeRegistry:150 ] - Type registration [wrapper_materialized_blob] overrides previous : org.hibernate.type.WrappedMaterializedBlobType@bd92e4
+[0108 10:36:29 INFO ] [main--org.hibernate.impl.SessionFactoryObjectFactory:105 ] - Not binding factory to JNDI, no JNDI name configured

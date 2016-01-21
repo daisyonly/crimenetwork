@@ -7,17 +7,14 @@ public class MapHelper {
 	
 
 	public static void write(String start,HashMap<String, HashMap<Integer, Double>> result,
-			String dataPath) {
-		FileUtil fileUtil=new FileUtil(dataPath, "out",true);
+			FileUtil fileData) {
 		for(Map.Entry<String, HashMap<Integer, Double>> entry: result.entrySet()){
 			String end=entry.getKey();
-			fileUtil.writeLine(start+" "+end);
+			fileData.writeLine(start+" "+end);
 			for(Map.Entry<Integer, Double> type:entry.getValue().entrySet()){
-				fileUtil.writeLine(type.getKey()+" "+type.getValue());
+				fileData.writeLine(type.getKey()+" "+type.getValue());
 			}
-		}
-		fileUtil.close();
-		
+		}		
 	}
 	
 

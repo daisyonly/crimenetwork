@@ -1,6 +1,6 @@
 package org.crimenetwork.oracle.entity.currency;
 
-import java.sql.Timestamp;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -76,10 +76,10 @@ public class JiabiBaseInfo{
 	private String runningNumber;
 	
 	@Column(name="receive_time")
-	private Timestamp receiveTime;
+	private Date receiveTime;
 	
 	@Column(name="create_time")
-	private Timestamp createTime;
+	private Date createTime;
 	@Column
 	private Long quantity;
 	@Column
@@ -94,10 +94,10 @@ public class JiabiBaseInfo{
 	private String state;
 	@Column
 	private String remark;
-	@Column
-	private Long small_pic;
-	@Column
-	private String piaoyang_number;
+	@Column(name="small_pic")
+	private Long smallPic;
+	@Column(name="piaoyang_number")
+	private String piaoyangNumber;
 	
 	@OneToMany(mappedBy="jiabiBaseInfo",fetch=FetchType.EAGER)
 	private Set<JiabiExtendInfo> jiabiExtendInfos = new HashSet<JiabiExtendInfo>(0);
@@ -205,17 +205,17 @@ public class JiabiBaseInfo{
 	public void setRunningNumber(String runningNumber) {
 		this.runningNumber = runningNumber;
 	}
-	public Timestamp getReceiveTime() {
+	public Date getReceiveTime() {
 		return receiveTime;
 	}
-	public void setReceiveTime(Timestamp receiveTime) {
+	public void setReceiveTime(Date receiveTime) {
 		this.receiveTime = receiveTime;
 	}
 	
-	public Timestamp getCreateTime() {
+	public Date getCreateTime() {
 		return createTime;
 	}
-	public void setCreateTime(Timestamp createTime) {
+	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
 	public Long getQuantity() {
@@ -264,17 +264,18 @@ public class JiabiBaseInfo{
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
-	public String getPiaoyang_number() {
-		return piaoyang_number;
+	
+	public Long getSmallPic() {
+		return smallPic;
 	}
-	public void setPiaoyang_number(String piaoyangNumber) {
-		piaoyang_number = piaoyangNumber;
+	public void setSmallPic(Long smallPic) {
+		this.smallPic = smallPic;
 	}
-	public Long getSmall_pic() {
-		return small_pic;
+	public String getPiaoyangNumber() {
+		return piaoyangNumber;
 	}
-	public void setSmall_pic(Long smallPic) {
-		small_pic = smallPic;
+	public void setPiaoyangNnumber(String piaoyangNumber) {
+		this.piaoyangNumber = piaoyangNumber;
 	}
 	public String getCaseNo() {
 		return caseNo;

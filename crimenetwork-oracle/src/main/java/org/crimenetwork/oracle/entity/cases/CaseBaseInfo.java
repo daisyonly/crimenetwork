@@ -17,13 +17,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.crimenetwork.oracle.entity.currency.JiabiBaseInfo;
 import org.crimenetwork.oracle.entity.share.Location;
 import org.crimenetwork.oracle.entity.suspect.SuspectBaseInfo;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
+
 
 @Entity
 @Table(name="case_info", schema="system")
@@ -63,6 +63,25 @@ public class CaseBaseInfo {
 	@JoinColumn(name="case_happen_location")
 	@NotFound(action=NotFoundAction.IGNORE)
 	private Location caseHappenLocation;
+	
+	@Column(name="case_happen_time")
+	private Date caseHappenTime;//案发时间
+	@Column(name="case_happen_detail_adress", length=200)
+	private String caseHappenDetailAddress;//案发详细地址
+	
+	@Column(name="den_location_dettail", length=50)
+	private String denLocation;//窝点详细地址
+	@Column(name="prosecution_time", length=7)
+	private Date prosecutionTime;//起诉时间
+	@Column(name="fir_sec_trial_time", length=7)
+	private Date firSecTrialTime;//一二审时间
+	@Column(name="scene_Seized_Description", length=300)
+	private String sceneSeizedDescription;//现场缴获
+	@Column(name="seized_cc_description", length=300)
+	private String seizedCcDescription;//缴获假币情况
+	@Column(name="seized_total_description", length=300)
+	private String seizedTotalDescription;//交货金额
+	
 	public String getBriefInfo() {
 		return briefInfo;
 	}
@@ -123,10 +142,61 @@ public class CaseBaseInfo {
 	public void setCaseHappenLocation(Location caseHappenLocation) {
 		this.caseHappenLocation = caseHappenLocation;
 	}
+	
+	public Date getCaseHappenTime() {
+		return caseHappenTime;
+	}
+	public void setCaseHappenTime(Date caseHappenTime) {
+		this.caseHappenTime = caseHappenTime;
+	}
+	public String getCaseHappenDetailAddress() {
+		return caseHappenDetailAddress;
+	}
+	public void setCaseHappenDetailAddress(String caseHappenDetailAddress) {
+		this.caseHappenDetailAddress = caseHappenDetailAddress;
+	}
+	public String getDenLocation() {
+		return denLocation;
+	}
+	public void setDenLocation(String denLocation) {
+		this.denLocation = denLocation;
+	}
+	public Date getProsecutionTime() {
+		return prosecutionTime;
+	}
+	public void setProsecutionTime(Date prosecutionTime) {
+		this.prosecutionTime = prosecutionTime;
+	}
+	public Date getFirSecTrialTime() {
+		return firSecTrialTime;
+	}
+	public void setFirSecTrialTime(Date firSecTrialTime) {
+		this.firSecTrialTime = firSecTrialTime;
+	}
+	public String getSceneSeizedDescription() {
+		return sceneSeizedDescription;
+	}
+	public void setSceneSeizedDescription(String sceneSeizedDescription) {
+		this.sceneSeizedDescription = sceneSeizedDescription;
+	}
+	public String getSeizedCcDescription() {
+		return seizedCcDescription;
+	}
+	public void setSeizedCcDescription(String seizedCcDescription) {
+		this.seizedCcDescription = seizedCcDescription;
+	}
+	public String getSeizedTotalDescription() {
+		return seizedTotalDescription;
+	}
+	public void setSeizedTotalDescription(String seizedTotalDescription) {
+		this.seizedTotalDescription = seizedTotalDescription;
+	}
 	@Override
 	public String toString() {
 		
 		return ToStringBuilder.reflectionToString(this);
 	}
+	
+	
 	
 }

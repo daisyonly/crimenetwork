@@ -52,7 +52,7 @@ public class Dalian {
     private String getGet(String s_url){
     	URL url;
         HttpURLConnection httpURLConn;
-        System.out.println(s_url);
+        //fileUtil.writeLine(s_url);
         String result="";
         try
         {
@@ -69,13 +69,13 @@ public class Dalian {
         }catch (Exception e){
             e.printStackTrace();
         }
-        fileUtil.writeLine(result);
+        //fileUtil.writeLine(result);
         return result;
     }
     
     private String getPost(String s_url,String s_para){
     	String result ="";
-    	System.out.println("s_url:"+s_url);
+    	fileUtil.writeLine("s_url:"+s_url);
     	fileUtil.writeLine("s_para"+s_para);
     	
     	try{
