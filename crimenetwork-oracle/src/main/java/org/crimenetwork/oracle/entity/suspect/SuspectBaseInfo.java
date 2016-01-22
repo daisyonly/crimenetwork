@@ -54,7 +54,7 @@ public class SuspectBaseInfo {
 	private Gender gender;//性别
 	@Column(name="phone_number")
 	private String phoneNumber;//电话号码
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name="case_suspect",
 		joinColumns=@JoinColumn(name="suspect_id"),
 		inverseJoinColumns=@JoinColumn(name="case_id")

@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 
+import org.crimenetwork.dataextraction.utility.FileUtil;
+
 public class MapHelper {
 	public static void write(HashMap<String, HashSet<String>> edges,String path) {
 		FileUtil fileUtil=new FileUtil(path, "out",false);
