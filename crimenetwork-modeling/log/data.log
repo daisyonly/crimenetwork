@@ -405,3 +405,7 @@ With the Partitioning, OLAP, Data Mining and Real Application Testing options
 [0121 15:35:17 INFO ] [main--org.springframework.transaction.jta.JtaTransactionManager:501 ] - Using JTA TransactionManager: org.neo4j.rest.graphdb.transaction.NullTransactionManager@186d8c3
 [0121 15:47:09 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
 [0121 15:47:09 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
+[0121 17:12:21 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
+[0121 17:12:21 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead
+[0121 17:33:36 WARN ] [main--org.hibernate.dialect.Oracle9Dialect:60 ] - The Oracle9Dialect dialect has been deprecated; use either Oracle9iDialect or Oracle10gDialect instead
+[0121 17:33:36 WARN ] [main--org.hibernate.dialect.OracleDialect:48 ] - The OracleDialect dialect has been deprecated; use Oracle8iDialect instead

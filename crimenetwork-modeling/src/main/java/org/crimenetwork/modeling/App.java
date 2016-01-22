@@ -28,9 +28,9 @@ public class App
 		//CrimeCaseRepository crimeCaseRepository=(CrimeCaseRepository) context.getBean("crimeCaseRepository");
 		
 		//CrimeCase cc=crimeCaseRepository.findByCaseId("A4401111502002006120001");
-		//CaseService caseService = (CaseService) context.getBean("caseService");
+		CaseService caseService = (CaseService) context.getBean("caseService");
 
-		//caseService.moveALLData();
+		caseService.moveALLData();
 		
 		CurrencyService currencyService = (CurrencyService) context.getBean("currencyService");
 
