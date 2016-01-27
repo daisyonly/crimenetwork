@@ -1,12 +1,8 @@
 package org.crimenetwork.oracle.entity.suspect;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.crimenetwork.oracle.entity.share.IBasicCode;

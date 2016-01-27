@@ -5,18 +5,13 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.crimenetwork.oracle.entity.share.IBasicCode;
-
-
-/**
- * Accent entity. @author MyEclipse Persistence Tools
- */
 @Entity
-@Table(name="nation",schema="system")
-public class Nation implements IBasicCode{
-
+@Table(name="blood_type",schema="system")
+public class BloodType{
 	@Id
 	private String code;
+	@Column
+	private String name;
 	@Column
 	private String description;
 	
@@ -39,8 +34,6 @@ public class Nation implements IBasicCode{
 	public void setName(String name) {
 		this.name = name;
 	}
-	@Column
-	private String name;
 	
 	@Override
 	public String toString(){

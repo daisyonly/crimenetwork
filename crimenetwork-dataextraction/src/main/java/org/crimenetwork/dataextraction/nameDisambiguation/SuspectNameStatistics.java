@@ -2,10 +2,9 @@ package org.crimenetwork.dataextraction.nameDisambiguation;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-
-import javax.print.attribute.standard.Fidelity;
 
 import org.crimenetwork.dataextraction.utility.FileUtil;
 import org.crimenetwork.oracle.entity.suspect.SuspectBaseInfo;
@@ -26,16 +25,23 @@ public class SuspectNameStatistics {
 
     public void run()
     {
-    	FileUtil fileUtil=new FileUtil("C:\\Users\\Daisy\\Desktop\\name2.txt","out", false);
+    	FileUtil fileUtil=new FileUtil("C:\\Users\\Daisy\\Desktop\\name3.txt","out", false);
     	System.out.println("Process suspect data start.");
     	int onepage=1000;
     	long count = suspectBaseDao.count();
     	HashMap<String, Integer> countName=new HashMap<String, Integer>();
     	int countAlia=0;
+    	HashSet<String> countId=new HashSet<String>();
     	for(int i=0;i<=count/onepage;i++){
     		Page<SuspectBaseInfo> readPage = suspectBaseDao.findAll(new PageRequest(i, onepage));
     		for(SuspectBaseInfo cbi:readPage.getContent()){
-        		 if(countName.containsKey(cbi.getName())){
+        		if(cbi.getSuspectId()!=null){
+        			if(countId.contains(cbi.getSuspectId())){
+            			continue;
+            		} 
+            		countId.add(cbi.getSuspectId());
+        		}
+    			if(countName.containsKey(cbi.getName())){
         			 countName.put(cbi.getName(), countName.get(cbi.getName())+1);
         		 }else{
         			 countName.put(cbi.getName(), 1);
@@ -44,7 +50,8 @@ public class SuspectNameStatistics {
         	}
     		System.out.println("The number of completed items: "+(i*onepage+readPage.getContent().size()));
     	}
-    	List<String> scount[]= new List[500];
+    	@SuppressWarnings("unchecked")
+		List<String> scount[]= new List[500];
     	for(int i=0;i<500;i++){
     		scount[i]=new ArrayList<String>();
     	}
@@ -58,11 +65,11 @@ public class SuspectNameStatistics {
     	for(int i=499;i>=2;i--){
     		if(scount[i].size()!=0){
     			fileUtil.writeLine("重复次数："+i+" 共"+scount[i].size()+"人");
-    			/*
+    			
     			for(String str:scount[i]){
     				fileUtil.write(str+", ");
-    			}*/
-    			//fileUtil.newLine();
+    			}
+    			fileUtil.newLine();
     		}
     	}
     	fileUtil.close();
@@ -71,4 +78,6 @@ public class SuspectNameStatistics {
     	System.out.println("Process suspect data end.");
     	System.out.println();
     }
+    
+   
 }

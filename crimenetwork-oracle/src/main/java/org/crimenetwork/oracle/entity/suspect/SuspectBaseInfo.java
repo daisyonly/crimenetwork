@@ -1,5 +1,6 @@
 package org.crimenetwork.oracle.entity.suspect;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,13 +18,11 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.crimenetwork.oracle.entity.cases.CaseBaseInfo;
+import org.crimenetwork.oracle.entity.share.CountryCode;
 import org.crimenetwork.oracle.entity.share.Location;
 import org.crimenetwork.oracle.entity.share.Sif;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
-
-
-
 
 @Entity
 @Table(name="suspect_info",schema="SYSTEM")
@@ -35,7 +34,7 @@ public class SuspectBaseInfo {
 	@Column(name="suspect_id")
 	private String suspectId;
 	@Column
-	private String name;
+	private String name;//姓名
 	
 	@Column
 	private String alias;//曾用名
@@ -67,7 +66,7 @@ public class SuspectBaseInfo {
 	private Nation nation;//民族
 	
 	@Column(name="case_info")
-	private String caseInfo;
+	private String caseInfo;//涉案信息
 	
 	@ManyToOne
 	@JoinColumn(name="accent")
@@ -93,7 +92,7 @@ public class SuspectBaseInfo {
 	@ManyToOne
 	@JoinColumn(name="work")
 	@NotFound(action=NotFoundAction.IGNORE)
-	private Occupation occupation;
+	private Occupation occupation;//职业
 	
 	@ManyToOne
 	@JoinColumn(name="is_lc")//是否流窜
@@ -109,9 +108,9 @@ public class SuspectBaseInfo {
 	private Sif  isHabitualOffender;
 	
 	@Column(name="qq_number")
-	private String qqNumber;
+	private String qqNumber;//qq号码
 	@Column(name="bank_account")
-	private String bankAccount;
+	private String bankAccount;//银行账号
 	
 	
 	@Column(name="handwriting_num")
@@ -120,6 +119,60 @@ public class SuspectBaseInfo {
 	private String fingerprintNum;//指纹采集编号
 	@Column(name="dna_num")
 	private String dnaNum;//DNA采集编号
+	
+	
+	@ManyToOne
+	@JoinColumn(name="body_type")
+	@NotFound(action=NotFoundAction.IGNORE)
+	private BodyType bodyType;//体型
+	
+	@ManyToOne
+	@JoinColumn(name="marriage_state")
+	@NotFound(action=NotFoundAction.IGNORE)
+	private MarriageState marriageState;
+	
+	@ManyToOne
+	@JoinColumn(name="nationality")
+	@NotFound(action=NotFoundAction.IGNORE)
+	private CountryCode countryCode;//国籍
+	
+	@ManyToOne
+	@JoinColumn(name="blood_type")
+	@NotFound(action=NotFoundAction.IGNORE)
+	private BloodType bloodType;
+	
+	@ManyToOne
+	@JoinColumn(name="face_type")
+	@NotFound(action=NotFoundAction.IGNORE)
+	private FaceType faceType;
+	
+	@ManyToOne
+	@JoinColumn(name="certificate1_type")
+	@NotFound(action=NotFoundAction.IGNORE)
+	private CertificateType certificateTypeByCertificate1Type;
+	
+	@Column(name="certificate1_number")
+	private String certificate1Number;
+	@Column(name="certificate2_number")
+	private String certificate2Number;
+	
+	@ManyToOne
+	@JoinColumn(name="is_foreigner")//是否是境外人员
+	@NotFound(action=NotFoundAction.IGNORE)
+	private Sif isForeigner;//是否是境外人员
+	
+	
+	@Column(name="capture_time")
+	private Date captureTime;
+	@Column(name="criminal_group")
+	private String criminalGroup;
+	
+	@Column
+	private String status;//身份
+	@Column
+	private String specialstatus;//特殊身份
+	@Column
+	private String height;//身高
 	
 	public Nation getNation() {
 		return nation;
@@ -278,6 +331,92 @@ public class SuspectBaseInfo {
 	public void setDnaNum(String dnaNum) {
 		this.dnaNum = dnaNum;
 	}
+	public BodyType getBodyType() {
+		return bodyType;
+	}
+	public void setBodyType(BodyType bodyType) {
+		this.bodyType = bodyType;
+	}
+	public MarriageState getMarriageState() {
+		return marriageState;
+	}
+	public void setMarriageState(MarriageState marriageState) {
+		this.marriageState = marriageState;
+	}
+	public CountryCode getCountryCode() {
+		return countryCode;
+	}
+	public void setCountryCode(CountryCode countryCode) {
+		this.countryCode = countryCode;
+	}
+	public BloodType getBloodType() {
+		return bloodType;
+	}
+	public void setBloodType(BloodType bloodType) {
+		this.bloodType = bloodType;
+	}
+	public FaceType getFaceType() {
+		return faceType;
+	}
+	public void setFaceType(FaceType faceType) {
+		this.faceType = faceType;
+	}
+	public CertificateType getCertificateTypeByCertificate1Type() {
+		return certificateTypeByCertificate1Type;
+	}
+	public void setCertificateTypeByCertificate1Type(
+			CertificateType certificateTypeByCertificate1Type) {
+		this.certificateTypeByCertificate1Type = certificateTypeByCertificate1Type;
+	}
+	public String getCertificate1Number() {
+		return certificate1Number;
+	}
+	public void setCertificate1Number(String certificate1Number) {
+		this.certificate1Number = certificate1Number;
+	}
+	public String getCertificate2Number() {
+		return certificate2Number;
+	}
+	public void setCertificate2Number(String certificate2Number) {
+		this.certificate2Number = certificate2Number;
+	}
+	public Sif getIsForeigner() {
+		return isForeigner;
+	}
+	public void setIsForeigner(Sif isForeigner) {
+		this.isForeigner = isForeigner;
+	}
+	public Date getCaptureTime() {
+		return captureTime;
+	}
+	public void setCaptureTime(Date captureTime) {
+		this.captureTime = captureTime;
+	}
+	public String getCriminalGroup() {
+		return criminalGroup;
+	}
+	public void setCriminalGroup(String criminalGroup) {
+		this.criminalGroup = criminalGroup;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public String getSpecialstatus() {
+		return specialstatus;
+	}
+	public void setSpecialstatus(String specialstatus) {
+		this.specialstatus = specialstatus;
+	}
+	public String getHeight() {
+		return height;
+	}
+	public void setHeight(String height) {
+		this.height = height;
+	}
+	
 	
 	
 	

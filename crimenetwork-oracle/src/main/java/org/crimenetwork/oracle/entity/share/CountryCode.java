@@ -1,30 +1,28 @@
 package org.crimenetwork.oracle.entity.share;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-/**
- * CountryCode entity. @author MyEclipse Persistence Tools
- */
-
-@SuppressWarnings("serial")
 @Entity
 @Table(name="country_code", schema="system")
-public class CountryCode implements java.io.Serializable ,IBasicCode {
+public class CountryCode {
 
 	// Fields
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq")
-	@SequenceGenerator(name="seq", sequenceName="SEQUENCE_1")
+	@Column(name="country_code")
 	private String countryCode;
 	
+	@Column(name="continent_code")
 	private ContinentCode continentCode;
+	
+	@Column(name="name_cn")
 	private String nameCn;
+	
+	@Column(name="name_en")
 	private String nameEn;
+	
 	private String description;
 
 	// Constructors
@@ -38,18 +36,6 @@ public class CountryCode implements java.io.Serializable ,IBasicCode {
 		this.countryCode = countryCode;
 	}
 
-	/** full constructor */
-	public CountryCode(String countryCode, ContinentCode continentCode,
-			String nameCn, String nameEn, String description) {
-		this.countryCode = countryCode;
-		this.continentCode = continentCode;
-		this.nameCn = nameCn;
-		this.nameEn = nameEn;
-		this.description = description;
-		
-	}
-
-	// Property accessors
 
 	public String getCountryCode() {
 		return this.countryCode;
@@ -106,6 +92,11 @@ public class CountryCode implements java.io.Serializable ,IBasicCode {
 
 	public String getName() {
 		return this.nameCn;
+	}
+	
+	@Override
+	public String toString(){
+		return nameCn;	
 	}
 
 }

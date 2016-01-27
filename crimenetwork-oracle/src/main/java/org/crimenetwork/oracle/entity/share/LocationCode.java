@@ -5,8 +5,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 
 
@@ -25,7 +30,9 @@ public class LocationCode implements java.io.Serializable,RawCode {
 	@SequenceGenerator(name="seq", sequenceName="SEQUENCE_1")
 	private String locationCode;
 	
-	@Column(name="country_code")
+	@ManyToOne
+	@JoinColumn(name="country_code")
+	@NotFound(action=NotFoundAction.IGNORE)
 	private CountryCode countryCode;
 	private String name;
 	private String description;

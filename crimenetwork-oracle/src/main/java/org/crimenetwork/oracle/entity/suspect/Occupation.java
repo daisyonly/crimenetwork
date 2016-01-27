@@ -38,4 +38,9 @@ public class Occupation {
 	}
 	@Column
 	private String name;
+	
+	@Override
+	public String toString(){
+		return name;	
+	}
 }

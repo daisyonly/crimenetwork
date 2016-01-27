@@ -5,9 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
-
-
 /**
  * Gender entity. @author MyEclipse Persistence Tools
  */
@@ -40,5 +37,11 @@ public class Sif implements IBasicCode{
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
+	@Override
+	public String toString(){
+		return name;	
+	}
+	
 
 }

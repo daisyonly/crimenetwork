@@ -5,8 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
-
 @Entity
 @Table(name="location_code",schema="system")
 public class Location {
@@ -35,8 +33,7 @@ public class Location {
 	
 	
 	@Override
-	public String toString() {
-		
-		return ToStringBuilder.reflectionToString(this);
+	public String toString(){
+		return name;	
 	}
 }
