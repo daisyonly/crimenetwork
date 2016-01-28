@@ -12,6 +12,9 @@
 	<packaging>war</packaging>
 	<name>crimenetwork-core Maven Webapp</name>
 	<url>http://maven.apache.org</url>
+	<properties>	
+		<jackson.version>2.4.0</jackson.version>			
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -24,6 +27,11 @@
 			<artifactId>jackson-mapper-asl</artifactId>
 			<version>1.9.12</version>
 		</dependency>
+		<dependency>
+		 	<groupId>org.codehaus.jackson</groupId>
+  			 <artifactId>jackson-mapper-lgpl</artifactId>
+   			<version>1.9.12</version>
+  		</dependency>
 		<!-- databaseAccessObject end -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -40,9 +48,22 @@
 		
 		<dependency>
 			<groupId>cn.iscas</groupId>
-			<artifactId>crimenetwork-mongodb</artifactId>
+			<artifactId>crimenetwork-neo4j</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		
+		<!-- JSON begin -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.module</groupId>
+			<artifactId>jackson-module-jaxb-annotations</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<!-- JSON end -->
 	</dependencies>
 	<build>
 		<finalName>crimenetwork</finalName>

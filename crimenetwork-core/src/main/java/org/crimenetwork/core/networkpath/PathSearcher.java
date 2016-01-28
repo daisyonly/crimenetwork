@@ -5,18 +5,12 @@ import java.util.List;
 
 import org.crimenetwork.core.jiabi.JiabiSimService;
 import org.crimenetwork.core.metapath.MetaGraphNode;
-import org.crimenetwork.mongodb.entity.currency.MJiabiBaseInfo;
-import org.crimenetwork.mongodb.repository.BasicRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 
 public class PathSearcher {
 	@Autowired
 	private JiabiSimService jiabiSimService;
 	
-	@Autowired
-	@Qualifier("jiabiDao")
-	BasicRepository<MJiabiBaseInfo> jiabiDao;
 	
 	public void search(List<Integer> path,String id){
 		

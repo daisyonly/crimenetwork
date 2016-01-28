@@ -16,6 +16,6 @@
 	
 	<description>Spring公共配置 </description>
 	
-	<import resource="classpath*:database/mongodb/datasourse.xml"/>
+	<import resource="classpath*:database/neo4j/datasourse.xml"/>
 
 </beans>
