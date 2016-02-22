@@ -130,7 +130,7 @@ public class SuspectInfoOutputer {
     		+"adress(现住详细地址),locationCodeByRegisteredResidence(户籍编码),registeredResidenceDetail(户籍详细地址),occupation(职业),"
     		+"isLc(是否流窜),isReoffender(是否累犯),isHabitualOffender(是否惯犯),qqNumber(qq号码),bankAccount(银行账号),"
     		+"handwritingNum(笔记采集编号),fingerprintNum(指纹采集编号),dnaNum(DNA采集编号),bodyType(体型),marriageState(婚姻情况),"
-    		+"countryCode(国籍),bloodType(血型),faceType(脸型),certificateTypeByCertificate1Type(证件1类型),certificate1Number(证件2号码),"
+    		+"countryCode(国籍),bloodType(血型),faceType(脸型),certificateTypeByCertificate1Type(证件1类型),certificate1Number(证件1号码),"
     		+"certificate2Number(证件2号码),isForeigner(是否是境外人员),captureTime(抓获时间),criminalGroup(犯罪团伙),status(身份),"
     		+"specialstatus(特殊身份),height(身高)";
     	fileUtil.writeLine(title);
@@ -197,7 +197,7 @@ public class SuspectInfoOutputer {
     	  .append(suspect.getCaptureTime()).append(",")
     	  .append(suspect.getCriminalGroup()).append(",")
     	  .append(codeMap.getStatusByCode(suspect.getStatus())).append(",")
-    	  .append(codeMap.getStatusByCode(suspect.getSpecialstatus())).append(",")
+    	  .append(codeMap.getSpecialstatusByCode(suspect.getSpecialstatus())).append(",")
     	  .append(suspect.getHeight());
     	  
     	return sb.toString();
