@@ -55,7 +55,7 @@ public class SuspectDataHelper {
 			Long id=Long.parseLong(strs[0]);
 			SuspectBaseInfo sbi=suspectBaseDao.findById(id);
 			tmp.add(sbi);
-			System.out.println(line);
+			//System.out.println(line);
 			lastLine=line;	
 		}
 		data.add(tmp);

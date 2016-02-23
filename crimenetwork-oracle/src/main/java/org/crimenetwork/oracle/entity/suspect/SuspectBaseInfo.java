@@ -417,6 +417,56 @@ public class SuspectBaseInfo {
 		this.height = height;
 	}
 	
+	@Override
+	public String toString(){
+		SuspectStatueCode codeMap=SuspectStatueCode.getAnInstance();
+        if(this.getCaseInfo()!=null){
+        	this.setCaseInfo(this.getCaseInfo().replaceAll("\r\n", " "));
+        }
+    	StringBuilder sb=new StringBuilder();
+    	sb.append(this.getId()).append(",")
+    	  .append(this.getSuspectId()).append(",")
+    	  .append(this.getName()).append(",")
+    	  .append(this.getAlias()).append(",")
+    	  .append(this.getAgname()).append(",")
+    	  .append(this.getIdCardNumber()).append(",")
+    	  .append(this.getNativeLocation()).append(",")
+    	  .append(this.getGender()).append(",")
+    	  .append(this.getPhoneNumber()).append(",")
+    	  .append(this.getNation()).append(",")
+    	  .append("\"").append(this.getCaseInfo()).append("\"").append(",")
+    	  .append(this.getAccent()).append(",")
+    	  .append(this.getLocationCodeByCurrentAddress()).append(",")
+    	  .append(this.getAdress()).append(",")
+    	  .append(this.getLocationCodeByRegisteredResidence()).append(",")
+    	  .append(this.getRegisteredResidenceDetail()).append(",")
+    	  .append(this.getOccupation()).append(",")
+    	  .append(this.getIsLc()).append(",")
+    	  .append(this.getIsReoffender()).append(",")
+    	  .append(this.getIsHabitualOffender()).append(",")
+    	  .append(this.getQqNumber()).append(",")
+    	  .append(this.getBankAccount()).append(",")
+    	  .append(this.getHandwritingNum()).append(",")
+    	  .append(this.getFingerprintNum()).append(",")
+    	  .append(this.getDnaNum()).append(",")
+    	  .append(this.getBodyType()).append(",")
+    	  .append(this.getMarriageState()).append(",")
+    	  .append(this.getCountryCode()).append(",")
+    	  .append(this.getBloodType()).append(",")
+    	  .append(this.getFaceType()).append(",")
+    	  .append(this.getCertificateTypeByCertificate1Type()).append(",")
+    	  .append(this.getCertificate1Number()).append(",")
+    	  .append(this.getCertificate2Number()).append(",")
+    	  .append(this.getIsForeigner()).append(",")
+    	  .append(this.getCaptureTime()).append(",")
+    	  .append(this.getCriminalGroup()).append(",")
+    	  .append(codeMap.getStatusByCode(this.getStatus())).append(",")
+    	  .append(codeMap.getSpecialstatusByCode(this.getSpecialstatus())).append(",")
+    	  .append(this.getHeight());
+    	  
+    	return sb.toString();
+	}
+	
 	
 	
 	
