@@ -81,16 +81,16 @@
 						</div>
 						<div class="panel-body changeHeight">
 							<div class="form-group">
-								<label>嫌疑人：</label> <input class="form-control">
+								<label>嫌疑人：</label> <input class="form-control" name="suspect">
 							</div>
 							<div class="form-group">
-								<label>案件：</label> <input class="form-control">
+								<label>案件：</label> <input class="form-control" name="cases">
 							</div>
 							<div class="form-group">
-								<label>假币：</label> <input class="form-control">
+								<label>假币：</label> <input class="form-control" name="currency">
 							</div>
 
-							<label>请选取关系：</label>
+							<label>选填项：</label>
 							
 
 							<div class="table-responsive">
@@ -99,54 +99,20 @@
 									<tbody class="bemiddle">
 										<tr>
 											<td>
-												<div class="checkbox checkbox-primary">
-													<input id="checkbox1" class="styled" type="checkbox">
-													<label for="checkbox1"> 人 —— 案件 </label>
-												</div>
-											</td>
-											<td>
 												<div class="form-inline">
-													<label class="labelNomal">层数：</label> <input
-														class="form-control">
+													<label class="labelNomal">搜索路径长度：</label> <input
+														class="form-control" name="path-length">
 												</div>
 											</td>
 
 										</tr>
 										<tr>
-											<td>
-												<div class="checkbox checkbox-primary">
-													<input id="checkbox2" class="styled" type="checkbox"
-														checked> <label for="checkbox2"> 人 —— 假币 </label>
-												</div>
-											</td>
 											<td><div class="form-inline">
-													<label class="labelNomal">层数：</label> <input
-														class="form-control">
+													<label class="labelNomal">假币的相似度：    </label> <input
+														class="form-control" name="currency-sim">
 												</div></td>
 
-										</tr>
-										<tr>
-											<td><div class="checkbox checkbox-primary">
-													<input id="checkbox3" class="styled" type="checkbox">
-													<label for="checkbox3"> 案件 —— 假币 </label>
-												</div></td>
-											<td><div class="form-inline">
-													<label class="labelNomal">层数：</label> <input
-														class="form-control">
-												</div></td>
-
-										</tr>
-										<tr>
-											<td><div class="checkbox checkbox-primary">
-													<input id="checkbox4" class="styled" type="checkbox">
-													<label for="checkbox4"> 人 —— 通讯</label>
-												</div></td>
-											<td><div class="form-inline">
-													<label class="labelNomal">层数：</label> <input
-														class="form-control">
-												</div></td>
-
-										</tr>
+										</tr>		
 
 									</tbody>
 								</table>
@@ -154,7 +120,7 @@
 
 
 							<div class="text-right">
-								<button type="button" class="btn btn-primary">生成</button>
+								<button id="generate" type="button" class="btn btn-primary">生成</button>
 							</div>
 
 						</div>
@@ -188,7 +154,8 @@
 	<!-- Bootstrap Core JavaScript -->
 	<script src="lib/bootstrap/bootstrap.js"></script>
 	<script src="lib/vis/vis.js"></script>
-	<script src="js/network/crimenetwork.js"></script>
+	<!-- <script src="js/network/crimenetwork.js"></script>-->
+	<script src="js/network/generateCrimenetwork.js"></script>
 
 
 </body>
