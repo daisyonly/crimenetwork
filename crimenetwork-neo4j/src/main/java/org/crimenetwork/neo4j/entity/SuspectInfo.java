@@ -88,6 +88,11 @@ public class SuspectInfo {
 	private String fingerprintNum;//指纹采集编号
 	
 	private String dnaNum;//DNA采集编号
+	
+	@ManualField
+	@RelatedTo(type = "IDENTICAL", direction = Direction.OUTGOING)
+	@Fetch
+	private Set<SuspectInfo> identicalSuspects = new HashSet<SuspectInfo>(0);
 
 	@Override
 	public int hashCode() {
@@ -372,6 +377,16 @@ public class SuspectInfo {
 	public void setDnaNum(String dnaNum) {
 		this.dnaNum = dnaNum;
 	}
+
+	public Set<SuspectInfo> getIdenticalSuspects() {
+		return identicalSuspects;
+	}
+
+	public void setIdenticalSuspects(Set<SuspectInfo> identicalSuspects) {
+		this.identicalSuspects = identicalSuspects;
+	}
+	
+	
 	
 	
 
