@@ -101,7 +101,7 @@
 											<td>
 												<div class="form-inline">
 													<label class="labelNomal">搜索路径长度：</label> <input
-														class="form-control" name="path-length">
+														class="form-control" name="path-length" value="4">
 												</div>
 											</td>
 
@@ -109,7 +109,7 @@
 										<tr>
 											<td><div class="form-inline">
 													<label class="labelNomal">假币的相似度：    </label> <input
-														class="form-control" name="currency-sim">
+														class="form-control" name="currency-sim" value="0.1">
 												</div></td>
 
 										</tr>		

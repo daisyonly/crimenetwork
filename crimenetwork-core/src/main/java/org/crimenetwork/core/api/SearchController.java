@@ -42,10 +42,13 @@ public class SearchController{
 
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	@ResponseBody
-	public NetworkModel loadScriptContent() {
+	public NetworkModel loadScriptContent(@RequestParam("id") String id,
+			@RequestParam(value="pathLength", required=false) int pathLength,
+			@RequestParam(value="currencySim", required=false) double currencySim) {
 		logger.debug("here!");
-		String id="R4401115800002008091463";
-		NetworkModel res=searchByObjectId(id, 4);
+		//String id="R4401115800002008091463";
+		System.out.println(id);
+		NetworkModel res=searchByObjectId(id, pathLength);
 		System.out.println("hehe!!");
 		return res;
 	}
@@ -55,13 +58,13 @@ public class SearchController{
 		Queue<String> queue= new LinkedList<String>();
 		if(id.charAt(0)=='R'){
 			SuspectInfo start=suspectInfoRepository.findBySuspectId(id);	
-			queue.add("S"+start.getId());
+			queue.add("S"+start.getsId());
 		}else if(id.charAt(0)=='C'){
 			CounterfeitMoney start=counterfeitMoneyRepository.findByPiaoyangNumber(id);	
-			queue.add("J"+start.getId());
+			queue.add("J"+start.getFmid());
 		}else{
 			CrimeCase start=crimeCaseRepository.findByCaseId(id);	
-			queue.add("C"+start.getId());
+			queue.add("C"+start.getcId());
 		}
 		
 		while(!queue.isEmpty()&& pathLength--!=0){

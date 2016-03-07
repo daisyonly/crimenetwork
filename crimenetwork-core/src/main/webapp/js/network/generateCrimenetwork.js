@@ -80,19 +80,31 @@ $(document).ready(function(){
 		if(currencyId!="") count++;
 		if(count>1) alert("只能输入一个查询项");
 		if(count==0) alert("请输入一个查询项");
-		$.ajax({
-			type : "GET",
-			url : "search",		
-			success : function(data) {				
-				draw2(data);
-			}
-		});
-		
+		if(count==1){
+			var id=null;
+			if(suspectId!="") id=suspectId;
+			else if(caseId!="") id=caseId;
+			else if(currencyId!="") id=currencyId;
+			var pathLength = $("input[name='path-length']").val();
+			var currencySim = $("input[name='currency-sim']").val();
+			$.ajax({
+				type : "GET",
+				url : "search",
+				data:{ id:id,
+					   pathLength:pathLength,
+					   currencySim:currencySim},
+				success : function(data) {
+					console.log(data);
+					drawNetwork(data);
+				}
+			});
+			
+		}	
 		
 	});
 	
 });
-function drawNetwork(data){
+function drawNetwork(rawData){
 	var nodes = null;
 	var edges = null;
 	var network = null;
@@ -106,205 +118,59 @@ function drawNetwork(data){
 
 	// Create a data table with links.
 	edges = [];
+	var idMap=new Object();
+	var rawNodes=rawData.nodes;
+	var rawNodesKeys=Object.keys(rawNodes)
+	for(var i = 0, l = rawNodesKeys.length; i < l; i++) {
+	    //console.log(list[i]);
+		console.log(rawNodes[rawNodesKeys[i]]);
+		idMap[rawNodesKeys[i]]=i+1;
+		var curObject=rawNodes[rawNodesKeys[i]];
+		var name=curObject["姓名"];
+		var nodeType=rawNodesKeys[i].charAt(0);
+		var groupType=null;
+		if(nodeType=="S"){
+			groupType="suspect";
+		}else if(nodeType=="C"){
+			groupType="cases";
+		}else{
+			groupType="jiabi";
+		}
+		
+		var titleString=null;		
+		var attributeKeys=Object.keys(curObject);
+		for(var j = 0, len = attributeKeys.length; j < len; j++){
+			if(j==0){
+				titleString=titleString+attributeKeys[j]+":"+curObject[attributeKeys[j]];
+			}else{
+				titleString=titleString+"<br/>"+attributeKeys[j]+":"+curObject[attributeKeys[j]];
+			}
+		}	
+		nodes.push({
+			id : i+1,
+			label : name,
+			group : groupType,
+			size : i*3+10,
+			title : titleString
+		});	
+	}
 	
+	var rawEdges=rawData.edges;
+	for(var i = 0, l = rawEdges.length; i < l; i++){
+		var fromId=idMap[rawEdges[i]["fromId"]];
+		var endId=idMap[rawEdges[i]["endId"]];
+		edges.push({
+			from : fromId,
+			to : endId,
+			arrows:'to',
+			arrowStrikethrough:true,
+			length : LENGTH_SERVER,
+			width : WIDTH_SCALE * 1,
+			color : RED
+		});
+	}
 
-	nodes.push({
-		id : 1,
-		label : '嫌疑人A',
-		group : 'suspect',
-		value : 8,
-		title : '籍贯：××省××市 <br/> 性别：× <br/> 嫌疑人编号：×××××××'
-	});
-	nodes.push({
-		id : 2,
-		label : '嫌疑人B',
-		group : 'suspect',
-		value : 8,
-		title : '籍贯：××省××市 <br/> 性别：× <br/> 嫌疑人编号：×××××××'
-	});
-	nodes.push({
-		id : 3,
-		label : '嫌疑人C',
-		group : 'suspect',
-		value : 8,
-		title : '籍贯：××省××市 <br/> 性别：× <br/> 嫌疑人编号：×××××××'
-	});
-	edges.push({
-		from : 1,
-		to : 2,
-		length : LENGTH_MAIN,
-		width : WIDTH_SCALE * 1,
-		dashes : [ 5, 5, 3, 3 ],
-		color : RED
-	});
-	edges.push({
-		from : 1,
-		to : 3,
-		length : LENGTH_SUB,
-		width : WIDTH_SCALE * 3,
-		dashes : [ 2, 2, 10, 10 ],
-		color : RED,
-		label : '团伙'
-	});
-
-	nodes.push({
-				id : 4,
-				label : '案件A',
-				group : 'cases',
-				value : 8,
-				title : '案发地点：××省××市 <br/> 案发时间：×年×月×日 <br/> 案件编号：××××××× <br/> 简要案情：××××××××'
-	});
-	nodes.push({
-				id : 5,
-				label : '案件B',
-				group : 'cases',
-				value : 8,
-				title : '案发地点：××省××市 <br/> 案发时间：×年×月×日 <br/> 案件编号：××××××× <br/> 简要案情：××××××××'
-	});
-	nodes.push({
-				id : 6,
-				label : '案件C',
-				group : 'cases',
-				value : 8,
-				title : '案发地点：××省××市 <br/> 案发时间：×年×月×日 <br/> 案件编号：××××××× <br/> 简要案情：××××××××'
-	});
 	
-	nodes.push({
-		id : 20,
-		label : '通讯设备A',
-		group : 'phone',
-		value : 8,
-		title : '通话记录：******'
-	});
-	
-	edges.push({
-		from : 1,
-		to : 20,
-		length : 200,
-		width : WIDTH_SCALE * 1,	
-		color : BLACK,
-		title : '号码：138 8888 8888'
-	});
-	
-	edges.push({
-		from : 20,
-		to : 2,
-		length : 200,
-		width : WIDTH_SCALE * 1,	
-		color : BLACK,
-		title : '号码：138 8888 3333'
-	});
-	
-	edges.push({
-		from : 4,
-		to : 5,
-		length : 400,
-		width : WIDTH_SCALE * 2,
-		dashes : [ 2, 2, 10, 10 ],
-		color : BLACK,
-		title : '通话记录：×××××××'
-	});
-
-	edges.push({
-		from : 4,
-		to : 5,
-		length : 400,
-		width : WIDTH_SCALE * 2,
-		dashes : [ 2, 2, 10, 10 ],
-		color : BLACK,
-		title : '相似性分析如下：×××××××'
-	});
-
-	nodes.push({
-		id : 7,
-		label : '假币A',
-		group : 'jiabi',
-		value : 8,
-		title : '冠字号：×××××× <br/> 假币编号：××××××× <br/> '
-	});
-	nodes.push({
-		id : 8,
-		label : '假币B',
-		group : 'jiabi',
-		value : 8,
-		title : '冠字号：×××××× <br/> 假币编号：××××××× <br/> '
-	});
-	nodes.push({
-		id : 9,
-		label : '假币C',
-		group : 'jiabi',
-		value : 8,
-		title : '冠字号：×××××× <br/> 假币编号：××××××× <br/> '
-	});
-
-	edges.push({
-		from : 7,
-		to : 9,
-		length : LENGTH_MAIN,
-		width : WIDTH_SCALE * 2,
-		dashes : [ 2, 2, 10, 10 ],
-		color : BLACK
-	});
-	edges.push({
-		from : 2,
-		to : 4,
-		length : LENGTH_MAIN,
-		width : WIDTH_SCALE * 2,
-		dashes : [ 2, 2, 10, 10 ],
-		color : ORANGE
-	});
-
-	edges.push({
-		from : 1,
-		to : 4,
-		length : LENGTH_SERVER,
-		color : GRAY,
-		width : WIDTH_SCALE * 3,
-		label : '重大嫌疑'
-	});
-	edges.push({
-		from : 4,
-		to : 7,
-		length : LENGTH_SERVER,
-		color : GRAY,
-		width : WIDTH_SCALE * 3,
-		label : '缴获'
-	});
-
-	edges.push({
-		from : 2,
-		to : 5,
-		length : LENGTH_SERVER,
-		color : GRAY,
-		width : WIDTH_SCALE * 3,
-		label : '重大嫌疑'
-	});
-	edges.push({
-		from : 5,
-		to : 8,
-		length : LENGTH_SERVER,
-		color : GRAY,
-		width : WIDTH_SCALE * 3,
-		label : '缴获'
-	});
-
-	edges.push({
-		from : 3,
-		to : 6,
-		length : LENGTH_SERVER,
-		color : GRAY,
-		width : WIDTH_SCALE * 6,
-		label : '重大嫌疑'
-	});
-	edges.push({
-		from : 6,
-		to : 9,
-		length : LENGTH_SERVER,
-		color : GRAY,
-		width : WIDTH_SCALE * 3,
-		label : '缴获'
-	});
-
 	// create a network
 	var container = document.getElementById('mynetwork');
 	var data = {
@@ -331,16 +197,6 @@ function drawNetwork(data){
 			}
 		},
 		groups : {
-			phone : {
-				shape: 'image', 
-				image: DIR + 'phone-icon.png',
-				font : {
-					size : 25,
-
-				},
-				size : 25,
-				
-			},
 			suspect : {
 				shape: 'image', 
 				image: DIR + 'Person-icon.png',
@@ -348,316 +204,26 @@ function drawNetwork(data){
 					size : 25,
 
 				},
-				size : 25,
-				
+				size : 25,				
 			},
 			cases : {
 				shape: 'image', 
 				image: DIR + 'case.png',
 				font : {
 					size : 25,
-
 				},
-				size : 25,
-				
+				size : 25,			
 			},
-
 			jiabi : {
 				shape: 'image', 
 				image: DIR + 'Money-icon.png',
 				font : {
 					size : 25,
-
 				},
-				size : 25,
-				
+				size : 25,		
 			}
 		}
 	};
 	network = new vis.Network(container, data, options);
 	
-}
-
-function draw2(){
-	var nodes = null;
-	var edges = null;
-	var network = null;
-	var DIR = './lib/vis/img/network/';
-	var LENGTH_MAIN = 350, LENGTH_SERVER = 150, LENGTH_SUB = 100, WIDTH_SCALE = 2, GREEN = 'green', RED = '#C5000B', ORANGE = 'orange',
-	//GRAY = '#666666',
-	GRAY = 'gray', BLACK = '#2B1B17';
-	
-	// Create a data table with nodes.
-	nodes = [];
-
-	// Create a data table with links.
-	edges = [];
-
-	nodes.push({
-		id : 1,
-		label : '嫌疑人A',
-		group : 'suspect',
-		value : 8,
-		title : '籍贯：××省××市 <br/> 性别：× <br/> 嫌疑人编号：×××××××'
-	});
-	nodes.push({
-		id : 2,
-		label : '嫌疑人B',
-		group : 'suspect',
-		value : 8,
-		title : '籍贯：××省××市 <br/> 性别：× <br/> 嫌疑人编号：×××××××'
-	});
-	nodes.push({
-		id : 3,
-		label : '嫌疑人C',
-		group : 'suspect',
-		value : 8,
-		title : '籍贯：××省××市 <br/> 性别：× <br/> 嫌疑人编号：×××××××'
-	});
-	edges.push({
-		from : 1,
-		to : 2,
-		length : LENGTH_MAIN,
-		width : WIDTH_SCALE * 1,
-		dashes : [ 5, 5, 3, 3 ],
-		color : RED
-	});
-	edges.push({
-		from : 1,
-		to : 3,
-		length : LENGTH_SUB,
-		width : WIDTH_SCALE * 3,
-		dashes : [ 2, 2, 10, 10 ],
-		color : RED,
-		label : '团伙'
-	});
-
-	nodes.push({
-				id : 4,
-				label : '案件A',
-				group : 'cases',
-				value : 8,
-				title : '案发地点：××省××市 <br/> 案发时间：×年×月×日 <br/> 案件编号：××××××× <br/> 简要案情：××××××××'
-	});
-	nodes.push({
-				id : 5,
-				label : '案件B',
-				group : 'cases',
-				value : 8,
-				title : '案发地点：××省××市 <br/> 案发时间：×年×月×日 <br/> 案件编号：××××××× <br/> 简要案情：××××××××'
-	});
-	nodes.push({
-				id : 6,
-				label : '案件C',
-				group : 'cases',
-				value : 8,
-				title : '案发地点：××省××市 <br/> 案发时间：×年×月×日 <br/> 案件编号：××××××× <br/> 简要案情：××××××××'
-	});
-	
-	nodes.push({
-		id : 20,
-		label : '通讯设备A',
-		group : 'phone',
-		value : 8,
-		title : '通话记录：******'
-	});
-	
-	edges.push({
-		from : 1,
-		to : 20,
-		length : 200,
-		width : WIDTH_SCALE * 1,	
-		color : BLACK,
-		title : '号码：138 8888 8888'
-	});
-	
-	edges.push({
-		from : 20,
-		to : 2,
-		length : 200,
-		width : WIDTH_SCALE * 1,	
-		color : BLACK,
-		title : '号码：138 8888 3333'
-	});
-	
-	edges.push({
-		from : 4,
-		to : 5,
-		length : 400,
-		width : WIDTH_SCALE * 2,
-		dashes : [ 2, 2, 10, 10 ],
-		color : BLACK,
-		title : '通话记录：×××××××'
-	});
-
-	edges.push({
-		from : 4,
-		to : 5,
-		length : 400,
-		width : WIDTH_SCALE * 2,
-		dashes : [ 2, 2, 10, 10 ],
-		color : BLACK,
-		title : '相似性分析如下：×××××××'
-	});
-
-	nodes.push({
-		id : 7,
-		label : '假币A',
-		group : 'jiabi',
-		value : 8,
-		title : '冠字号：×××××× <br/> 假币编号：××××××× <br/> '
-	});
-	nodes.push({
-		id : 8,
-		label : '假币B',
-		group : 'jiabi',
-		value : 8,
-		title : '冠字号：×××××× <br/> 假币编号：××××××× <br/> '
-	});
-	nodes.push({
-		id : 9,
-		label : '假币C',
-		group : 'jiabi',
-		value : 8,
-		title : '冠字号：×××××× <br/> 假币编号：××××××× <br/> '
-	});
-
-	edges.push({
-		from : 7,
-		to : 9,
-		length : LENGTH_MAIN,
-		width : WIDTH_SCALE * 2,
-		dashes : [ 2, 2, 10, 10 ],
-		color : BLACK
-	});
-	edges.push({
-		from : 2,
-		to : 4,
-		length : LENGTH_MAIN,
-		width : WIDTH_SCALE * 2,
-		dashes : [ 2, 2, 10, 10 ],
-		color : ORANGE
-	});
-
-	edges.push({
-		from : 1,
-		to : 4,
-		length : LENGTH_SERVER,
-		color : GRAY,
-		width : WIDTH_SCALE * 3,
-		label : '重大嫌疑'
-	});
-	edges.push({
-		from : 4,
-		to : 7,
-		length : LENGTH_SERVER,
-		color : GRAY,
-		width : WIDTH_SCALE * 3,
-		label : '缴获'
-	});
-
-	edges.push({
-		from : 2,
-		to : 5,
-		length : LENGTH_SERVER,
-		color : GRAY,
-		width : WIDTH_SCALE * 3,
-		label : '重大嫌疑'
-	});
-	edges.push({
-		from : 5,
-		to : 8,
-		length : LENGTH_SERVER,
-		color : GRAY,
-		width : WIDTH_SCALE * 3,
-		label : '缴获'
-	});
-
-	edges.push({
-		from : 3,
-		to : 6,
-		length : LENGTH_SERVER,
-		color : GRAY,
-		width : WIDTH_SCALE * 6,
-		label : '重大嫌疑'
-	});
-	edges.push({
-		from : 6,
-		to : 9,
-		length : LENGTH_SERVER,
-		color : GRAY,
-		width : WIDTH_SCALE * 3,
-		label : '缴获'
-	});
-
-	// create a network
-	var container = document.getElementById('mynetwork');
-	var data = {
-		nodes : nodes,
-		edges : edges
-	};
-	var options = {
-		nodes : {
-			scaling : {
-				min : 32,
-				max : 32
-			}
-		},
-		edges : {
-			color : GRAY,
-			smooth : false
-		},
-		physics : {
-			barnesHut : {
-				gravitationalConstant : -30000
-			},
-			stabilization : {
-				iterations : 2500
-			}
-		},
-		groups : {
-			phone : {
-				shape: 'image', 
-				image: DIR + 'phone-icon.png',
-				font : {
-					size : 25,
-
-				},
-				size : 25,
-				
-			},
-			suspect : {
-				shape: 'image', 
-				image: DIR + 'Person-icon.png',
-				font : {
-					size : 25,
-
-				},
-				size : 25,
-				
-			},
-			cases : {
-				shape: 'image', 
-				image: DIR + 'case.png',
-				font : {
-					size : 25,
-
-				},
-				size : 25,
-				
-			},
-
-			jiabi : {
-				shape: 'image', 
-				image: DIR + 'Money-icon.png',
-				font : {
-					size : 25,
-
-				},
-				size : 25,
-				
-			}
-		}
-	};
-	network = new vis.Network(container, data, options);
 }
