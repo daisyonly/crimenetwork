@@ -5,16 +5,16 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
+
 public class MetaGraph {
 
 	private static volatile MetaGraph INSTANCE = null;
 	private boolean graph[][];
     private int nodeCount;
 	private MetaGraph() {
-		nodeCount= 4;
+		nodeCount= 3;
 		graph=new boolean[nodeCount][nodeCount];
 		
-		//graph[MetaGraphNode.PERSON][MetaGraphNode.PERSON]=true;
 		graph[MetaGraphNode.JIABI][MetaGraphNode.JIABI]=true;
 		
 		graph[MetaGraphNode.JIABI][MetaGraphNode.CASES]=true;
@@ -23,11 +23,8 @@ public class MetaGraph {
 		graph[MetaGraphNode.CASES][MetaGraphNode.PERSON]=true;
 		graph[MetaGraphNode.PERSON][MetaGraphNode.CASES]=true;
 		
-		graph[MetaGraphNode.JIABI][MetaGraphNode.PERSON]=true;
-		graph[MetaGraphNode.PERSON][MetaGraphNode.JIABI]=true;
+		graph[MetaGraphNode.PERSON][MetaGraphNode.PERSON]=true;
 		
-		//graph[MetaGraphNode.PERSON][MetaGraphNode.JIABI]=true;
-		//graph[MetaGraphNode.JIABI][MetaGraphNode.PERSON]=true;
 	}
 
 	public static MetaGraph getAnInstance() {
@@ -57,7 +54,7 @@ public class MetaGraph {
 			while(count-->0){
 				List<Integer> peek=queue.poll();
 				int lastNode=peek.get(peek.size()-1);
-				if(curLength==length-1){
+				if(peek.size()>1&&peek.get(peek.size()-1)==end){
 					res.add(peek);
 				}
 				for(int i=0;i<nodeCount;i++){
@@ -69,15 +66,59 @@ public class MetaGraph {
 				}
 			}						
 			curLength++;
-		}				
-		return res;	
+		}
+		
+		return resFilter(res);	
 	} 
+	
+	public TrieNode convertPathsToTree(List<List<Integer>> paths){
+		TrieNode root=new TrieNode(paths.get(0).get(0));	
+		for(List<Integer> path:paths){
+			TrieNode curNode=root;
+			for(int i=1;i<path.size();i++){
+				if(curNode.nodes[path.get(i)]==null){
+					TrieNode newNode=new TrieNode(path.get(i));
+					curNode.nodes[path.get(i)]=newNode;
+					curNode=newNode;
+				}else{
+					curNode=curNode.nodes[path.get(i)];
+				}
+			}
+		}
+		return root;
+	}
+	
+	private List<List<Integer>> resFilter(List<List<Integer>> rawRes){
+		List<List<Integer>> newResList=new ArrayList<List<Integer>>();
+		for(List<Integer> one:rawRes){
+			boolean delete=false;
+			for(int i=0;i<one.size()-2;i++){
+				if(one.get(i)==0&&one.get(i+1)==0&&one.get(i+2)==0){
+					delete=true;
+					break;
+				}
+			}
+			if(!delete) newResList.add(one);
+		}
+		return newResList;
+	}
+	
+	public static String getPathCode(List<Integer> path){
+		StringBuilder ss=new StringBuilder();
+		for(int i:path){
+			ss.append(i);
+		}
+		return ss.toString();
+	} 
+	
 	public static void main(String[] args) {
 		MetaGraph abGraph=MetaGraph.getAnInstance();
-		List<List<Integer>> res=abGraph.getMetaPath(4, 0, 0);
+		List<List<Integer>> res=abGraph.getMetaPath(5, 0, 0);
 		for(List<Integer> list:res){
 			System.out.println(list);
 		}
+		//TrieNode rootNode=abGraph.convertPathsToTree(res);
+		System.out.println("hehe");
 		
 	}
 
