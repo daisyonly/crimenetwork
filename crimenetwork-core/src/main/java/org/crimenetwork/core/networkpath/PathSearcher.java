@@ -1,13 +1,16 @@
 package org.crimenetwork.core.networkpath;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 import org.crimenetwork.core.metapath.MetaGraphNode;
 import org.crimenetwork.core.metapath.TrieNode;
 import org.crimenetwork.neo4j.entity.CounterfeitMoney;
 import org.crimenetwork.neo4j.entity.CrimeCase;
 import org.crimenetwork.neo4j.entity.SuspectInfo;
+
 
 public class PathSearcher {
 
@@ -41,6 +44,24 @@ public class PathSearcher {
 	public HashMap<String, SearchResult> search(TrieNode root,CounterfeitMoney cm){
 		HashMap<String, SearchResult> resHashMap=new HashMap<String, SearchResult>();
 		
+		Queue<SearchNode> queue=new LinkedList<SearchNode>();
+		queue.offer(new SearchNode( "", root));
+		
+		while(!queue.isEmpty()){
+			SearchNode peekNode=queue.poll();
+			
+			if(peekNode.paths.nodes[0]!=null){
+				
+			}
+			
+			if(peekNode.paths.nodes[1]!=null){
+				
+			}
+			
+			if(peekNode.paths.nodes[2]!=null){
+				
+			}
+		}
 		
 		return resHashMap;
 	}

@@ -2,8 +2,6 @@ package org.crimenetwork.core.jiabi;
 
 import java.util.HashMap;
 
-
-import org.crimenetwork.core.utility.ModelConvertor;
 import org.crimenetwork.neo4j.entity.CounterfeitMoney;
 import org.crimenetwork.neo4j.repository.CounterfeitMoneyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +19,7 @@ public class JiabiProcessor {
 		HashMap<String, HashMap<String, String>> res=
 				new HashMap<String, HashMap<String, String>>();
 		
-		CounterfeitMoney anchor= counterfeitMoneyRepository.findByFmid(fmid);
+		CounterfeitMoney anchor = counterfeitMoneyRepository.findByFmid(fmid);
 		HashMap<String, Double> simJiabis= jiabiSimService.getSimJiabis(simThreshold, fmid);
 		
 		
@@ -33,7 +31,7 @@ public class JiabiProcessor {
 		HashMap<String, HashMap<String, String>> res=
 				new HashMap<String, HashMap<String, String>>();
 		
-		CounterfeitMoney anchor= counterfeitMoneyRepository.findByFmid(fmid);
+		CounterfeitMoney anchor = counterfeitMoneyRepository.findByFmid(fmid);
 		
 		return res;
 	}
