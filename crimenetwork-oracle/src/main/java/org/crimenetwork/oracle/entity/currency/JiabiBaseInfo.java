@@ -42,7 +42,7 @@ public class JiabiBaseInfo{
 	@JoinColumn(name="version")
 	private VersionType versionType;
 	
-	@ManyToMany(fetch=FetchType.EAGER)
+	@ManyToMany(fetch=FetchType.LAZY)
 	@JoinTable(name="case_currency",
 	joinColumns=@JoinColumn(name="fmid"),
 	inverseJoinColumns=@JoinColumn(name="case_id"))

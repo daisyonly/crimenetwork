@@ -1,6 +1,5 @@
 package org.crimenetwork.dataextraction.nameDisambiguation;
-
-import org.crimenetwork.dataextraction.nameDisambiguation.clusterService.SuspectRelationUpdater;
+import org.crimenetwork.dataextraction.nameDisambiguation.clusterService.ClusterProcessor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -9,7 +8,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * Hello world!
  *
  */
-public class App 
+public class EvaluationApp 
 {
     public static void main( String[] args )
     {
@@ -21,11 +20,14 @@ public class App
 		ApplicationContext context = 
 				new ClassPathXmlApplicationContext(springConfig);
 			
-		
-		SuspectRelationUpdater suspectRelationUpdater = (SuspectRelationUpdater) context.getBean("suspectRelationUpdater");
+		//SuspectNameStatistics suspectNameStatistics = (SuspectNameStatistics) context.getBean("suspectNameStatistics");
 
-		suspectRelationUpdater.update();
+		//suspectNameStatistics.run();
 		
+		ClusterProcessor clusterProcessor = (ClusterProcessor) context.getBean("clusterProcessor");
+
+		//clusterProcessor.process();
+		//clusterProcessor.outputCluster(clusterProcessor.process());
 		
 	
         System.out.println( "Hello World!" );

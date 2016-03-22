@@ -21,6 +21,6 @@
 	</context:component-scan>
 	
 	<import resource="classpath*:database/oracle/datasourse.xml"/>
-	<import resource="classpath*:database/mongodb/datasourse.xml"/>
+	<import resource="classpath*:database/neo4j/datasourse.xml"/>
 
 </beans>

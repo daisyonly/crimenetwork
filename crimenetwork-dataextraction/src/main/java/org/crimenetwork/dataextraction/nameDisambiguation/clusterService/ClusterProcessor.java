@@ -19,8 +19,9 @@ public class ClusterProcessor {
 	@Qualifier("suspectDataHelper")
 	private SuspectDataHelper suspectDataHelper;
 	
-	public ArrayList<ArrayList<SuspectBaseInfo>> process(){
-		ArrayList<SuspectBaseInfo> rawData=suspectDataHelper.getDataByGroupIndex(15);
+	
+	public ArrayList<ArrayList<SuspectBaseInfo>> process(int dataIndex){
+		ArrayList<SuspectBaseInfo> rawData=suspectDataHelper.getDataByGroupIndex(dataIndex);
 		ArrayList<ArrayList<SuspectBaseInfo>> clusters=new ArrayList<ArrayList<SuspectBaseInfo>>();
 		
 		//先处理强规则

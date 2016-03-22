@@ -1,6 +1,5 @@
-package org.crimenetwork.dataextraction.nameDisambiguation;
+package org.crimenetwork.dataextraction.currencySim;
 
-import org.crimenetwork.dataextraction.nameDisambiguation.clusterService.SuspectRelationUpdater;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -22,9 +21,9 @@ public class App
 				new ClassPathXmlApplicationContext(springConfig);
 			
 		
-		SuspectRelationUpdater suspectRelationUpdater = (SuspectRelationUpdater) context.getBean("suspectRelationUpdater");
+		CurrencySimProcessor currencySimProcessor = (CurrencySimProcessor) context.getBean("currencySimProcessor");
 
-		suspectRelationUpdater.update();
+		currencySimProcessor.run();
 		
 		
 	
