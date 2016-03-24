@@ -7,6 +7,7 @@ import java.util.Set;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.crimenetwork.neo4j.entity.relationship.CurrencySim;
 import org.crimenetwork.neo4j.untils.ManualField;
 import org.neo4j.graphdb.Direction;
 import org.springframework.data.neo4j.annotation.Fetch;
@@ -14,6 +15,7 @@ import org.springframework.data.neo4j.annotation.GraphId;
 import org.springframework.data.neo4j.annotation.Indexed;
 import org.springframework.data.neo4j.annotation.NodeEntity;
 import org.springframework.data.neo4j.annotation.RelatedTo;
+import org.springframework.data.neo4j.annotation.RelatedToVia;
 
 @NodeEntity
 public class CounterfeitMoney{
@@ -80,10 +82,10 @@ public class CounterfeitMoney{
 	@ManualField
 	private Set<CrimeCase> caseInfos = new HashSet<CrimeCase>(0);
 	
-	@RelatedTo(type="SIMILAR", direction=Direction.OUTGOING)
+	@RelatedToVia(type="SIMILAR", direction=Direction.OUTGOING)
 	@Fetch
 	@ManualField
-    private Set<CounterfeitMoney> similarCM = new HashSet<CounterfeitMoney>(0);
+    private Set<CurrencySim> similarCM = new HashSet<CurrencySim>(0);
 
 	@Override
     public int hashCode() {
@@ -122,19 +124,7 @@ public class CounterfeitMoney{
 		
 		if(rhs.similarCM.size()!=this.similarCM.size())
 			return false;
-		for(CounterfeitMoney one:this.similarCM){
-			boolean notFround=true;
-			for(CounterfeitMoney two:rhs.similarCM){
-				if(one.getCfmid()!=null&&one.getCfmid().equals(two.getCfmid())){
-					notFround=false;
-					break;
-				}else if(one.getFmid().equals(two.getFmid())){
-					notFround=false;
-					break;
-				}
-			}
-			if(notFround) return false;
-		}
+		
 		
 		return new EqualsBuilder().
 		// if deriving: appendSuper(super.equals(obj)).
@@ -156,22 +146,6 @@ public class CounterfeitMoney{
 			}
 			if(notFround) {
 				this.caseInfos.add(two);
-			};
-		}
-		
-		for(CounterfeitMoney two:newOne.similarCM){
-			boolean notFround=true;
-			for(CounterfeitMoney one:this.similarCM){
-				if(one.getCfmid()!=null&&one.getCfmid().equals(two.getCfmid())){
-					notFround=false;
-					break;
-				}else if(one.getFmid().equals(two.getFmid())){
-					notFround=false;
-					break;
-				}
-			}
-			if(notFround) {
-				this.similarCM.add(two);
 			};
 		}
 	}
@@ -394,11 +368,11 @@ public class CounterfeitMoney{
 		this.caseInfos = caseInfos;
 	}
 
-	public Set<CounterfeitMoney> getSimilarCM() {
+	public Set<CurrencySim> getSimilarCM() {
 		return similarCM;
 	}
 
-	public void setSimilarCM(Set<CounterfeitMoney> similarCM) {
+	public void setSimilarCM(Set<CurrencySim> similarCM) {
 		this.similarCM = similarCM;
 	}
 	
