@@ -15,6 +15,7 @@ public class JiabiProcessor {
 	@Qualifier("jiabiDao")
 	private CounterfeitMoneyRepository counterfeitMoneyRepository;
 	
+	@SuppressWarnings("unused")
 	public HashMap<String, HashMap<String, String>> findJiabiToJiabi(Long fmid, double simThreshold) {
 		HashMap<String, HashMap<String, String>> res=
 				new HashMap<String, HashMap<String, String>>();
@@ -27,6 +28,7 @@ public class JiabiProcessor {
 		return res;
 	}
 	
+	@SuppressWarnings("unused")
 	public HashMap<String, HashMap<String, String>> findJiabiToCase(Long fmid, double simThreshold) {
 		HashMap<String, HashMap<String, String>> res=
 				new HashMap<String, HashMap<String, String>>();

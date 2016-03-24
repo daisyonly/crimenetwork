@@ -10,10 +10,10 @@ import org.crimenetwork.core.service.EntityToMapConverter;
 import org.crimenetwork.neo4j.entity.CounterfeitMoney;
 import org.crimenetwork.neo4j.entity.CrimeCase;
 import org.crimenetwork.neo4j.entity.SuspectInfo;
+import org.crimenetwork.neo4j.entity.relationship.CurrencySim;
 import org.crimenetwork.neo4j.repository.CounterfeitMoneyRepository;
 import org.crimenetwork.neo4j.repository.CrimeCaseRepository;
 import org.crimenetwork.neo4j.repository.SuspectInfoRepository;
-import org.neo4j.cypher.internal.compiler.v2_1.docbuilders.internalDocBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -123,8 +123,8 @@ public class SearchController{
 						res.edges.add(edge2);
 						queue.add(key);
 					}
-					for(CounterfeitMoney counterfeitMoney:peekNode.getSimilarCM()){
-						String key="J"+counterfeitMoney.getFmid();
+					for(CurrencySim currencySim:peekNode.getSimilarCM()){
+						String key="J"+currencySim.getTo().getFmid();
 						NetworkEdge edge=new NetworkEdge(peekString,key);
 						NetworkEdge edge2=new NetworkEdge(key,peekString);
 						res.edges.add(edge);
@@ -132,8 +132,7 @@ public class SearchController{
 						queue.add(key);
 					}
 				}
-			}
-			
+			}	
 		}
 		return res;
 	}

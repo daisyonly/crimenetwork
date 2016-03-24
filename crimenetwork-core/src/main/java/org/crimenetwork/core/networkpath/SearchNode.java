@@ -11,8 +11,10 @@ public class SearchNode {
 	CounterfeitMoney counterfeitMoney;
 	CrimeCase crimeCase;
 	SuspectInfo suspectInfo;
-    public SearchNode(String prePath,TrieNode paths) {
-		this.prePath=prePath;
-		this.paths=paths;
+	String flag;
+    public SearchNode(String prePath,TrieNode paths,String flag) {
+		this.prePath = prePath;
+		this.paths = paths;
+		this.flag = flag;
 	}
 }
