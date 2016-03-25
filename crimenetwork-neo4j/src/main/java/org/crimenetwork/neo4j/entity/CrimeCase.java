@@ -58,7 +58,6 @@ public class CrimeCase {
 	
 	private String caseHappenDetailAddress;//案发详细地址
 	
-	
 	private String denLocation;//窝点详细地址
 	
 	private Date prosecutionTime;//起诉时间

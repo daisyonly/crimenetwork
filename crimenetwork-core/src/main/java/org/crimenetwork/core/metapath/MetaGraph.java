@@ -11,6 +11,11 @@ public class MetaGraph {
 	private static volatile MetaGraph INSTANCE = null;
 	private boolean graph[][];
     private int nodeCount;
+    
+    private TrieNode caseTrieNode=null;
+	private TrieNode suspectTrieNode=null;
+	private TrieNode counterfeitMoneyTrieNode=null;
+    
 	private MetaGraph() {
 		nodeCount= 3;
 		graph=new boolean[nodeCount][nodeCount];
@@ -24,6 +29,10 @@ public class MetaGraph {
 		graph[MetaGraphNode.PERSON][MetaGraphNode.CASES]=true;
 		
 		graph[MetaGraphNode.PERSON][MetaGraphNode.PERSON]=true;
+		
+		suspectTrieNode=convertPathsToTree(getMetaPath(5, 0, 0));
+		caseTrieNode=convertPathsToTree(getMetaPath(5, 1, 1));
+		counterfeitMoneyTrieNode=convertPathsToTree(getMetaPath(5, 2, 2));
 		
 	}
 
@@ -97,6 +106,10 @@ public class MetaGraph {
 					delete=true;
 					break;
 				}
+				if(one.get(i)==2&&one.get(i+1)==2&&one.get(i+2)==2){
+					delete=true;
+					break;
+				}
 			}
 			if(!delete) newResList.add(one);
 		}
@@ -121,5 +134,19 @@ public class MetaGraph {
 		System.out.println("hehe");
 		
 	}
+
+	public TrieNode getCaseTrieNode() {
+		return caseTrieNode;
+	}
+
+	public TrieNode getSuspectTrieNode() {
+		return suspectTrieNode;
+	}
+
+	public TrieNode getCounterfeitMoneyTrieNode() {
+		return counterfeitMoneyTrieNode;
+	}
+	
+	
 
 }

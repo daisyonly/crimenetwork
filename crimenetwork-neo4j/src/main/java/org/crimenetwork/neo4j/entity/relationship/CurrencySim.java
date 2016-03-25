@@ -2,6 +2,7 @@ package org.crimenetwork.neo4j.entity.relationship;
 
 import org.crimenetwork.neo4j.entity.CounterfeitMoney;
 import org.springframework.data.neo4j.annotation.EndNode;
+import org.springframework.data.neo4j.annotation.Fetch;
 import org.springframework.data.neo4j.annotation.GraphId;
 import org.springframework.data.neo4j.annotation.RelationshipEntity;
 import org.springframework.data.neo4j.annotation.StartNode;
@@ -11,8 +12,12 @@ public class CurrencySim {
 	@GraphId
     Long id;
 	
-	@StartNode CounterfeitMoney from;
-    @EndNode CounterfeitMoney to;
+	@StartNode
+	CounterfeitMoney from;
+    
+	@EndNode
+    @Fetch
+    CounterfeitMoney to;
     
     public CurrencySim(){}
     

@@ -45,7 +45,9 @@ public class SimilarCalculator {
 		
 		if(sbi1.getNativeLocation()!=null&&sbi2.getNativeLocation()!=null)
 			sum+=compare(sbi1.getNativeLocation().getName(),sbi2.getNativeLocation().getName());
-		sum+=compare(sbi1.getAccent().getName(),sbi2.getAccent().getName());
+		
+		if(sbi1.getAccent()!=null&&sbi2.getAccent()!=null)
+		    sum+=compare(sbi1.getAccent().getName(),sbi2.getAccent().getName());
 		
 		if(sbi1.getName().endsWith(sbi2.getName())) 
 			sum+=compare(sbi1.getAlias(),sbi2.getAlias());

@@ -64,7 +64,19 @@
 			<version>${jackson.version}</version>
 		</dependency>
 		<!-- JSON end -->
+		
+		<dependency>
+            <groupId>org.ansj</groupId>
+            <artifactId>ansj_seg</artifactId>
+            <version>3.7.1</version>
+        </dependency>
 	</dependencies>
+	<repositories>
+        <repository>
+            <id>mvn-repo</id>
+            <url>http://maven.nlpcn.org/</url>
+        </repository>
+    </repositories>
 	<build>
 		<finalName>crimenetwork</finalName>
 	</build>
