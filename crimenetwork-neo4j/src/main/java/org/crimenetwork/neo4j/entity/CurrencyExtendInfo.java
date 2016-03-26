@@ -15,10 +15,10 @@ public class CurrencyExtendInfo{
 	@Indexed
 	private Long jeiid;
 	
-	private String thick;
-	private Double white;
-	private Double quantity;
-	private Double angle;
+	private String thick;//厚度  *
+	private Double white;//白度
+	private Double quantity;//定量 *
+	private Double angle;//角度
 	private String fibre;//纤维种类
 	private String fluoreColor;//光波下颜色
 	private String backFluoreColor;//背面团花荧光颜色
@@ -33,8 +33,8 @@ public class CurrencyExtendInfo{
 	private Boolean isFluore;//荧光100有无
 	private Boolean isLightInk;//光变油墨有无
 	private String safelineWord;//安全线烫印文字
-	private String safelineLength;
-	private String safelineWidth;
+	private String safelineLength;//安全线烫印长度
+	private String safelineWidth;//安全线烫印宽度
 
     
 

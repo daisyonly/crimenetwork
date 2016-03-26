@@ -50,32 +50,33 @@ public class CounterfeitMoney{
 	
 	private String comValue;
 	
-	private String runningNumber;
+	private String runningNumber;//流水号
 		
 	private Date receiveTime;
 	
 	private Date createTime;
 	
-	private Long quantity;
+	private Long quantity;//张数
 	
-	private String caseNo;	
+	private String caseNo;//案件编号，没用	
 	
 	private Long total;//总额	
 	
-	private Boolean isPaperMoney;
+	private Boolean isPaperMoney;//是否纸币
 	
-	private String state;
+	private String state;//状态，没用
 	
-	private String remark;
+	private String remark;//备注经常有案件编号，可以用regex匹配“A4116000000002011030004”
 	
-	private Long smallPic;
+	private Long smallPic;//缩略图，没用
 	
+	@Indexed
 	private String piaoyangNumber;
 	
 	@RelatedTo(type="EXTEND_INFO", direction=Direction.OUTGOING)
 	@Fetch
 	@ManualField
-	private CurrencyExtendInfo currencyExtendInfo;
+	private CurrencyExtendInfo currencyExtendInfo;//有两个属性可用
 	
 	@RelatedTo(type="RELATED_BY", direction=Direction.OUTGOING)
 	@Fetch

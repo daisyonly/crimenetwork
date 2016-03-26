@@ -9,10 +9,11 @@ public class DateSimCalculator {
 		long distance = Math.abs(date1.getTime()-date2.getTime());
 		long day=distance/3600000;
 		if(day<365) return 5;
-		
+		if(day<(365*2)) return 4;
 		if(day<(365*3)) return 3;
 		if(day<(365*5)) return 2;
-		return 1;	
+		if(day<(365*10)) return 1;
+		return 0;	
 	}
 	
 

@@ -16,6 +16,10 @@ public class MetaGraph {
 	private TrieNode suspectTrieNode=null;
 	private TrieNode counterfeitMoneyTrieNode=null;
     
+	private List<String> caseMetaPaths=null;
+	private List<String> suspectMetaPaths=null;
+	private List<String> counterfeitMoneyMetaPaths=null;
+	
 	private MetaGraph() {
 		nodeCount= 3;
 		graph=new boolean[nodeCount][nodeCount];
@@ -30,10 +34,27 @@ public class MetaGraph {
 		
 		graph[MetaGraphNode.PERSON][MetaGraphNode.PERSON]=true;
 		
-		suspectTrieNode=convertPathsToTree(getMetaPath(5, 0, 0));
-		caseTrieNode=convertPathsToTree(getMetaPath(5, 1, 1));
-		counterfeitMoneyTrieNode=convertPathsToTree(getMetaPath(5, 2, 2));
+		List<List<Integer>> suspectsList=getMetaPath(5, 0, 0);
+		List<List<Integer>> casesList=getMetaPath(5, 1, 1);
+		List<List<Integer>> counterfeitMoneyList=getMetaPath(5, 2, 2);
 		
+		suspectMetaPaths= getAllPathCodeList(suspectsList);
+		caseMetaPaths= getAllPathCodeList(casesList);
+		counterfeitMoneyMetaPaths= getAllPathCodeList(counterfeitMoneyList);
+		
+		suspectTrieNode=convertPathsToTree(suspectsList);
+		caseTrieNode=convertPathsToTree(casesList);
+		counterfeitMoneyTrieNode=convertPathsToTree(counterfeitMoneyList);
+		
+	}
+	
+	private List<String> getAllPathCodeList(List<List<Integer>> paths){
+		List<String> pathcode= new ArrayList<String>();
+		for(List<Integer> path:paths){
+			pathcode.add(getPathCode(path));
+		}
+		
+		return pathcode;
 	}
 
 	public static MetaGraph getAnInstance() {
@@ -146,7 +167,18 @@ public class MetaGraph {
 	public TrieNode getCounterfeitMoneyTrieNode() {
 		return counterfeitMoneyTrieNode;
 	}
-	
-	
+
+	public List<String> getCaseMetaPaths() {
+		return caseMetaPaths;
+	}
+
+	public List<String> getSuspectMetaPaths() {
+		return suspectMetaPaths;
+	}
+
+	public List<String> getCounterfeitMoneyMetaPaths() {
+		return counterfeitMoneyMetaPaths;
+	}
+
 
 }
