@@ -137,9 +137,11 @@ function drawNetwork(rawData){
 			groupType="jiabi";
 		}
 		
-		var titleString=null;		
+		var titleString="";		
 		var attributeKeys=Object.keys(curObject);
 		for(var j = 0, len = attributeKeys.length; j < len; j++){
+			if(curObject[attributeKeys[j]]==null)
+				curObject[attributeKeys[j]]="暂无";
 			if(j==0){
 				titleString=titleString+attributeKeys[j]+":"+curObject[attributeKeys[j]];
 			}else{

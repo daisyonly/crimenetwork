@@ -76,6 +76,7 @@ public class SearchService {
 				if(peek.flag =='S'){
 					SuspectInfo peekNode=peek.suspectInfo;
 					String peekKey="S"+peekNode.getsId();
+					System.out.println(peekKey);
 					res.nodes.put(peekKey, EntityToMapConverter.convert(peekNode));
 					for(CrimeCase crimeCase:peekNode.getCases()){
 						String key="C"+crimeCase.getcId();
@@ -107,6 +108,7 @@ public class SearchService {
 				}else if(peek.flag=='C'){				
 					CrimeCase peekNode=peek.crimeCase;
 					String peekKey="C"+peekNode.getcId();
+					System.out.println(peekKey);
 					res.nodes.put(peekKey, EntityToMapConverter.convert(peekNode));
 					for(SuspectInfo suspectInfo:peekNode.getSuspects()){
 						String key="S"+suspectInfo.getsId();
@@ -135,6 +137,7 @@ public class SearchService {
 				}else{					
 					CounterfeitMoney peekNode=peek.counterfeitMoney;
 					String peekKey="J"+peekNode.getFmid();
+					System.out.println(peekKey);
 					res.nodes.put(peekKey, EntityToMapConverter.convert(peekNode));
 					for(CrimeCase crimeCase:peekNode.getCaseInfos()){
 						String key="C"+crimeCase.getcId();
