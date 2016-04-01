@@ -26,11 +26,16 @@ public class SearchController{
 
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	@ResponseBody
-	public NetworkModel loadScriptContent(@RequestParam("id") String id,
+	public NetworkModel loadScriptContent(@RequestParam("suspectId") String suspectId,
+			@RequestParam("caseId") String caseId,
+			@RequestParam("currencyId") String currencyId,
 			@RequestParam(value="pathLength", required=false) int pathLength,
 			@RequestParam(value="currencySim", required=false) double currencySim) {
 		logger.debug("here!");
-		//String id="R4401115800002008091463";
+		String id=null;
+		if(!suspectId.equals("")) id="S"+suspectId;
+		else if(!caseId.equals("")) id="C"+caseId;
+		else if(!currencyId.equals("")) id="J"+currencyId;
 		System.out.println(id);
 		NetworkModel res=searchService.searchByObjectId(id, pathLength);
 		System.out.println("hehe!!");

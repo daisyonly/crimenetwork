@@ -14,7 +14,7 @@ import org.springframework.http.client.SimpleClientHttpRequestFactory;
 
 //doc: http://lbsyun.baidu.com/index.php?title=webapi/guide/webservice-geocoding
 public class BaiduLBSHelper {
-	
+	//2FtDE2Z7jP8ip24XGKwTdItgag8ujnmf
 	//http://api.map.baidu.com/place/v2/suggestion?query=天安门&region=131&output=json&ak=E4805d16520de693a3fe707cdc962045
 		public static void getSuggestion(String query){
 			String urlString = "http://api.map.baidu.com/place/v2/suggestion";
@@ -72,5 +72,8 @@ public class BaiduLBSHelper {
 	        }
 			return null;
 		} 
+		public static void main(String[] args) {
+			getGeocoder("河南潢川县黄寺岗镇白术村北杨营组");
+		}
 
 }

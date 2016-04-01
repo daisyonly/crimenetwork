@@ -48,6 +48,7 @@ public class StrongRulesProcessor {
 	private static boolean isUnknow(String str){
 		if(str==null)  return true;
 		if(str.trim().equals("未知")) return true;
+		if(str.trim().equals("无")) return true;
 		return false;
 	}
 

@@ -82,17 +82,17 @@ $(document).ready(function(){
 		if(count==0) alert("请输入一个查询项");
 		if(count==1){
 			var id=null;
-			if(suspectId!="") id=suspectId;
-			else if(caseId!="") id=caseId;
-			else if(currencyId!="") id=currencyId;
 			var pathLength = $("input[name='path-length']").val();
 			var currencySim = $("input[name='currency-sim']").val();
 			$.ajax({
 				type : "GET",
 				url : "search",
-				data:{ id:id,
+				data:{ suspectId:suspectId,
+					   caseId:caseId,
+					   currencyId:currencyId,
 					   pathLength:pathLength,
-					   currencySim:currencySim},
+					   currencySim:currencySim
+					  },
 				success : function(data) {
 					console.log(data);
 					drawNetwork(data);
@@ -109,7 +109,8 @@ function drawNetwork(rawData){
 	var edges = null;
 	var network = null;
 	var DIR = './lib/vis/img/network/';
-	var LENGTH_MAIN = 350, LENGTH_SERVER = 150, LENGTH_SUB = 100, WIDTH_SCALE = 2, GREEN = 'green', RED = '#C5000B', ORANGE = 'orange',
+	var LENGTH_MAIN = 350, LENGTH_SERVER = 150, LENGTH_SUB = 100, WIDTH_SCALE = 2, 
+	GREEN = 'green', RED = '#C5000B', ORANGE = 'orange',
 	//GRAY = '#666666',
 	GRAY = 'gray', BLACK = '#2B1B17';
 	
@@ -152,7 +153,7 @@ function drawNetwork(rawData){
 			id : i+1,
 			label : name,
 			group : groupType,
-			size : i*3+10,
+			size :  25,
 			title : titleString
 		});	
 	}
@@ -161,6 +162,16 @@ function drawNetwork(rawData){
 	for(var i = 0, l = rawEdges.length; i < l; i++){
 		var fromId=idMap[rawEdges[i]["fromId"]];
 		var endId=idMap[rawEdges[i]["endId"]];
+		var curColor=RED;
+		var fromType = rawEdges[i]["fromId"].charAt(0);
+		var endType = rawEdges[i]["endId"].charAt(0);
+		if(fromType=="C"&& endType=="J"||fromType=="J"&& endType=="C"){
+			curColor=GREEN;
+		}else if(fromType=="S"&& endType=="S"){
+			curColor=GRAY;
+		}else if(fromType=="J"&& endType=="J"){
+			curColor=BLACK;
+		}
 		edges.push({
 			from : fromId,
 			to : endId,
@@ -168,7 +179,7 @@ function drawNetwork(rawData){
 			arrowStrikethrough:true,
 			length : LENGTH_SERVER,
 			width : WIDTH_SCALE * 1,
-			color : RED
+			color : curColor
 		});
 	}
 

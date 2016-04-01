@@ -1,10 +1,14 @@
 package org.crimenetwork.dataextraction.nameDisambiguation.clusterService;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import org.crimenetwork.dataextraction.nameDisambiguation.attribute.SimilarCalculator;
 import org.crimenetwork.dataextraction.nameDisambiguation.attribute.StrongRulesProcessor;
 import org.crimenetwork.dataextraction.nameDisambiguation.data.SuspectDataHelper;
+import org.crimenetwork.dataextraction.nameDisambiguation.eva.ClusterEvaluationLong;
 import org.crimenetwork.oracle.entity.suspect.SuspectBaseInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -12,27 +16,34 @@ import org.springframework.stereotype.Service;
 
 @Service("clusterProcessor")
 public class ClusterProcessor {
-	public static final double QUITE_SILILAR_THRESHOLD = 0.5;
-	public static final double SILILAR_THRESHOLD = 0.2;
+	public static final double QUITE_SILILAR_THRESHOLD = 0.9;
+	public static final double SILILAR_THRESHOLD = 0.55;
+	public static final double MIN = -1000000;
 	
 	@Autowired
 	@Qualifier("suspectDataHelper")
 	private SuspectDataHelper suspectDataHelper;
 	
 	
-	public ArrayList<ArrayList<SuspectBaseInfo>> process(int dataIndex){
+	public void init(){
+		suspectDataHelper.initEva();
+	}
+	
+	public ArrayList<ArrayList<SuspectBaseInfo>> process(int dataIndex, double sim){
 		ArrayList<SuspectBaseInfo> rawData=suspectDataHelper.getDataByGroupIndex(dataIndex);
+		//System.out.println(dataIndex+":"+ rawData.get(0).getName()+"  "+rawData.size());
 		ArrayList<ArrayList<SuspectBaseInfo>> clusters=new ArrayList<ArrayList<SuspectBaseInfo>>();
 		
 		//先处理强规则
 		for(SuspectBaseInfo sbi:rawData){
 			int index=-1;
+			/*
 			for(int i=0;i<clusters.size();i++){				
 			  if(StrongRulesProcessor.isTheSameOne(clusters.get(i),sbi)){
 				  index=i;
 				  break;
 			  }		  
-			}
+			}*/
 			if(index==-1){
 				ArrayList<SuspectBaseInfo> newCluster=new ArrayList<SuspectBaseInfo>();
 				newCluster.add(sbi);
@@ -48,9 +59,10 @@ public class ClusterProcessor {
 			int index1=-1,index2=-1;
 			for(int i=0;i<clusters.size();i++){
 				boolean isFound=false;
-				for(int j=i+1;j<clusters.size();j++){			
-					if(SimilarCalculator.computeClusterSimilar(clusters.get(i), clusters.get(j))
-							>QUITE_SILILAR_THRESHOLD){
+				for(int j=i+1;j<clusters.size();j++){
+					double tmp=SimilarCalculator.computeClusterSimilar(clusters.get(i), clusters.get(j));
+					//System.out.println("!:"+tmp);
+					if(tmp>QUITE_SILILAR_THRESHOLD){
 						index1=i;
 						index2=j;
 						isFound=true;
@@ -72,7 +84,7 @@ public class ClusterProcessor {
 		
 		double curSim=Double.MAX_VALUE;
 		int curCluster1=-1,curCluster2=-1;
-		while(curSim>SILILAR_THRESHOLD){
+		while(curSim>sim){
 			//System.out.println("sim:"+curSim);
 			if(curCluster1!=-1){
 				ArrayList<SuspectBaseInfo> newCluster=new ArrayList<SuspectBaseInfo>();
@@ -83,7 +95,7 @@ public class ClusterProcessor {
 				clusters.add(newCluster);
 			}
 			
-			curSim=Double.MIN_VALUE;
+			curSim=ClusterProcessor.MIN;
 			//System.out.println("sim:"+curSim);
 			for(int i=0;i<clusters.size();i++){
 				for(int j=i+1;j<clusters.size();j++){
@@ -95,10 +107,24 @@ public class ClusterProcessor {
 					}
 				}					
 			}
-			System.out.println("sim:"+curSim);
+			//System.out.println("sim:"+curSim);
 		}
 		return clusters;
 		
+	}
+	
+	public double evaluateResult(ArrayList<ArrayList<SuspectBaseInfo>> clusters,int index) throws Exception{
+		List<Set<Long>> clusterResult=new ArrayList<Set<Long>>();
+		for(int i=0;i<clusters.size();i++){
+			Set<Long> tmpSet=new HashSet<Long>();
+			for(SuspectBaseInfo one:clusters.get(i)){
+				tmpSet.add(one.getId());
+			}
+			
+			clusterResult.add(tmpSet);
+		}
+		ClusterEvaluationLong eva=new ClusterEvaluationLong(clusterResult, suspectDataHelper.getLabelList(index));
+	    return eva.getF1Val();
 	}
 	
 	public void outputCluster(ArrayList<ArrayList<SuspectBaseInfo>> clusters){

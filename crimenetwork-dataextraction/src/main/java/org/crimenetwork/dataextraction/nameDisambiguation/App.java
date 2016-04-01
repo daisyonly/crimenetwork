@@ -25,9 +25,7 @@ public class App
 		SuspectRelationUpdater suspectRelationUpdater = (SuspectRelationUpdater) context.getBean("suspectRelationUpdater");
 
 		suspectRelationUpdater.update();
-		
-		
-	
+
         System.out.println( "Hello World!" );
     }
 }

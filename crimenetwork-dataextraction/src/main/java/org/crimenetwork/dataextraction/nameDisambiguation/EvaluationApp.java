@@ -27,8 +27,26 @@ public class EvaluationApp
 		ClusterProcessor clusterProcessor = (ClusterProcessor) context.getBean("clusterProcessor");
 
 		//clusterProcessor.process();
-		//clusterProcessor.outputCluster(clusterProcessor.process());
+		clusterProcessor.init();
+		double sim=-1;
+		while(sim<=1){
+			double sum=0;
+			for(int i=0;i<33;i++){
+				try {
+					double result = clusterProcessor.evaluateResult(clusterProcessor.process(i,sim), i);
+					sum+=result;
+					//System.out.println(i+":" +result);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			System.out.println(sim+":"+sum/33);
+			sim=sim+0.05;
+			
+		}
 		
+
 	
         System.out.println( "Hello World!" );
     }

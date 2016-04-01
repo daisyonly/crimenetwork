@@ -44,20 +44,21 @@ public class SearchService {
 	public NetworkModel searchByObjectId(String id,int pathLength){
 		Queue<SearchNode> queue= new LinkedList<SearchNode>();
 		HashSet<String> visitedSet =new HashSet<String>();
-		if(id.charAt(0)=='R'){
-			SuspectInfo start=suspectInfoRepository.findBySuspectId(id);	
+		Long realId= Long.parseLong(id.substring(1));
+		if(id.charAt(0)=='S'){
+			SuspectInfo start=suspectInfoRepository.findBySId(realId);	
 			SearchNode node=new SearchNode('S');
 			node.suspectInfo=start;
 			queue.add(node);
 			visitedSet.add("S"+start.getsId());
-		}else if(id.charAt(0)=='C'){
-			CounterfeitMoney start=counterfeitMoneyRepository.findByPiaoyangNumber(id);			
+		}else if(id.charAt(0)=='J'){
+			CounterfeitMoney start=counterfeitMoneyRepository.findByFmid(realId);			
 			SearchNode node=new SearchNode('J');
 			node.counterfeitMoney=start;
 			queue.add(node);
 			visitedSet.add("J"+start.getFmid());
 		}else{
-			CrimeCase start=crimeCaseRepository.findByCaseId(id);	
+			CrimeCase start=crimeCaseRepository.findByCId(realId);	
 			SearchNode node=new SearchNode('C');
 			node.crimeCase=start;
 			queue.add(node);

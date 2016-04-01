@@ -1,52 +1,66 @@
 <?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>cn.iscas</groupId>
-    <artifactId>crimenetwork</artifactId>
-    <version>1.0-SNAPSHOT</version>
-  </parent>
-  <artifactId>crimenetwork-dataextraction</artifactId>
-  <name>crimenetwork-dataextraction</name>
-  <url>http://maven.apache.org</url>
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
-  <dependencies>
-  	
-	<dependency>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
 		<groupId>cn.iscas</groupId>
-		<artifactId>crimenetwork-oracle</artifactId>
-		<version>${project.version}</version>
-	</dependency>
-	<dependency>
-		<groupId>cn.iscas</groupId>
-		<artifactId>crimenetwork-neo4j</artifactId>
-		<version>${project.version}</version>
-	</dependency>
-	<dependency>
+		<artifactId>crimenetwork</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+	<artifactId>crimenetwork-dataextraction</artifactId>
+	<name>crimenetwork-dataextraction</name>
+	<url>http://maven.apache.org</url>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>cn.iscas</groupId>
+			<artifactId>crimenetwork-oracle</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>cn.iscas</groupId>
+			<artifactId>crimenetwork-neo4j</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>commons-beanutils</groupId>
 			<artifactId>commons-beanutils</artifactId>
 			<version>${commons-beanutils.version}</version>
 			<exclusions>
-		  		<exclusion>
+				<exclusion>
 					<groupId>commons-logging</groupId>
 					<artifactId>commons-logging</artifactId>
-		  		</exclusion>
+				</exclusion>
 			</exclusions>
 		</dependency>
+		<dependency>
+			<groupId>javax.el</groupId>
+			<artifactId>javax.el-api</artifactId>
+			<version>2.2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.web</groupId>
+			<artifactId>javax.el</artifactId>
+			<version>2.2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.12</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-lgpl</artifactId>
+			<version>1.9.12</version>
+		</dependency>
 		
-	<dependency>
-	 <groupId>javax.el</groupId>
-   <artifactId>javax.el-api</artifactId>
-   <version>2.2.4</version>
-</dependency>
-<dependency>
-   <groupId>org.glassfish.web</groupId>
-   <artifactId>javax.el</artifactId>
-   <version>2.2.4</version>
-</dependency>
-     
-  </dependencies>
+	</dependencies>
 </project>
