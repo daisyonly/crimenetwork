@@ -101,10 +101,10 @@ public class DataGenerator {
 		
 	}
 	
-	public Map<Long,List<Double>> generateRankData(String query,List<Long> candidatesId){
+	public Map<Long,Map<String, Double>> generateRankData(String query,List<Long> candidatesId){
 		char flag=query.charAt(0);
 		Long queryId = Long.parseLong(query.substring(1));
-	    Map<Long,List<Double>> data=new HashMap<Long,List<Double>>();
+	    Map<Long,Map<String, Double>> data=new HashMap<Long,Map<String, Double>>();
 		if(flag=='J'){
 			CounterfeitMoney queryObject= counterfeitMoneyRepository.findByFmid(queryId);
 		    List<CounterfeitMoney> candidates=new ArrayList<CounterfeitMoney>();
@@ -112,7 +112,7 @@ public class DataGenerator {
 		    	candidates.add(counterfeitMoneyRepository.findByFmid(id));
 		    }
 		    for(CounterfeitMoney cm:candidates){
-		    	List<Double> features=simRankFeatureGenerator.generate(queryObject, cm);
+		    	Map<String, Double> features=simRankFeatureGenerator.getFeatureMap('J',simRankFeatureGenerator.generate(queryObject, cm));
 		    	data.put(cm.getFmid(), features);
 		    }
 		    
@@ -123,7 +123,7 @@ public class DataGenerator {
 		    	candidates.add(crimeCaseRepository.findByCId(id));
 		    }
 		    for(CrimeCase cm:candidates){
-		    	List<Double> features=simRankFeatureGenerator.generate(queryObject, cm);
+		    	Map<String, Double> features=simRankFeatureGenerator.getFeatureMap('C',simRankFeatureGenerator.generate(queryObject, cm));
 		    	data.put(cm.getcId(), features);
 		    }
 		}else{
@@ -133,7 +133,7 @@ public class DataGenerator {
 		    	candidates.add(suspectInfoRepository.findBySId(id));
 		    }
 		    for(SuspectInfo cm:candidates){
-		    	List<Double> features=simRankFeatureGenerator.generate(queryObject, cm);
+		    	Map<String, Double> features=simRankFeatureGenerator.getFeatureMap('S',simRankFeatureGenerator.generate(queryObject, cm));
 		    	data.put(cm.getsId(), features);
 		    }
 		}

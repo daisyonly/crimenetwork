@@ -79,7 +79,7 @@ public class SearchService {
 					String peekKey="S"+peekNode.getsId();
 					if(pathLength==res.suspectLevel||res.nearestSuspectNode.size()==0){
 						res.nearestSuspectNode.add(peekKey);
-						res.cMLevel=pathLength;
+						res.suspectLevel=pathLength;
 					}
 					res.nodes.put(peekKey, EntityToMapConverter.convert(peekNode));
 					for(CrimeCase crimeCase:peekNode.getCases()){
@@ -115,7 +115,7 @@ public class SearchService {
 					
 					if(pathLength==res.caseLevel||res.nearestCaseNode.size()==0){
 						res.nearestCaseNode.add(peekKey);
-						res.cMLevel=pathLength;
+						res.caseLevel=pathLength;
 					}
 					
 					res.nodes.put(peekKey, EntityToMapConverter.convert(peekNode));

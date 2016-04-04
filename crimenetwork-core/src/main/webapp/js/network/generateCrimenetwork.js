@@ -128,6 +128,7 @@ function drawNetwork(rawData){
 		idMap[rawNodesKeys[i]]=i+1;
 		var curObject=rawNodes[rawNodesKeys[i]];
 		var name=curObject["姓名"];
+		var curSize=curObject["size"];
 		var nodeType=rawNodesKeys[i].charAt(0);
 		var groupType=null;
 		if(nodeType=="S"){
@@ -153,7 +154,7 @@ function drawNetwork(rawData){
 			id : i+1,
 			label : name,
 			group : groupType,
-			size :  25,
+			size :  curSize,
 			title : titleString
 		});	
 	}

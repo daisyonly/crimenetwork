@@ -2,6 +2,7 @@ package org.crimenetwork.core.api;
 
 
 import org.crimenetwork.core.entity.NetworkModel;
+import org.crimenetwork.core.service.NodeSimService;
 import org.crimenetwork.core.service.SearchService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,6 +24,8 @@ public class SearchController{
 	@Autowired
 	private SearchService searchService;
 	
+	@Autowired
+	private NodeSimService nodeSimService;
 
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	@ResponseBody
@@ -37,8 +40,9 @@ public class SearchController{
 		else if(!caseId.equals("")) id="C"+caseId;
 		else if(!currencyId.equals("")) id="J"+currencyId;
 		System.out.println(id);
-		NetworkModel res=searchService.searchByObjectId(id, pathLength);
+		NetworkModel res=searchService.searchByObjectId(id, pathLength+1);
 		res.queryId=id;
+		nodeSimService.rank(res);
 		System.out.println("hehe!!");
 		return res;
 	}

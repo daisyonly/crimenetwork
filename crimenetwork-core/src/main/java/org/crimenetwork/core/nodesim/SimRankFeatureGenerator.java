@@ -3,6 +3,7 @@ package org.crimenetwork.core.nodesim;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.crimenetwork.core.metapath.MetaGraph;
 import org.crimenetwork.neo4j.entity.CounterfeitMoney;
@@ -91,6 +92,18 @@ public class SimRankFeatureGenerator {
 		}	
 		return features;
 		
+	}
+	
+	public Map<String, Double> getFeatureMap(char flag,List<Double> features){
+		List<String> header=null;
+		if(flag=='J') header=counterfeitMoneyFeatureHeader;
+		else if(flag=='C') header=caseFeatureHeader;
+		else header=suspectFeatureHeader;
+		Map<String, Double> tmp=new HashMap<String, Double>();
+		for(int i=0;i<header.size();i++){
+			tmp.put(header.get(i), features.get(i));
+		}
+		return tmp;
 	}
 	
 	public String outputFeature(char flag,List<Double> features){
