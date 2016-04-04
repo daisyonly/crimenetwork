@@ -56,13 +56,12 @@ public class MetaPathFeatureGenerator {
 		updatePathcountSumDic(searchRes,queryIdPre);
 		for(Map.Entry<String, SearchResult> entry:searchRes.entrySet()){	
 			char flag=entry.getKey().charAt(0);
-			System.out.println(entry.getKey());
+			
 			if(flag=='C'){
 				HashMap<String, SearchResult> tmp=PathSearcher.search(caseTrieNode, entry.getValue().crimeCase);
 				String keyPre="C"+entry.getValue().crimeCase.getcId()+"#";
 				updatePathcountSumDic(tmp,keyPre);
 			}else if(flag=='J'){
-				System.out.println("test:"+entry.getKey());
 				HashMap<String, SearchResult> tmp=PathSearcher.search(counterfeitMoneyTrieNode, entry.getValue().counterfeitMoney);
 				String keyPre="J"+entry.getValue().counterfeitMoney.getFmid()+"#";
 				updatePathcountSumDic(tmp,keyPre);
@@ -72,10 +71,7 @@ public class MetaPathFeatureGenerator {
 				updatePathcountSumDic(tmp,keyPre);
 			}		
 		}
-		System.out.println();
-		for(String key:pathcountSumDic.keySet()){
-			System.out.println(key);
-		}
+		
 		for(Map.Entry<String, SearchResult> entry:searchRes.entrySet()){	
 			String anchorId=entry.getKey();
 			MetaPathFeature mf=new MetaPathFeature(queryId,anchorId);
@@ -84,7 +80,7 @@ public class MetaPathFeatureGenerator {
 				String reversePath=getReversePath(path);
 				double pathCount=one.getValue();
 				mf.pathCout.put(path, pathCount);
-				System.out.println(queryId+"#"+path+"  "+ anchorId+"#"+path);
+				
 				double pathAll=pathcountSumDic.get(queryId+"#"+path);
 				double revPathAll=pathcountSumDic.get(anchorId+"#"+reversePath);
 			   

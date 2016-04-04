@@ -1,6 +1,7 @@
 package org.crimenetwork.core.networkpath;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -19,8 +20,11 @@ public class PathSearcher {
 		SearchNode queryNode = new SearchNode( "1", root,"C");
 		queryNode.crimeCase=cc;
 		String queryNodeId="C"+cc.getcId();
+		queryNode.preNodeIdSet.add(queryNodeId);
 		queue.offer(queryNode);
-		return BFS(queue,queryNodeId,'C');
+		HashSet<String> visited= new HashSet<String>();
+		visited.add(queryNodeId);
+		return BFS(queue,queryNodeId,'C',visited);
 	}
 	
 	public static HashMap<String, SearchResult> search(TrieNode root,SuspectInfo si){
@@ -28,8 +32,11 @@ public class PathSearcher {
 		SearchNode queryNode = new SearchNode( "0", root,"S");
 		queryNode.suspectInfo=si;
 		String queryNodeId="S"+si.getsId();
+		queryNode.preNodeIdSet.add(queryNodeId);
 		queue.offer(queryNode);
-		return BFS(queue,queryNodeId,'S');
+		HashSet<String> visited= new HashSet<String>();
+		visited.add(queryNodeId);
+		return BFS(queue,queryNodeId,'S',visited);
 	}
 	
 	public static HashMap<String, SearchResult> search(TrieNode root,CounterfeitMoney cm){		
@@ -37,12 +44,14 @@ public class PathSearcher {
 		SearchNode queryNode = new SearchNode( "2", root,"J");
 		queryNode.counterfeitMoney=cm;
 		String queryNodeId="J"+cm.getFmid();
+		queryNode.preNodeIdSet.add(queryNodeId);
 		queue.offer(queryNode);
-
-		return BFS(queue,queryNodeId,'J');
+		HashSet<String> visited= new HashSet<String>();
+		visited.add(queryNodeId);
+		return BFS(queue,queryNodeId,'J',visited);
 	}
 	
-	private static HashMap<String, SearchResult> BFS(Queue<SearchNode> queue,String queryNodeId,char flag){
+	private static HashMap<String, SearchResult> BFS(Queue<SearchNode> queue,String queryNodeId,char flag,HashSet<String> visited){
 		HashMap<String, SearchResult> resHashMap=new HashMap<String, SearchResult>();
 		while(!queue.isEmpty()){
 			SearchNode peekNode=queue.poll();
@@ -52,11 +61,23 @@ public class PathSearcher {
 				String curPath=peekNode.prePath+MetaGraphNode.PERSON;
 				List<SearchNode> res=null;
 				if(peekNode.flag.equals("C")){
-					res = PathSearchHelper.search(peekNode.crimeCase, "S", curPath, paths);
-					queue.addAll(res);
+					res = PathSearchHelper.search(peekNode.crimeCase, "S", curPath, paths,peekNode.preNodeIdSet);
+					for(SearchNode curRes:res){
+						String curresKey="S"+curRes.suspectInfo.getsId();
+						if(!visited.contains(curresKey)){
+							queue.add(curRes);
+							visited.add(curresKey);
+						}
+					}
 				}else if(peekNode.flag.equals("S")){
-					res =PathSearchHelper.search(peekNode.suspectInfo, "S", curPath, paths);
-					queue.addAll(res);
+					res =PathSearchHelper.search(peekNode.suspectInfo, "S", curPath, paths,peekNode.preNodeIdSet);
+					for(SearchNode curRes:res){
+						String curresKey="S"+curRes.suspectInfo.getsId();
+						if(!visited.contains(curresKey)){
+							queue.add(curRes);
+							visited.add(curresKey);
+						}
+					}
 				}
 				if(flag=='S'){
 					for(SearchNode node:res){
@@ -71,11 +92,23 @@ public class PathSearcher {
 				String curPath=peekNode.prePath+MetaGraphNode.CASES;
 				List<SearchNode> res = null;
 				if(peekNode.flag.equals("S")){
-					res = PathSearchHelper.search(peekNode.suspectInfo, "C", curPath, paths);
-					queue.addAll(res);
+					res = PathSearchHelper.search(peekNode.suspectInfo, "C", curPath, paths,peekNode.preNodeIdSet);
+					for(SearchNode curRes:res){
+						String curresKey="C"+curRes.crimeCase.getcId();
+						if(!visited.contains(curresKey)){
+							queue.add(curRes);
+							visited.add(curresKey);
+						}
+					}
 				}else if(peekNode.flag.equals("J")){
-					res= PathSearchHelper.search(peekNode.counterfeitMoney, "C", curPath, paths);
-					queue.addAll(res);
+					res= PathSearchHelper.search(peekNode.counterfeitMoney, "C", curPath, paths,peekNode.preNodeIdSet);
+					for(SearchNode curRes:res){
+						String curresKey="C"+curRes.crimeCase.getcId();
+						if(!visited.contains(curresKey)){
+							queue.add(curRes);
+							visited.add(curresKey);
+						}
+					}
 				}
 				if(flag=='C'){
 					for(SearchNode node:res){
@@ -90,12 +123,24 @@ public class PathSearcher {
 				String curPath=peekNode.prePath+MetaGraphNode.JIABI;
 				List<SearchNode> res = null;
 				if(peekNode.flag.equals("C")){
-					res = PathSearchHelper.search(peekNode.crimeCase, "J", curPath, paths);
-					queue.addAll(res);
+					res = PathSearchHelper.search(peekNode.crimeCase, "J", curPath, paths,peekNode.preNodeIdSet);
+					for(SearchNode curRes:res){
+						String curresKey="J"+curRes.counterfeitMoney.getFmid();
+						if(!visited.contains(curresKey)){
+							queue.add(curRes);
+							visited.add(curresKey);
+						}
+					}
 					
 				}else if(peekNode.flag.equals("J")){
-					res =PathSearchHelper.search(peekNode.counterfeitMoney, "J", curPath, paths);
-					queue.addAll(res);
+					res =PathSearchHelper.search(peekNode.counterfeitMoney, "J", curPath, paths,peekNode.preNodeIdSet);
+					for(SearchNode curRes:res){
+						String curresKey="J"+curRes.counterfeitMoney.getFmid();
+						if(!visited.contains(curresKey)){
+							queue.add(curRes);
+							visited.add(curresKey);
+						}
+					}
 				}
 				if(flag=='J'){
 					for(SearchNode node:res){

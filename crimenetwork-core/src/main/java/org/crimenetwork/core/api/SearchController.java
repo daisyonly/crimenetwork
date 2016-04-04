@@ -38,6 +38,7 @@ public class SearchController{
 		else if(!currencyId.equals("")) id="J"+currencyId;
 		System.out.println(id);
 		NetworkModel res=searchService.searchByObjectId(id, pathLength);
+		res.queryId=id;
 		System.out.println("hehe!!");
 		return res;
 	}

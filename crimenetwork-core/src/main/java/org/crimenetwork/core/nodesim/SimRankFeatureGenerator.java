@@ -86,23 +86,23 @@ public class SimRankFeatureGenerator {
 		String objectKey="S"+object.getsId();
 		HashMap<String, Double> attriFeatures=AttrSimCalculator.computeSimilar(query, object);
 		List<Double> features=generateMetaPathfeature(suspectMetaPaths,metaPathFeatures,objectKey);
-		for(String key:AttrSimCalculator.getCounterfeitMoneyAttrNameList()){
+		for(String key:AttrSimCalculator.getSuspectAttrNameList()){
 			features.add(attriFeatures.get(key));
 		}	
 		return features;
 		
 	}
 	
-	public void outputFeature(char flag,List<Double> features){
+	public String outputFeature(char flag,List<Double> features){
 		List<String> header=null;
 		if(flag=='J') header=counterfeitMoneyFeatureHeader;
 		else if(flag=='C') header=caseFeatureHeader;
 		else header=suspectFeatureHeader;
-		
+		StringBuilder tmpBuilder=new StringBuilder();
 		for(int i=0;i<header.size();i++){
-			System.out.print(header.get(i)+":"+features.get(i)+"   ");
+			tmpBuilder.append(header.get(i)+":"+features.get(i)+"\t");
 		}
-		System.out.println();
+		return tmpBuilder.toString();
 	}
 	
 	private List<Double> generateMetaPathfeature(List<String> metaPaths,HashMap<String, MetaPathFeature> metaPathFeatures,String objectKey){
@@ -142,7 +142,5 @@ public class SimRankFeatureGenerator {
 		}
 		return features;
 	}
-	
-	
 
 }

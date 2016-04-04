@@ -69,7 +69,7 @@ public class SearchService {
 	}
 	
 	private NetworkModel search(Queue<SearchNode> queue,HashSet<String> visitedSet,int pathLength){
-		NetworkModel  res=new NetworkModel();
+		NetworkModel  res = new NetworkModel();
 		while(!queue.isEmpty()&& pathLength--!=0){
 			int levelNodeCount=queue.size();
 			while(levelNodeCount--!=0){
@@ -77,25 +77,26 @@ public class SearchService {
 				if(peek.flag =='S'){
 					SuspectInfo peekNode=peek.suspectInfo;
 					String peekKey="S"+peekNode.getsId();
-					System.out.println(peekKey);
+					if(pathLength==res.suspectLevel||res.nearestSuspectNode.size()==0){
+						res.nearestSuspectNode.add(peekKey);
+						res.cMLevel=pathLength;
+					}
 					res.nodes.put(peekKey, EntityToMapConverter.convert(peekNode));
 					for(CrimeCase crimeCase:peekNode.getCases()){
 						String key="C"+crimeCase.getcId();
-						if(visitedSet.contains(key)) continue;
-						visitedSet.add(key);
 						NetworkEdge edge=new NetworkEdge(peekKey,key);
 						NetworkEdge edge2=new NetworkEdge(key,peekKey);
 						res.edges.add(edge);
 						res.edges.add(edge2);
 						SearchNode newNode=new SearchNode('C');
 						newNode.crimeCase=crimeCase;
+						if(visitedSet.contains(key)) continue;
+						visitedSet.add(key);
 						queue.add(newNode);
 					}
 					if(peek.sameAslastNode==false){
 						for(SuspectInfo suspectInfo:peekNode.getIdenticalSuspects()){
 							String key="S"+suspectInfo.getsId();
-							if(visitedSet.contains(key)) continue;
-							visitedSet.add(key);
 							NetworkEdge edge=new NetworkEdge(peekKey,key);
 							NetworkEdge edge2=new NetworkEdge(key,peekKey);
 							res.edges.add(edge);
@@ -103,60 +104,70 @@ public class SearchService {
 							SearchNode newNode=new SearchNode('S');
 							newNode.suspectInfo=suspectInfo;
 							newNode.sameAslastNode=true;
+							if(visitedSet.contains(key)) continue;
+							visitedSet.add(key);
 							queue.add(newNode);
 						}
 					}
 				}else if(peek.flag=='C'){				
 					CrimeCase peekNode=peek.crimeCase;
 					String peekKey="C"+peekNode.getcId();
-					System.out.println(peekKey);
+					
+					if(pathLength==res.caseLevel||res.nearestCaseNode.size()==0){
+						res.nearestCaseNode.add(peekKey);
+						res.cMLevel=pathLength;
+					}
+					
 					res.nodes.put(peekKey, EntityToMapConverter.convert(peekNode));
 					for(SuspectInfo suspectInfo:peekNode.getSuspects()){
 						String key="S"+suspectInfo.getsId();
-						if(visitedSet.contains(key)) continue;
-						visitedSet.add(key);
 						NetworkEdge edge=new NetworkEdge(peekKey,key);
 						NetworkEdge edge2=new NetworkEdge(key,peekKey);
 						res.edges.add(edge);
 						res.edges.add(edge2);
 						SearchNode newNode=new SearchNode('S');
 						newNode.suspectInfo=suspectInfo;
+						if(visitedSet.contains(key)) continue;
+						visitedSet.add(key);
 						queue.add(newNode);
 					}
 					for(CounterfeitMoney counterfeitMoney:peekNode.getCounterfeitMoneys()){
 						String key="J"+counterfeitMoney.getFmid();
-						if(visitedSet.contains(key)) continue;
-						visitedSet.add(key);
 						NetworkEdge edge=new NetworkEdge(peekKey,key);
 						NetworkEdge edge2=new NetworkEdge(key,peekKey);
 						res.edges.add(edge);
 						res.edges.add(edge2);
 						SearchNode newNode=new SearchNode('J');
 						newNode.counterfeitMoney=counterfeitMoney;
+						if(visitedSet.contains(key)) continue;
+						visitedSet.add(key);
 						queue.add(newNode);
 					}
 				}else{					
 					CounterfeitMoney peekNode=peek.counterfeitMoney;
 					String peekKey="J"+peekNode.getFmid();
-					System.out.println(peekKey);
+					
+					if(pathLength==res.cMLevel||res.nearestCMNode.size()==0){
+						res.nearestCMNode.add(peekKey);
+						res.cMLevel=pathLength;
+					}
+					
 					res.nodes.put(peekKey, EntityToMapConverter.convert(peekNode));
 					for(CrimeCase crimeCase:peekNode.getCaseInfos()){
 						String key="C"+crimeCase.getcId();
-						if(visitedSet.contains(key)) continue;
-						visitedSet.add(key);
 						NetworkEdge edge=new NetworkEdge(peekKey,key);
 						NetworkEdge edge2=new NetworkEdge(key,peekKey);
 						res.edges.add(edge);
 						res.edges.add(edge2);
 						SearchNode newNode=new SearchNode('C');
 						newNode.crimeCase=crimeCase;
+						if(visitedSet.contains(key)) continue;
+						visitedSet.add(key);
 						queue.add(newNode);
 					}
 					if(peek.sameAslastNode==false){
 						for(CurrencySim currencySim:peekNode.getSimilarCM()){
 							String key="J"+currencySim.getTo().getFmid();
-							if(visitedSet.contains(key)) continue;
-							visitedSet.add(key);
 							NetworkEdge edge=new NetworkEdge(peekKey,key);
 							NetworkEdge edge2=new NetworkEdge(key,peekKey);
 							res.edges.add(edge);
@@ -164,6 +175,8 @@ public class SearchService {
 							SearchNode newNode=new SearchNode('J');
 							newNode.counterfeitMoney=currencySim.getTo();
 							newNode.sameAslastNode=true;
+							if(visitedSet.contains(key)) continue;
+							visitedSet.add(key);
 							queue.add(newNode);
 						}
 					}

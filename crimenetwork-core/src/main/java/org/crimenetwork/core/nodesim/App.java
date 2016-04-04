@@ -31,7 +31,7 @@ public class App
 		
 		//test.outputMetaPathFeature(test.generate(cm));
 		SimRankFeatureGenerator hehe= new SimRankFeatureGenerator();
-		hehe.outputFeature('J', hehe.generate(cm1, cm2));
+		System.out.println(hehe.outputFeature('J', hehe.generate(cm1, cm2)));
 		
         System.out.println( "Hello World!" );
     }
