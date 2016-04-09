@@ -38,7 +38,7 @@ public class NumberSimCalculator {
 			thick1=thick1.substring(0, thick1.length()-2);
 		}
 		if(thick2.endsWith("mm")||thick2.endsWith("MM")){
-			thick1=thick2.substring(0, thick2.length()-2);
+			thick2=thick2.substring(0, thick2.length()-2);
 		}
 		double number1=Double.parseDouble(thick1);
 		double number2=Double.parseDouble(thick2);

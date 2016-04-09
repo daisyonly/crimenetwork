@@ -7,16 +7,17 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 
 public class ExeHelper {
-	public static void main(String[] args) {
+	
+	public static void train(String trainDataPath,String modelFilePath){
 		try {
 			String folder="D:\\毕业设计\\svmrank\\svm_rank_windows\\";
-			Process process = new ProcessBuilder(folder+"svm_rank_classify.exe",folder+"test.dat",folder+"model.dat",folder+"predictions").start();
+			Process process = new ProcessBuilder(folder+"svm_rank_learn.exe","-c","20.0",trainDataPath,modelFilePath).start();
 			InputStream is = process.getInputStream();
 			InputStreamReader isr = new InputStreamReader(is);
 			BufferedReader br = new BufferedReader(isr);
 			String line;
 
-			System.out.printf("Output of running %s is:", Arrays.toString(args));
+			System.out.printf("Output of running is:");
 
 			while ((line = br.readLine()) != null) {
 			  System.out.println(line);
@@ -26,5 +27,26 @@ public class ExeHelper {
 			e.printStackTrace();
 		} 
 	}
+	
+	public static void rank(String trainDataPath,String modelFilePath,String predictionsPath){
+		try {
+			String folder="D:\\毕业设计\\svmrank\\svm_rank_windows\\";
+			Process process = new ProcessBuilder(folder+"svm_rank_classify.exe",trainDataPath,modelFilePath,predictionsPath).start();
+			InputStream is = process.getInputStream();
+			InputStreamReader isr = new InputStreamReader(is);
+			BufferedReader br = new BufferedReader(isr);
+			String line;
+
+			System.out.printf("Output of running is:");
+
+			while ((line = br.readLine()) != null) {
+			  System.out.println(line);
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+	}
+	
 
 }

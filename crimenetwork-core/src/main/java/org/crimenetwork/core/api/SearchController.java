@@ -32,8 +32,7 @@ public class SearchController{
 	public NetworkModel loadScriptContent(@RequestParam("suspectId") String suspectId,
 			@RequestParam("caseId") String caseId,
 			@RequestParam("currencyId") String currencyId,
-			@RequestParam(value="pathLength", required=false) int pathLength,
-			@RequestParam(value="currencySim", required=false) double currencySim) {
+			@RequestParam(value="pathLength", required=false) int pathLength) {
 		logger.debug("here!");
 		String id=null;
 		if(!suspectId.equals("")) id="S"+suspectId;
@@ -42,7 +41,7 @@ public class SearchController{
 		System.out.println(id);
 		NetworkModel res=searchService.searchByObjectId(id, pathLength+1);
 		res.queryId=id;
-		nodeSimService.rank(res);
+		//nodeSimService.rank(res);
 		System.out.println("hehe!!");
 		return res;
 	}

@@ -83,7 +83,6 @@ $(document).ready(function(){
 		if(count==1){
 			var id=null;
 			var pathLength = $("input[name='path-length']").val();
-			var currencySim = $("input[name='currency-sim']").val();
 			$.ajax({
 				type : "GET",
 				url : "search",
@@ -91,7 +90,6 @@ $(document).ready(function(){
 					   caseId:caseId,
 					   currencyId:currencyId,
 					   pathLength:pathLength,
-					   currencySim:currencySim
 					  },
 				success : function(data) {
 					console.log(data);
@@ -128,7 +126,8 @@ function drawNetwork(rawData){
 		idMap[rawNodesKeys[i]]=i+1;
 		var curObject=rawNodes[rawNodesKeys[i]];
 		var name=curObject["姓名"];
-		var curSize=curObject["size"];
+		//var curSize=curObject["size"];
+		//var curSize=25;
 		var nodeType=rawNodesKeys[i].charAt(0);
 		var groupType=null;
 		if(nodeType=="S"){
@@ -142,6 +141,7 @@ function drawNetwork(rawData){
 		var titleString="";		
 		var attributeKeys=Object.keys(curObject);
 		for(var j = 0, len = attributeKeys.length; j < len; j++){
+			if(attributeKeys[j]=="size") continue;
 			if(curObject[attributeKeys[j]]==null)
 				curObject[attributeKeys[j]]="暂无";
 			if(j==0){
@@ -154,7 +154,6 @@ function drawNetwork(rawData){
 			id : i+1,
 			label : name,
 			group : groupType,
-			size :  curSize,
 			title : titleString
 		});	
 	}

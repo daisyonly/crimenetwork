@@ -68,8 +68,6 @@
 
 				</div>
 			</div>
-
-
 			<div class="row">
 				<div class="col-lg-4">
 					<div class="panel panel-primary">
@@ -89,13 +87,9 @@
 							<div class="form-group">
 								<label>假币：</label> <input class="form-control" name="currency">
 							</div>
-
 							<label>选填项：</label>
-							
-
 							<div class="table-responsive">
 								<table class="table table-hover">
-
 									<tbody class="bemiddle">
 										<tr>
 											<td>
@@ -104,23 +98,14 @@
 														class="form-control" name="path-length" value="4">
 												</div>
 											</td>
-
 										</tr>
-										<tr>
-											<td><div class="form-inline">
-													<label class="labelNomal">假币的相似度：    </label> <input
-														class="form-control" name="currency-sim" value="0.1">
-												</div></td>
-
-										</tr>		
-
 									</tbody>
 								</table>
 							</div>
 
 
 							<div class="text-right">
-								<button id="generate" type="button" class="btn btn-primary">生成</button>
+								<button id="generate" type="button" class="btn btn-primary">查询</button>
 							</div>
 
 						</div>

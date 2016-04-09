@@ -63,20 +63,12 @@ public class PathSearcher {
 				if(peekNode.flag.equals("C")){
 					res = PathSearchHelper.search(peekNode.crimeCase, "S", curPath, paths,peekNode.preNodeIdSet);
 					for(SearchNode curRes:res){
-						String curresKey="S"+curRes.suspectInfo.getsId();
-						if(!visited.contains(curresKey)){
-							queue.add(curRes);
-							visited.add(curresKey);
-						}
+						queue.add(curRes);	
 					}
 				}else if(peekNode.flag.equals("S")){
 					res =PathSearchHelper.search(peekNode.suspectInfo, "S", curPath, paths,peekNode.preNodeIdSet);
 					for(SearchNode curRes:res){
-						String curresKey="S"+curRes.suspectInfo.getsId();
-						if(!visited.contains(curresKey)){
-							queue.add(curRes);
-							visited.add(curresKey);
-						}
+						queue.add(curRes);
 					}
 				}
 				if(flag=='S'){
@@ -94,20 +86,12 @@ public class PathSearcher {
 				if(peekNode.flag.equals("S")){
 					res = PathSearchHelper.search(peekNode.suspectInfo, "C", curPath, paths,peekNode.preNodeIdSet);
 					for(SearchNode curRes:res){
-						String curresKey="C"+curRes.crimeCase.getcId();
-						if(!visited.contains(curresKey)){
-							queue.add(curRes);
-							visited.add(curresKey);
-						}
+						queue.add(curRes);
 					}
 				}else if(peekNode.flag.equals("J")){
 					res= PathSearchHelper.search(peekNode.counterfeitMoney, "C", curPath, paths,peekNode.preNodeIdSet);
 					for(SearchNode curRes:res){
-						String curresKey="C"+curRes.crimeCase.getcId();
-						if(!visited.contains(curresKey)){
-							queue.add(curRes);
-							visited.add(curresKey);
-						}
+						queue.add(curRes);
 					}
 				}
 				if(flag=='C'){
@@ -125,21 +109,13 @@ public class PathSearcher {
 				if(peekNode.flag.equals("C")){
 					res = PathSearchHelper.search(peekNode.crimeCase, "J", curPath, paths,peekNode.preNodeIdSet);
 					for(SearchNode curRes:res){
-						String curresKey="J"+curRes.counterfeitMoney.getFmid();
-						if(!visited.contains(curresKey)){
-							queue.add(curRes);
-							visited.add(curresKey);
-						}
+						queue.add(curRes);
 					}
 					
 				}else if(peekNode.flag.equals("J")){
 					res =PathSearchHelper.search(peekNode.counterfeitMoney, "J", curPath, paths,peekNode.preNodeIdSet);
 					for(SearchNode curRes:res){
-						String curresKey="J"+curRes.counterfeitMoney.getFmid();
-						if(!visited.contains(curresKey)){
-							queue.add(curRes);
-							visited.add(curresKey);
-						}
+						queue.add(curRes);
 					}
 				}
 				if(flag=='J'){

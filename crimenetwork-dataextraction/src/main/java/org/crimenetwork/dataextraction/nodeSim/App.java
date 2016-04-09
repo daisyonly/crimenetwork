@@ -1,4 +1,4 @@
-package org.crimenetwork.dataextraction.currencySim;
+package org.crimenetwork.dataextraction.nodeSim;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -21,9 +21,9 @@ public class App
 				new ClassPathXmlApplicationContext(springConfig);
 			
 		
-		CurrencySimProcessor currencySimProcessor = (CurrencySimProcessor) context.getBean("currencySimProcessor");
+		SuspectCounter suspectCounter = (SuspectCounter) context.getBean("suspectCounter");
 
-		currencySimProcessor.count();
+		suspectCounter.countALLData();
 		
 		
 	

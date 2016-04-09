@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import org.crimenetwork.dataextraction.utility.FileUtil;
@@ -68,9 +69,44 @@ public class CurrencySimProcessor {
     		}
     		if(entry.getValue().size()>1) updateOneGuanzihao(entry.getValue());
     		
+    	}	 	
+    }
+    
+    
+    public void count()
+    {
+    	System.out.println("Process jiabi data start.");
+    	int onepage=1000;
+    	long count = jiabiBaseDao.count();
+    	HashMap<String, List<Long>> guanzihaoMap=new HashMap<String, List<Long>>();
+    	for(int i=0;i<=count/onepage;i++){
+    		Page<JiabiBaseInfo> readPage = jiabiBaseDao.findAll(new PageRequest(i, onepage));
+    		for(JiabiBaseInfo cbi:readPage.getContent()){
+    			 if(guanzihaoMap.containsKey(cbi.getGuanzihao())){
+    				 guanzihaoMap.get(cbi.getGuanzihao()).add(cbi.getFmid());
+    			 }else{
+    				 List<Long> tmp=new ArrayList<Long>();
+    				 tmp.add(cbi.getFmid());
+    				 guanzihaoMap.put(cbi.getGuanzihao(), tmp);
+    			 }		
+        	}
+    		System.out.println("The number of completed items: "+(i*onepage+readPage.getContent().size()));
     	}
-    	
-    	
+    	System.out.println("Process jiabi data end.");
+    	System.out.println();
+    	Map<Integer, Integer> countMap=new HashMap<Integer, Integer>();
+    	for(Map.Entry<String, List<Long>> entry:guanzihaoMap.entrySet()){
+    		int listCount=entry.getValue().size();
+    		if(listCount>10) System.out.println(":"+entry.getKey());
+    		if(countMap.containsKey(listCount)){
+    			countMap.put(listCount, countMap.get(listCount)+1);
+    		}else{
+    			countMap.put(listCount, 1);
+    		}    		
+    	}
+    	for(Entry<Integer, Integer> entry:countMap.entrySet()){
+    		System.out.println(entry.getKey()+"\t"+entry.getValue());
+    	}
     }
     
     

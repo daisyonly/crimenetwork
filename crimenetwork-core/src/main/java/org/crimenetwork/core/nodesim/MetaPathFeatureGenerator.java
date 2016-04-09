@@ -20,6 +20,7 @@ public class MetaPathFeatureGenerator {
 	//coding schema of pathcountSumDic key: J/C/S + id + "#" + path 
 	private HashMap<String, Double> pathcountSumDic=null;
 	
+	private HashMap<String, HashMap<String, SearchResult>> searchResultMap=null;
 	//coding schema of pathcountSumDic key: J/C/S + id of start node + "#" J/C/S + id of end node+"#" path
 	//private HashMap<String, Double> pathcountNodeToNodeDic=null; 
 	
@@ -30,22 +31,56 @@ public class MetaPathFeatureGenerator {
 		counterfeitMoneyTrieNode=abGraph.getCounterfeitMoneyTrieNode();
 		pathcountSumDic= new HashMap<String, Double>();
 		//pathcountNodeToNodeDic = new HashMap<String, Double>();
+		searchResultMap=new HashMap<String, HashMap<String, SearchResult>>();
+	}
+	
+	private HashMap<String, SearchResult> getSearchResult(SuspectInfo query){
+		String queryId="S"+query.getsId();
+		if(searchResultMap.containsKey(queryId)){
+			return searchResultMap.get(queryId);
+		}else{
+			HashMap<String, SearchResult> searchRes=PathSearcher.search(suspectTrieNode, query);
+			searchResultMap.put(queryId, searchRes);
+			return searchRes;
+		}
+	}
+	
+	private HashMap<String, SearchResult> getSearchResult(CounterfeitMoney query){
+		String queryId="J"+query.getFmid();
+		if(searchResultMap.containsKey(queryId)){
+			return searchResultMap.get(queryId);
+		}else{
+			HashMap<String, SearchResult> searchRes=PathSearcher.search(counterfeitMoneyTrieNode, query);
+			searchResultMap.put(queryId, searchRes);
+			return searchRes;
+		}
+	}
+	
+	private HashMap<String, SearchResult> getSearchResult(CrimeCase query){
+		String queryId="C"+query.getcId();
+		if(searchResultMap.containsKey(queryId)){
+			return searchResultMap.get(queryId);
+		}else{
+			HashMap<String, SearchResult> searchRes=PathSearcher.search(caseTrieNode, query);
+			searchResultMap.put(queryId, searchRes);
+			return searchRes;
+		}
 	}
 	
 	public HashMap<String, MetaPathFeature> generate(SuspectInfo query){		
-		HashMap<String, SearchResult> searchRes=PathSearcher.search(suspectTrieNode, query);
-		String queryId="S"+query.getsId();		
+		HashMap<String, SearchResult> searchRes=getSearchResult(query);
+		String queryId="S"+query.getsId();
 		return generate(searchRes,queryId);
 	}
 	
 	public HashMap<String, MetaPathFeature> generate(CrimeCase query){		
-		HashMap<String, SearchResult> searchRes=PathSearcher.search(caseTrieNode, query);
+		HashMap<String, SearchResult> searchRes=getSearchResult(query);
 		String queryId="C"+query.getcId();		
 		return generate(searchRes,queryId);
 	}
 	
 	public HashMap<String, MetaPathFeature> generate(CounterfeitMoney query){		
-		HashMap<String, SearchResult> searchRes=PathSearcher.search(counterfeitMoneyTrieNode, query);
+		HashMap<String, SearchResult> searchRes=getSearchResult(query);
 		String queryId="J"+query.getFmid();		
 		return generate(searchRes,queryId);
 	}
@@ -58,15 +93,15 @@ public class MetaPathFeatureGenerator {
 			char flag=entry.getKey().charAt(0);
 			
 			if(flag=='C'){
-				HashMap<String, SearchResult> tmp=PathSearcher.search(caseTrieNode, entry.getValue().crimeCase);
+				HashMap<String, SearchResult> tmp=getSearchResult(entry.getValue().crimeCase);
 				String keyPre="C"+entry.getValue().crimeCase.getcId()+"#";
 				updatePathcountSumDic(tmp,keyPre);
 			}else if(flag=='J'){
-				HashMap<String, SearchResult> tmp=PathSearcher.search(counterfeitMoneyTrieNode, entry.getValue().counterfeitMoney);
+				HashMap<String, SearchResult> tmp=getSearchResult(entry.getValue().counterfeitMoney);
 				String keyPre="J"+entry.getValue().counterfeitMoney.getFmid()+"#";
 				updatePathcountSumDic(tmp,keyPre);
 			}else if(flag=='S'){
-				HashMap<String, SearchResult> tmp=PathSearcher.search(suspectTrieNode, entry.getValue().suspectInfo);
+				HashMap<String, SearchResult> tmp=getSearchResult(entry.getValue().suspectInfo);
 				String keyPre="S"+entry.getValue().suspectInfo.getsId()+"#";
 				updatePathcountSumDic(tmp,keyPre);
 			}		

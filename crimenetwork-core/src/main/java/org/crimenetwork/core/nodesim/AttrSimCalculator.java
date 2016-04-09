@@ -92,8 +92,8 @@ public class AttrSimCalculator {
 		simHashMap.put("accent",StringSimCalculator.calculate(object1.getAccent(),object2.getAccent()));
 		simHashMap.put("occupation",StringSimCalculator.calculate(object1.getOccupation(),object2.getOccupation()));
 		
-		simHashMap.put("currentAddress",AddressSimCalculator.calculate(object1.getAdress(),object2.getAdress()));
-		simHashMap.put("residenceAddress",AddressSimCalculator.calculate(object1.getRegisteredResidenceDetail(),object2.getRegisteredResidenceDetail()));
+		simHashMap.put("currentAddress",AddressSimCalculator.calculate(object1.getLocationCodeByCurrentAddress(),object2.getLocationCodeByCurrentAddress(),object1.getAdress(),object2.getAdress()));
+		simHashMap.put("residenceAddress",AddressSimCalculator.calculate(object1.getLocationCodeByRegisteredResidence(),object2.getLocationCodeByRegisteredResidence(),object1.getRegisteredResidenceDetail(),object2.getRegisteredResidenceDetail()));
 		
 		simHashMap.put("nation",StringSimCalculator.calculate(object1.getNation(),object2.getNation()));
 		simHashMap.put("isLc",StringSimCalculator.calculate(object1.getIsLc(),object2.getIsLc()));
@@ -106,10 +106,10 @@ public class AttrSimCalculator {
 	
 	public static HashMap<String, Double> computeSimilar(CrimeCase object1,CrimeCase object2){
 		HashMap<String, Double> simHashMap=new HashMap<String, Double>();
-		simHashMap.put("registerUnit", AddressSimCalculator.calculate(object1.getRegisterUnit(),object2.getRegisterUnit()));
+		simHashMap.put("registerUnit", StringSimCalculator.calculate(object1.getRegisterUnit(),object2.getRegisterUnit()));
 		simHashMap.put("registerDate", DateSimCalculator.calculate(object1.getRegisterDate(),object2.getRegisterDate()));		
 		simHashMap.put("seizedAmount", NumberSimCalculator.calculateSeizedAmount(object1.getSeizedAmount(),object2.getSeizedAmount()));
-		simHashMap.put("caseHappenDetailAddress", AddressSimCalculator.calculate(object1.getCaseHappenDetailAddress(),object2.getCaseHappenDetailAddress()));
+		simHashMap.put("caseHappenDetailAddress", AddressSimCalculator.calculate(object1.getCaseHappenLocation(),object2.getCaseHappenLocation(),object1.getCaseHappenDetailAddress(),object2.getCaseHappenDetailAddress()));
 		simHashMap.put("caseHappenTime", DateSimCalculator.calculate(object1.getCaseHappenTime(),object2.getCaseHappenTime()));
 		simHashMap.put("briefInfo", TextSimCalculator.calculate(object1.getBriefInfo(),object2.getBriefInfo()));
 		return simHashMap;

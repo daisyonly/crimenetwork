@@ -12,11 +12,11 @@ import org.crimenetwork.neo4j.entity.SuspectInfo;
 
 public class SimRankFeatureGenerator {
 	
-	private List<String> caseFeatureHeader=null;
+	public List<String> caseFeatureHeader=null;
 	
-	private List<String> suspectFeatureHeader=null;
+	public List<String> suspectFeatureHeader=null;
 	
-	private List<String> counterfeitMoneyFeatureHeader=null;
+	public List<String> counterfeitMoneyFeatureHeader=null;
 	private MetaPathFeatureGenerator metaPathFeatureGenerator=null;
 	
 	private List<String> caseMetaPaths=null;

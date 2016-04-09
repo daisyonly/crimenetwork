@@ -6,12 +6,38 @@ import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.crimenetwork.core.baiduGis.BaiduLBSHelper;
 import org.crimenetwork.core.baiduGis.GeocodingResult;
+import org.crimenetwork.core.utility.LCSHelper;
+
 
 public class AddressSimCalculator {
 	
 	private static double EARTH_RADIUS = 6378.137;// 地球半径
 	
-	public static double calculate(String address1,String address2){
+	
+	public static double calculate(String code1,String code2,String ad1,String ad2){
+		if(code1==null||code2==null) return 0;
+		if(code1.equals("999999")||code2.equals("999999")){	
+			if(ad1==null||ad2==null) return 0;
+			else{
+				ad1=ad1.trim();
+				ad2=ad2.trim();
+				int lcscount=LCSHelper.LCS(ad1, ad2);
+				int maxLength=Math.max(ad1.length(), ad2.length());
+				if(lcscount*1>=maxLength) return 5;
+				if(lcscount*2>=maxLength) return 4;
+				if(lcscount*3>=maxLength) return 3;
+				if(lcscount*4>=maxLength) return 2;
+				if(lcscount*5>=maxLength) return 1;
+				return 0;
+			}
+		}else{
+			if(code1.equals(code2)) return 5;
+			else return 0;
+		}
+		
+	}
+	
+	public static double calculate2(String address1,String address2){
 		if(address1==null||address2==null) return 0;
 		ObjectMapper mapper = new ObjectMapper();
 		String jsonString1=BaiduLBSHelper.getGeocoder(address1);
@@ -69,7 +95,7 @@ public class AddressSimCalculator {
 	
 	public static void main(String[] args) {
 		//BaiduLBSHelper.testSuggestion("广州市黄埔区大沙姬堂");			
-		calculate("龙岩","宁德");
+		calculate2("龙岩","宁德");
 	
 	}
 	
