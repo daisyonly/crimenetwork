@@ -32,6 +32,10 @@ public class LabelHelper {
 	@Autowired
 	private CounterfeitMoneyRepository counterfeitMoneyRepository;
 	
+	//private List<Double> sSumList=new ArrayList<Double>();
+	//private List<Double> jSumList=new ArrayList<Double>();
+	//private List<Double> cSumList=new ArrayList<Double>();
+	
 	public List<FeatureEntity> generateLabeldata(String query,List<Long> candidatesId){
  		char flag=query.charAt(0);
  		Long queryId = Long.parseLong(query.substring(1));
@@ -83,11 +87,77 @@ public class LabelHelper {
  		}
  		return realRes;
  	}
-	
+	/*
+	public void getSiweiShu(){
+		double max;
+		double three;
+		double med;
+		double one;
+		double min;
+		
+		if(sSumList.size()!=0){
+			Collections.sort( sSumList, new Comparator<Double>()
+				    {
+				        public int compare( Double o1, Double o2 )
+				        {
+				            return o2.compareTo(o1);
+				        }
+				    } );
+			max=sSumList.get(0);
+		    three=sSumList.get(sSumList.size()/4);
+			med=sSumList.get(sSumList.size()/2);
+			one=sSumList.get(sSumList.size()/4*3);
+			min=sSumList.get(sSumList.size()-1);
+			System.out.println("s  "+"max:"+max+"  three:"+three+"   med:"+med+"  one:"+one+"   min:"+min);
+			
+		}
+		
+		
+		if(cSumList.size()!=0){
+			Collections.sort( cSumList, new Comparator<Double>()
+				    {
+				        public int compare( Double o1, Double o2 )
+				        {
+				            return o2.compareTo(o1);
+				        }
+				    } );
+			max=cSumList.get(0);
+			three=cSumList.get(cSumList.size()/4);
+			med=cSumList.get(cSumList.size()/2);
+			one=cSumList.get(cSumList.size()/4*3);
+			min=cSumList.get(cSumList.size()-1);
+			System.out.println("c  "+"max:"+max+"  three:"+three+"   med:"+med+"  one:"+one+"   min:"+min);
+		}
+		if(jSumList.size()!=0){
+			Collections.sort( jSumList, new Comparator<Double>()
+				    {
+				        public int compare( Double o1, Double o2 )
+				        {
+				            return o2.compareTo(o1);
+				        }
+				    } );
+			max=jSumList.get(0);
+			three=jSumList.get(jSumList.size()/4);
+			med=jSumList.get(jSumList.size()/2);
+			one=jSumList.get(jSumList.size()/4*3);
+			min=jSumList.get(jSumList.size()-1);
+			System.out.println("j  "+"max:"+max+"  three:"+three+"   med:"+med+"  one:"+one+"   min:"+min);
+		}
+		
+		
+	}*/
 	private Map<String, Integer> labelData(char flag,List<NodeFeature> features){	
 		List<SortNode> resList=new ArrayList<SortNode>();
 		for(NodeFeature feature: features){
 			double sum=getSum(flag,feature.feature);
+			/*
+			if(flag=='C'){
+				cSumList.add(sum);
+			}else if(flag=='J'){
+				jSumList.add(sum);
+			}else{
+				sSumList.add(sum);
+			}*/
 			resList.add(new SortNode(feature.id, sum));
 		}
 		Collections.sort(resList, new Comparator<SortNode>(){
@@ -98,24 +168,32 @@ public class LabelHelper {
 			});
 		
 		Map<String, Integer> rankMap=new HashMap<String, Integer>();
-		int interval=resList.size()/4;
-		int curRank=3;
-		rankMap.put(resList.get(0).id, curRank);
-		int curCount=1;
-		for(int i=1;i<resList.size();i++){
-			if(Math.abs(resList.get(i).score-resList.get(i-1).score)<1){
-				
-			}else if(Math.abs(resList.get(i).score-resList.get(i-1).score)>50){
-				if(curRank>0) curRank--;
-			}else if(curCount==interval){
-				curRank--;
-				curCount=1;
-			}else{
-				curCount++;
-			}
+		
+		for(int i=0;i<resList.size();i++){
+			double value=resList.get(i).score;
+			int curRank=getRank(flag,value);
 			rankMap.put(resList.get(i).id, curRank);
 		}
 		return rankMap;
+	}
+	
+	private int getRank(char flag,double value){
+		if(flag=='C'){
+			if(value>38) return 3;
+			if(value>29) return 2;
+			if(value>21) return 1;
+			else return 0;
+		}else if(flag=='J'){
+			if(value>32.5) return 3;
+			if(value>24) return 2;
+			if(value>10) return 1;
+			else return 0;
+		}else{
+			if(value>47) return 3;
+			if(value>34) return 2;
+			if(value>25) return 1;
+			else return 0;
+		}
 	}
 	
 	private double getSum(char flag, List<Double> feature){

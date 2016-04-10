@@ -89,7 +89,7 @@ public class CaseConverter extends Converter<CrimeCase,CaseBaseInfo>{
 			}
 		}
 			
-		if(convertConnectNode&&!from.getSuspects().isEmpty()){
+		if(convertConnectNode&&!from.getCounterfeitMoneys().isEmpty()){
 			for(JiabiBaseInfo jb : from.getCounterfeitMoneys()){
 				CounterfeitMoney mjb=currencyConverter.setAndConvert(jb,false);
 				to.getCounterfeitMoneys().add(mjb);

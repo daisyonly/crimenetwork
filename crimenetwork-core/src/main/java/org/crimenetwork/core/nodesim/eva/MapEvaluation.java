@@ -18,11 +18,11 @@ public class MapEvaluation {
 			//System.out.println(correct.get(i).size()+" "+nn);
 			if(correct.get(i).size() <nn) continue;
 			res += getAp(correct.get(i),predict.get(i),nn);
-			f=1;
+			f++;
 		}
 		//System.out.println(f);
 		if(f == 0) return -1;
-		return res/correct.size();
+		return res/f;
 	}
 	static double getAp(Map<Long, Integer> c,Map<Long, Double> p,int nn){
 		int R = 0;

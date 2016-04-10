@@ -56,7 +56,8 @@ public class DataReader {
 		}
 		trainFileUtil.close();
 		orderFileUtil.close();
-		inputFileUtil.close();	
+		inputFileUtil.close();
+		
 	}
 	
 	public void test(String line,char flag){

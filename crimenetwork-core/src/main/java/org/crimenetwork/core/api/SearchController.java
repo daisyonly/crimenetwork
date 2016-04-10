@@ -41,7 +41,7 @@ public class SearchController{
 		System.out.println(id);
 		NetworkModel res=searchService.searchByObjectId(id, pathLength+1);
 		res.queryId=id;
-		//nodeSimService.rank(res);
+		nodeSimService.rank(res);
 		System.out.println("hehe!!");
 		return res;
 	}

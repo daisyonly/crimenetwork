@@ -6,8 +6,8 @@ public class StringSimCalculator {
 		if(isUnknow(str1)||isUnknow(str2)) return 0;
 		str1=str1.trim();
 		str2=str2.trim();
-		if(str1.equals(str2)) return 1;	
-		return -1;
+		if(str1.equals(str2)) return 5;	
+		return 0;
 	}
 
 	private static boolean isUnknow(String str){

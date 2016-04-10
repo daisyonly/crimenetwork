@@ -11,7 +11,7 @@ public class ExeHelper {
 	public static void train(String trainDataPath,String modelFilePath){
 		try {
 			String folder="D:\\毕业设计\\svmrank\\svm_rank_windows\\";
-			Process process = new ProcessBuilder(folder+"svm_rank_learn.exe","-c","20.0",trainDataPath,modelFilePath).start();
+			Process process = new ProcessBuilder(folder+"svm_rank_learn.exe","-c","10.0",trainDataPath,modelFilePath).start();
 			InputStream is = process.getInputStream();
 			InputStreamReader isr = new InputStreamReader(is);
 			BufferedReader br = new BufferedReader(isr);

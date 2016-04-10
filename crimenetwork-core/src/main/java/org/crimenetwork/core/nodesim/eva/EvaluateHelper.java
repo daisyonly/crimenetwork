@@ -9,7 +9,9 @@ import org.crimenetwork.core.utility.FileUtil;
 
 public class EvaluateHelper {
 	public static void run(String testOrderFile,String predictionsPath){
+		String evaOut="D:\\毕业设计\\svmrank\\data\\eva.txt";
 		FileUtil testOrderFileUtil=new FileUtil(testOrderFile, "in", false);
+		FileUtil evaOutFileUtil=new FileUtil(evaOut, "out", false);
 		String line=null;
 		List<List<Integer>> labeList=new ArrayList<List<Integer>>();
 		List<Integer> tmpList=new ArrayList<Integer>();
@@ -23,7 +25,7 @@ public class EvaluateHelper {
 			int label=Integer.parseInt(tmpsStrings[1]);
 			tmpList.add(label);	
 		}
-		
+		testOrderFileUtil.close();
 		FileUtil predictionsFile=new FileUtil(predictionsPath, "in", false);
 		List<List<Double>> preList=new ArrayList<List<Double>>();
 		for(List<Integer> list:labeList){
@@ -35,6 +37,7 @@ public class EvaluateHelper {
 			}
 			preList.add(tmpList2);
 		}
+		predictionsFile.close();
 		List<Map<Long, Integer>> correct=new ArrayList<Map<Long, Integer>>();
 		List<Map<Long, Double>> predict=new ArrayList<Map<Long, Double>>();
 		for(int index=0;index<preList.size();index++){
@@ -49,15 +52,18 @@ public class EvaluateHelper {
 			}
 			predict.add(preMap);	
 		}
-		for(int nn=1;nn<10;nn++){
+		for(int nn=1;nn<=10;nn++){
 			double res=MapEvaluation.getMap(correct, predict, nn);
 			System.out.println("MAP@"+nn+" "+res);
+			evaOutFileUtil.writeLine("MAP@"+nn+" "+res);
 		}
 		
-		for(int nn=1;nn<10;nn++){
+		for(int nn=1;nn<=10;nn++){
 			double res=DCGUtil.getNNDCG(correct, predict, nn);
 			System.out.println("NDCG@"+nn+" "+res);
+			evaOutFileUtil.writeLine("NDCG@"+nn+" "+res);
 		}
+		evaOutFileUtil.close();
 		
 		
 	}

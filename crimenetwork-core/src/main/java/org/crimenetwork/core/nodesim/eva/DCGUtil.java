@@ -1,6 +1,4 @@
 package org.crimenetwork.core.nodesim.eva;
-
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -21,7 +19,6 @@ public class DCGUtil {
         	res.add(correct.get(id));
         }
 		return res;
-		
 	}
 	public static double getNNDCG(List<Map<Long, Integer>> correct,
 			List<Map<Long, Double>> predict,int nn){
@@ -37,10 +34,10 @@ public class DCGUtil {
 			List<Integer> tmp = buildDoubleList(correct.get(i),predict.get(i));
 			if(tmp.size() <nn) continue;
 			sum += getNDCG(tmp,nn);
-			f=1;
+			f++;
 		}
 		if(f == 0) return -1;
-		return sum / predict.size();
+		return sum / f;
 		
 	}
 	public static double getNDCG(List<Integer> predict,int nn){

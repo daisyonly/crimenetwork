@@ -5,8 +5,11 @@ public class NumberSimCalculator {
 	public static double calculateSeizedAmount(Float number1,Float number2){
 		if(number1==null||number2==null) return 0;
 		float distance = Math.abs(number1-number2);
-		if(distance < 10) return 1;
-		
+		if(distance < 10) return 5;
+		if(distance < 20) return 4;
+		if(distance < 30) return 3;
+		if(distance < 40) return 2;
+		if(distance < 50) return 1;
 		return 0;	
 	}
 	

@@ -115,7 +115,8 @@ public class MetaPathFeatureGenerator {
 				String reversePath=getReversePath(path);
 				double pathCount=one.getValue();
 				mf.pathCout.put(path, pathCount);
-				
+				//System.out.println(queryId+"#"+path);
+				//System.out.println(anchorId+"#"+reversePath);
 				double pathAll=pathcountSumDic.get(queryId+"#"+path);
 				double revPathAll=pathcountSumDic.get(anchorId+"#"+reversePath);
 			   

@@ -125,7 +125,7 @@ public class NodeSimService {
 		for(Map.Entry<String, Double> entry:map.entrySet()){
 			if(entry.getKey().indexOf('_')>0){
 				String[] tmps=entry.getKey().split("_");
-				int weight=6-tmps[1].length();
+				int weight=10-tmps[1].length();
 				sum+=entry.getValue()*weight;
 			}else{
 				sum+=entry.getValue();

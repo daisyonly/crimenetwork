@@ -36,7 +36,7 @@ public class SuspectCounter {
     
     public void countALLData()
     {
-    	FileUtil fileUtil=new FileUtil("D:\\毕业设计\\svmrank\\data\\simRankData.txt","out", false);
+    	FileUtil fileUtil=new FileUtil("D:\\毕业设计\\svmrank\\data\\simRankData3.txt","out", false);
     	System.out.println("Process suspect data start.");
     	int onepage=1000;
     	long count = suspectBaseDao.count();
