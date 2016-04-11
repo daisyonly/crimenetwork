@@ -53,8 +53,9 @@ public class App
 			
 			String testDataFile="D:\\毕业设计\\svmrank\\data\\"+flag+"TestData.dat";
 			String testOrderFile="D:\\毕业设计\\svmrank\\data\\"+flag+"TestOrderData.dat";
-			dataReader.readData(trainInputFile, trainDataFile, trainOrderFile, flag);
-			dataReader.readData(testInputFile, testDataFile, testOrderFile, flag);
+			
+			//dataReader.readData(trainInputFile, trainDataFile, trainOrderFile, flag);
+			//dataReader.readData(testInputFile, testDataFile, testOrderFile, flag);
 			ExeHelper.train(trainDataFile, modelFilePath);
 			ExeHelper.rank(testDataFile, modelFilePath, predictionsPath);
 			EvaluateHelper.run(testOrderFile, predictionsPath);

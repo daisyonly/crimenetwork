@@ -15,7 +15,12 @@ public class EvaluateHelper {
 		String line=null;
 		List<List<Integer>> labeList=new ArrayList<List<Integer>>();
 		List<Integer> tmpList=new ArrayList<Integer>();
+		boolean first=true;
 		while((line=testOrderFileUtil.readLine())!=null){
+			if(first){
+				first=false;
+				continue;
+			}
 			if(line.startsWith("#")){
 				labeList.add(new ArrayList<Integer>(tmpList));
 				tmpList=new ArrayList<Integer>();
@@ -25,6 +30,7 @@ public class EvaluateHelper {
 			int label=Integer.parseInt(tmpsStrings[1]);
 			tmpList.add(label);	
 		}
+		labeList.add(new ArrayList<Integer>(tmpList));
 		testOrderFileUtil.close();
 		FileUtil predictionsFile=new FileUtil(predictionsPath, "in", false);
 		List<List<Double>> preList=new ArrayList<List<Double>>();
@@ -51,17 +57,16 @@ public class EvaluateHelper {
 				preMap.put((long) i, preList.get(index).get(i));
 			}
 			predict.add(preMap);	
-		}
-		for(int nn=1;nn<=10;nn++){
-			double res=MapEvaluation.getMap(correct, predict, nn);
-			System.out.println("MAP@"+nn+" "+res);
-			evaOutFileUtil.writeLine("MAP@"+nn+" "+res);
-		}
+		}		
+			
+		double res=MapEvaluation.getMap(correct, predict);
+		System.out.println("MAP"+res);
+		evaOutFileUtil.writeLine("MAP"+" "+res);
 		
 		for(int nn=1;nn<=10;nn++){
-			double res=DCGUtil.getNNDCG(correct, predict, nn);
-			System.out.println("NDCG@"+nn+" "+res);
-			evaOutFileUtil.writeLine("NDCG@"+nn+" "+res);
+			double rres=DCGUtil.getNNDCG(correct, predict, nn);
+			System.out.println("NDCG@"+nn+" "+rres);
+			evaOutFileUtil.writeLine("NDCG@"+nn+" "+rres);
 		}
 		evaOutFileUtil.close();
 		

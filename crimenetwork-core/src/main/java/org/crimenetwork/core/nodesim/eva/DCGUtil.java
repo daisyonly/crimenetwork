@@ -55,17 +55,15 @@ public class DCGUtil {
 		double s2 = getDCG(predict,nn);
 		//System.out.println(s1+" "+s2);
 		return s1/(s2+1e-6);
-		
 	}
 	public static double getDCG(List<Integer> predict,int nn){
 		double res = 0;
 		for(int i=1;i<=predict.size();i++){
 			double re = predict.get(i-1)*1.0;
-			res += 1.0*(Math.pow(2, re)-1) / Math.log(i+1);
+			res += 1.0*(Math.pow(2, re)-1) / (Math.log(i+1)/Math.log(2));
 			if(nn == i) break;
 		}
 		return res /nn;
-		
 	}
 	public static void main(String[] args) {
 		List<Integer> predict = new ArrayList<>();
@@ -88,6 +86,7 @@ public class DCGUtil {
 		pm.put(2l,0.6);
 		pm.put(3l,0.3);
 		p.add(pm);
+		
 		System.out.println(DCGUtil.getNNDCG(correct, p, 3));
 		System.out.println(MapEvaluation.getMap(correct, p, 3));
 	}
