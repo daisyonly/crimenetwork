@@ -126,6 +126,8 @@ function drawNetwork(rawData){
 		idMap[rawNodesKeys[i]]=i+1;
 		var curObject=rawNodes[rawNodesKeys[i]];
 		var name=curObject["姓名"];
+		if(name=="刘德琴") name="李四";
+		if(name=="赵明全") name="王五";
 		var curSize=curObject["size"];
 		//var curSize=25;
 		var nodeType=rawNodesKeys[i].charAt(0);
@@ -144,6 +146,7 @@ function drawNetwork(rawData){
 			if(attributeKeys[j]=="size") continue;
 			if(curObject[attributeKeys[j]]==null)
 				curObject[attributeKeys[j]]="暂无";
+			curObject[attributeKeys[j]]="**************";
 			if(j==0){
 				titleString=titleString+attributeKeys[j]+":"+curObject[attributeKeys[j]];
 			}else{
@@ -164,14 +167,19 @@ function drawNetwork(rawData){
 		var fromId=idMap[rawEdges[i]["fromId"]];
 		var endId=idMap[rawEdges[i]["endId"]];
 		var curColor=RED;
+		var curWidth=WIDTH_SCALE;
+		var curDashes=[1,1];
 		var fromType = rawEdges[i]["fromId"].charAt(0);
 		var endType = rawEdges[i]["endId"].charAt(0);
 		if(fromType=="C"&& endType=="J"||fromType=="J"&& endType=="C"){
 			curColor=GREEN;
+			curDashes=[ 2, 5, 2, 10 ];
 		}else if(fromType=="S"&& endType=="S"){
 			curColor=GRAY;
+			curWidth=WIDTH_SCALE*2;
 		}else if(fromType=="J"&& endType=="J"){
 			curColor=BLACK;
+			curWidth=WIDTH_SCALE*2.5;;
 		}
 		edges.push({
 			from : fromId,
@@ -179,7 +187,8 @@ function drawNetwork(rawData){
 			arrows:'to',
 			arrowStrikethrough:true,
 			length : LENGTH_SERVER,
-			width : WIDTH_SCALE * 1,
+			width : curWidth,
+			dashes : curDashes,
 			color : curColor
 		});
 	}
@@ -199,7 +208,6 @@ function drawNetwork(rawData){
 			}
 		},
 		edges : {
-			color : GRAY,
 			smooth : false
 		},
 		physics : {
@@ -216,7 +224,6 @@ function drawNetwork(rawData){
 				image: DIR + 'Person-icon.png',
 				font : {
 					size : 25,
-
 				},
 				size : 25,				
 			},

@@ -33,7 +33,7 @@ public class SuspectRelationUpdater {
 		
 		for(int dataIndex=0;dataIndex<count;dataIndex++){
 			//if(dataIndex<744) continue;
-			ArrayList<ArrayList<SuspectBaseInfo>> clusters=clusterProcessor.process(dataIndex);
+			ArrayList<ArrayList<SuspectBaseInfo>> clusters=clusterProcessor.process(dataIndex,0.55);
 			for(ArrayList<SuspectBaseInfo> cluster:clusters){
 				List<SuspectInfo> suspectsNeo4j=new ArrayList<SuspectInfo>();
 				for(SuspectBaseInfo one:cluster){	

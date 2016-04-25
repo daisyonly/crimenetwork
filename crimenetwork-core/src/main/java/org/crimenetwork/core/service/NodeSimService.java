@@ -21,7 +21,7 @@ public class NodeSimService {
 	private DataGenerator dataGenerator;
 	
 	public void rank(NetworkModel networkModel){
-		char queryType=networkModel.queryId.charAt(0);
+		//char queryType=networkModel.queryId.charAt(0);
 		List<Long> allSuspectNodes=getOneKindofNode(networkModel,'S');
 		List<Long> allCaseNodes=getOneKindofNode(networkModel,'C');
 		List<Long> allCmNodes=getOneKindofNode(networkModel,'J');
@@ -73,6 +73,41 @@ public class NodeSimService {
 		}
 	}
 
+	
+	
+	private List<SortNode> getSimListFromRankingSVM(char flag,List<String> nearestNodes,List<Long> allSameNodes){
+		Map<Long,Double> scoreMap=new HashMap<Long, Double>();
+		for(String id:nearestNodes){
+			Long curQueryId=Long.parseLong(id.substring(1));
+			List<Long> candidates=new ArrayList<Long>(allSameNodes);
+			candidates.remove(curQueryId);
+			Map<Long,Map<String, Double>> data=dataGenerator.generateRankData(id,candidates);
+			updateScoreMap(scoreMap,data);
+		}
+		List<SortNode> resList=new ArrayList<SortNode>();
+		for(Map.Entry<Long,Double> entry:scoreMap.entrySet()){
+			resList.add(new SortNode(flag+""+entry.getKey(), entry.getValue().doubleValue()));
+		}
+		
+		Collections.sort(resList, new Comparator<SortNode>(){
+				@Override
+				public int compare(SortNode o1, SortNode o2) {				
+					return (int) (o2.score-o1.score);
+				}	
+			});
+		
+		return resList;
+		
+	}
+	
+	
+	/**
+	 * 用规则的结果
+	 * @param flag
+	 * @param nearestNodes
+	 * @param allSameNodes
+	 * @return
+	 */
 	private List<SortNode> getSimList(char flag,List<String> nearestNodes,List<Long> allSameNodes){
 		Map<Long,Double> scoreMap=new HashMap<Long, Double>();
 		for(String id:nearestNodes){

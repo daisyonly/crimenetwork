@@ -161,7 +161,8 @@ public class UpdateLabelService {
     		this.id=id;
     		features =new ArrayList<Double>();
     		int indexOne=line.indexOf(':');
-    		String dataString=line.substring(indexOne-1);
+    		String tmpString=line.substring(indexOne+1);
+    		String dataString=tmpString.substring(tmpString.indexOf(':')-1);
     		String[] rawfeatures=dataString.split(" ");
     		for(String rawfeature:rawfeatures){
     			String tmprawfeature=rawfeature.trim();

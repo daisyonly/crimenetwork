@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+
 //http://hxraid.iteye.com/blog/559043
 public class FileUtil {
 	BufferedReader cin;
@@ -26,6 +27,8 @@ public class FileUtil {
 			e.printStackTrace();
 		}
 	}
+	
+	
 
 	public void close() {
 		try {

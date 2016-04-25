@@ -57,11 +57,7 @@ public class UpdateLabelApp
 			updateLabelService.update(flag, oraTrainDataFile, oraTrainOrderFile, trainDataFile, trainOrderFile);
 			
 			updateLabelService.update(flag, oraTestDataFile, oraTestOrderFile, testDataFile, testOrderFile);
-			//dataReader.readData(trainInputFile, trainDataFile, trainOrderFile, flag);
-			//dataReader.readData(testInputFile, testDataFile, testOrderFile, flag);
-			//ExeHelper.train(trainDataFile, modelFilePath);
-			//ExeHelper.rank(testDataFile, modelFilePath, predictionsPath);
-			//EvaluateHelper.run(testOrderFile, predictionsPath);
+			
 		}
 		System.out.println( "Hello World!" );
     }

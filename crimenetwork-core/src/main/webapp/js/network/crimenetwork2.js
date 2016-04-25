@@ -91,11 +91,13 @@ $(document).ready(function(){
 			dashes : [ 2, 2, 10, 10 ],
 			color : BLACK
 		});
+		//gap length, dash length, 
 		edges.push({
 			from : 2,
 			to : 4,
 			length : LENGTH_SERVER,
 			width : WIDTH_SCALE * 2,
+			dashes : [ 2, 10],
 			color : ORANGE
 		});
 
@@ -104,6 +106,7 @@ $(document).ready(function(){
 			to : 4,
 			length : LENGTH_SERVER,
 			color : GRAY,
+			dashes : [ 2, 2, 20, 20 ],
 			width : WIDTH_SCALE,
 			
 		});
@@ -111,7 +114,8 @@ $(document).ready(function(){
 			from : 3,
 			to : 6,
 			length : LENGTH_SERVER,
-			color : GRAY,
+			color : RED,
+			dashes : [15,15],
 			width : WIDTH_SCALE
 			
 		});
@@ -119,7 +123,8 @@ $(document).ready(function(){
 			from : 4,
 			to : 7,
 			length : LENGTH_SERVER,
-			color : GRAY,
+			color : RED,
+			dashes : [30,30],
 			width : WIDTH_SCALE * 3,
 			
 		});
