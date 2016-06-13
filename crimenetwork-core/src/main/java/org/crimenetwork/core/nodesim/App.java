@@ -1,7 +1,7 @@
 package org.crimenetwork.core.nodesim;
 
 import org.crimenetwork.core.nodesim.eva.EvaluateHelper;
-import org.crimenetwork.core.nodesim.model.DataReader;
+import org.crimenetwork.core.nodesim.model.FeatureGenerator;
 import org.crimenetwork.core.service.ExeHelper;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -38,28 +38,36 @@ public class App
 		flags[1]='J';
 		flags[2]='C';
 		
-		DataReader dataReader = 
-				(DataReader) context.getBean("dataReader");
+		FeatureGenerator featureGenerator = 
+				(FeatureGenerator) context.getBean("dataReader");
 		
 		String trainInputFile="D:\\毕业设计\\svmrank\\data\\train.txt";
 		String testInputFile="D:\\毕业设计\\svmrank\\data\\test.txt";
-		
-		for(int i=0;i<3;i++){
-			char flag=flags[i];
-			String trainDataFile="D:\\毕业设计\\svmrank\\data\\"+flag+"trainData.dat";
-			String trainOrderFile="D:\\毕业设计\\svmrank\\data\\"+flag+"TrainOrderData.dat";
-			String modelFilePath="D:\\毕业设计\\svmrank\\data\\"+flag+"model.dat";
-			String predictionsPath="D:\\毕业设计\\svmrank\\data\\"+flag+"predictions";
+		String types[]=new String[3];
+		types[0]="All";
+		types[1]="Attr";
+		types[2]="Topo";
+		for(int j=1;j<3;j++){
+			String type= types[j];
+			for(int i=1;i<3;i++){
+				char flag=flags[i];
+				String trainDataFile="D:\\毕业设计\\svmrank\\data\\"+flag+"trainData_"+type+".dat";
+				String trainOrderFile="D:\\毕业设计\\svmrank\\data\\"+flag+"TrainOrderData.dat";
+				String modelFilePath="D:\\毕业设计\\svmrank\\data\\"+flag+"model_"+type+".dat";
+				String predictionsPath="D:\\毕业设计\\svmrank\\data\\"+flag+"predictions_"+type;
+				
+				String testDataFile="D:\\毕业设计\\svmrank\\data\\"+flag+"TestData_"+type+".dat";
+				String testOrderFile="D:\\毕业设计\\svmrank\\data\\"+flag+"TestOrderData.dat";
+				
+				featureGenerator.chooseFunctionByType(type, trainInputFile, trainDataFile, trainOrderFile, flag);
+				featureGenerator.chooseFunctionByType(type, testInputFile, testDataFile, testOrderFile, flag);
+				ExeHelper.train(trainDataFile, modelFilePath);
+				ExeHelper.rank(testDataFile, modelFilePath, predictionsPath);
+				EvaluateHelper.run(testOrderFile, predictionsPath);
+			}
 			
-			String testDataFile="D:\\毕业设计\\svmrank\\data\\"+flag+"TestData.dat";
-			String testOrderFile="D:\\毕业设计\\svmrank\\data\\"+flag+"TestOrderData.dat";
-			
-			//dataReader.readData(trainInputFile, trainDataFile, trainOrderFile, flag);
-			//dataReader.readData(testInputFile, testDataFile, testOrderFile, flag);
-			ExeHelper.train(trainDataFile, modelFilePath);
-			ExeHelper.rank(testDataFile, modelFilePath, predictionsPath);
-			EvaluateHelper.run(testOrderFile, predictionsPath);
 		}
+		
 		
 		
 		/*char flag='C';

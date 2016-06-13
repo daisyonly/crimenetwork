@@ -70,6 +70,22 @@ public class SimRankFeatureGenerator {
 		return features;
 	}
 	
+	public List<Double> generateAttr(CrimeCase query,CrimeCase object){		
+		HashMap<String, Double> attriFeatures=AttrSimCalculator.computeSimilar(query, object);
+		List<Double> features=new ArrayList<Double>();
+		for(String key:AttrSimCalculator.getCaseAttrNameList()){
+			features.add(attriFeatures.get(key));
+		}	
+		return features;
+	}
+	
+	public List<Double> generateTopo(CrimeCase query,CrimeCase object){	
+		HashMap<String, MetaPathFeature> metaPathFeatures= metaPathFeatureGenerator.generate(query);
+		String objectKey="C"+object.getcId();	
+		List<Double> features=generateMetaPathfeature(caseMetaPaths,metaPathFeatures,objectKey);	
+		return features;
+	}
+	
 	public List<Double> generate(CounterfeitMoney query,CounterfeitMoney object){
 		HashMap<String, MetaPathFeature> metaPathFeatures= metaPathFeatureGenerator.generate(query);
 		String objectKey="J"+object.getFmid();
@@ -82,6 +98,25 @@ public class SimRankFeatureGenerator {
 		
 	}
 	
+	public List<Double> generateAttr(CounterfeitMoney query,CounterfeitMoney object){
+		
+		HashMap<String, Double> attriFeatures=AttrSimCalculator.computeSimilar(query, object);
+		List<Double> features=new ArrayList<Double>();
+		for(String key:AttrSimCalculator.getCounterfeitMoneyAttrNameList()){
+			features.add(attriFeatures.get(key));
+		}	
+		return features;
+		
+	}
+	
+	public List<Double> generateTopo(CounterfeitMoney query,CounterfeitMoney object){
+		HashMap<String, MetaPathFeature> metaPathFeatures= metaPathFeatureGenerator.generate(query);
+		String objectKey="J"+object.getFmid();		
+		List<Double> features=generateMetaPathfeature(counterfeitMoneyMetaPaths,metaPathFeatures,objectKey);		
+		return features;
+		
+	}
+	
 	public List<Double> generate(SuspectInfo query,SuspectInfo object){
 		HashMap<String, MetaPathFeature> metaPathFeatures= metaPathFeatureGenerator.generate(query);
 		String objectKey="S"+object.getsId();
@@ -90,8 +125,25 @@ public class SimRankFeatureGenerator {
 		for(String key:AttrSimCalculator.getSuspectAttrNameList()){
 			features.add(attriFeatures.get(key));
 		}	
-		return features;
+		return features;	
+	}
+	
+	public List<Double> generateAttr(SuspectInfo query,SuspectInfo object){
 		
+		HashMap<String, Double> attriFeatures=AttrSimCalculator.computeSimilar(query, object);
+		List<Double> features=new ArrayList<Double>();
+		for(String key:AttrSimCalculator.getSuspectAttrNameList()){
+			features.add(attriFeatures.get(key));
+		}	
+		return features;	
+	}
+	
+	
+	public List<Double> generateTopo(SuspectInfo query,SuspectInfo object){
+		HashMap<String, MetaPathFeature> metaPathFeatures= metaPathFeatureGenerator.generate(query);
+		String objectKey="S"+object.getsId();	
+		List<Double> features=generateMetaPathfeature(suspectMetaPaths,metaPathFeatures,objectKey);	
+		return features;	
 	}
 	
 	public Map<String, Double> getFeatureMap(char flag,List<Double> features){

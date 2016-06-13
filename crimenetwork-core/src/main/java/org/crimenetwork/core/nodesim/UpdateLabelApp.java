@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.crimenetwork.core.nodesim.eva.EvaluateHelper;
-import org.crimenetwork.core.nodesim.model.DataReader;
 import org.crimenetwork.core.nodesim.service.UpdateLabelService;
 import org.crimenetwork.core.service.ExeHelper;
 import org.crimenetwork.core.utility.FileUtil;

@@ -8,12 +8,16 @@ import java.util.List;
 import java.util.Map;
 
 import org.crimenetwork.core.nodesim.SimRankFeatureGenerator;
+import org.crimenetwork.core.nodesim.service.UpdateLabelService.DataNode;
+import org.crimenetwork.core.nodesim.service.UpdateLabelService.LabelNode;
+import org.crimenetwork.core.utility.FileUtil;
 import org.crimenetwork.neo4j.entity.CounterfeitMoney;
 import org.crimenetwork.neo4j.entity.CrimeCase;
 import org.crimenetwork.neo4j.entity.SuspectInfo;
 import org.crimenetwork.neo4j.repository.CounterfeitMoneyRepository;
 import org.crimenetwork.neo4j.repository.CrimeCaseRepository;
 import org.crimenetwork.neo4j.repository.SuspectInfoRepository;
+import org.neo4j.cypher.internal.compiler.v2_1.docbuilders.internalDocBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,7 +40,7 @@ public class LabelHelper {
 	//private List<Double> jSumList=new ArrayList<Double>();
 	//private List<Double> cSumList=new ArrayList<Double>();
 	
-	public List<FeatureEntity> generateLabeldata(String query,List<Long> candidatesId){
+	public List<FeatureEntity> generateALLLabeldata(String query,List<Long> candidatesId){
  		char flag=query.charAt(0);
  		Long queryId = Long.parseLong(query.substring(1));
  		List<NodeFeature> res=new ArrayList<NodeFeature>();
@@ -87,77 +91,117 @@ public class LabelHelper {
  		}
  		return realRes;
  	}
-	/*
-	public void getSiweiShu(){
-		double max;
-		double three;
-		double med;
-		double one;
-		double min;
-		
-		if(sSumList.size()!=0){
-			Collections.sort( sSumList, new Comparator<Double>()
-				    {
-				        public int compare( Double o1, Double o2 )
-				        {
-				            return o2.compareTo(o1);
-				        }
-				    } );
-			max=sSumList.get(0);
-		    three=sSumList.get(sSumList.size()/4);
-			med=sSumList.get(sSumList.size()/2);
-			one=sSumList.get(sSumList.size()/4*3);
-			min=sSumList.get(sSumList.size()-1);
-			System.out.println("s  "+"max:"+max+"  three:"+three+"   med:"+med+"  one:"+one+"   min:"+min);
-			
-		}
-		
-		
-		if(cSumList.size()!=0){
-			Collections.sort( cSumList, new Comparator<Double>()
-				    {
-				        public int compare( Double o1, Double o2 )
-				        {
-				            return o2.compareTo(o1);
-				        }
-				    } );
-			max=cSumList.get(0);
-			three=cSumList.get(cSumList.size()/4);
-			med=cSumList.get(cSumList.size()/2);
-			one=cSumList.get(cSumList.size()/4*3);
-			min=cSumList.get(cSumList.size()-1);
-			System.out.println("c  "+"max:"+max+"  three:"+three+"   med:"+med+"  one:"+one+"   min:"+min);
-		}
-		if(jSumList.size()!=0){
-			Collections.sort( jSumList, new Comparator<Double>()
-				    {
-				        public int compare( Double o1, Double o2 )
-				        {
-				            return o2.compareTo(o1);
-				        }
-				    } );
-			max=jSumList.get(0);
-			three=jSumList.get(jSumList.size()/4);
-			med=jSumList.get(jSumList.size()/2);
-			one=jSumList.get(jSumList.size()/4*3);
-			min=jSumList.get(jSumList.size()-1);
-			System.out.println("j  "+"max:"+max+"  three:"+three+"   med:"+med+"  one:"+one+"   min:"+min);
-		}
-		
-		
-	}*/
+	
+	public List<FeatureEntity> generateAttrLabeldata(String query,List<Long> candidatesId,Map<String, Integer> labelResult){
+ 		char flag=query.charAt(0);
+ 		Long queryId = Long.parseLong(query.substring(1));
+ 		List<NodeFeature> res=new ArrayList<NodeFeature>();
+ 		if(flag=='J'){
+ 			CounterfeitMoney queryObject= counterfeitMoneyRepository.findByFmid(queryId);
+ 		    List<CounterfeitMoney> candidates=new ArrayList<CounterfeitMoney>();
+ 		    for(Long id:candidatesId){
+ 		    	candidates.add(counterfeitMoneyRepository.findByFmid(id));
+ 		    }
+ 		   
+ 		    for(CounterfeitMoney cm:candidates){
+ 		    	List<Double> features=simRankFeatureGenerator.generateAttr(queryObject, cm);
+ 		    	String curKey= flag+""+cm.getFmid();
+ 		    	res.add(new NodeFeature(curKey,features));	
+ 		    }
+ 		}else if(flag=='C'){
+ 			CrimeCase queryObject= crimeCaseRepository.findByCId(queryId);
+ 		    List<CrimeCase> candidates=new ArrayList<CrimeCase>();
+ 		    for(Long id:candidatesId){
+ 		    	candidates.add(crimeCaseRepository.findByCId(id));
+ 		    }
+ 		   
+ 		    for(CrimeCase cm:candidates){
+ 		    	List<Double> features=simRankFeatureGenerator.generateAttr(queryObject, cm);
+ 		    	String curKey= flag+""+cm.getcId();
+ 		    	res.add(new NodeFeature(curKey,features));
+ 		    }
+ 		    
+ 		}else{
+ 			SuspectInfo queryObject= suspectInfoRepository.findBySId(queryId);
+ 		    List<SuspectInfo> candidates=new ArrayList<SuspectInfo>();
+ 		    for(Long id:candidatesId){
+ 		    	SuspectInfo caInfo=suspectInfoRepository.findBySId(id);
+ 		    	
+ 		    	candidates.add(caInfo);
+ 		    }
+ 		    for(SuspectInfo cm:candidates){
+ 		    	List<Double> features=simRankFeatureGenerator.generateAttr(queryObject, cm);		    	
+ 		    	String curKey= flag+""+cm.getsId();
+ 		    	res.add(new NodeFeature(curKey,features));
+ 		    }
+ 		}
+ 		
+ 		List<FeatureEntity> realRes=new ArrayList<FeatureEntity>();
+ 		for(NodeFeature node:res){
+ 			realRes.add(new FeatureEntity(node.id,labelResult.get(node.id),node.feature));
+ 		}
+ 		return realRes;
+ 	}
+	
+	public List<FeatureEntity> generateTopoLabeldata(String query,List<Long> candidatesId,Map<String, Integer> labelResult){
+ 		char flag=query.charAt(0);
+ 		Long queryId = Long.parseLong(query.substring(1));
+ 		List<NodeFeature> res=new ArrayList<NodeFeature>();
+ 		if(flag=='J'){
+ 			CounterfeitMoney queryObject= counterfeitMoneyRepository.findByFmid(queryId);
+ 		    List<CounterfeitMoney> candidates=new ArrayList<CounterfeitMoney>();
+ 		    for(Long id:candidatesId){
+ 		    	candidates.add(counterfeitMoneyRepository.findByFmid(id));
+ 		    }
+ 		   
+ 		    for(CounterfeitMoney cm:candidates){
+ 		    	List<Double> features=simRankFeatureGenerator.generateTopo(queryObject, cm);
+ 		    	String curKey= flag+""+cm.getFmid();
+ 		    	res.add(new NodeFeature(curKey,features));	
+ 		    }
+ 		}else if(flag=='C'){
+ 			CrimeCase queryObject= crimeCaseRepository.findByCId(queryId);
+ 		    List<CrimeCase> candidates=new ArrayList<CrimeCase>();
+ 		    for(Long id:candidatesId){
+ 		    	candidates.add(crimeCaseRepository.findByCId(id));
+ 		    }
+ 		   
+ 		    for(CrimeCase cm:candidates){
+ 		    	List<Double> features=simRankFeatureGenerator.generateTopo(queryObject, cm);
+ 		    	String curKey= flag+""+cm.getcId();
+ 		    	res.add(new NodeFeature(curKey,features));
+ 		    }
+ 		    
+ 		}else{
+ 			SuspectInfo queryObject= suspectInfoRepository.findBySId(queryId);
+ 		    List<SuspectInfo> candidates=new ArrayList<SuspectInfo>();
+ 		    for(Long id:candidatesId){
+ 		    	SuspectInfo caInfo=suspectInfoRepository.findBySId(id);
+ 		    	
+ 		    	candidates.add(caInfo);
+ 		    }
+ 		    for(SuspectInfo cm:candidates){
+ 		    	List<Double> features=simRankFeatureGenerator.generateTopo(queryObject, cm);		    	
+ 		    	String curKey= flag+""+cm.getsId();
+ 		    	res.add(new NodeFeature(curKey,features));
+ 		    }
+ 		}
+ 		
+ 		List<FeatureEntity> realRes=new ArrayList<FeatureEntity>();
+ 		for(NodeFeature node:res){
+ 			realRes.add(new FeatureEntity(node.id,labelResult.get(node.id),node.feature));
+ 		}
+ 		return realRes;
+ 	}
+	
+	
+	
+	
 	private Map<String, Integer> labelData(char flag,List<NodeFeature> features){	
 		List<SortNode> resList=new ArrayList<SortNode>();
 		for(NodeFeature feature: features){
 			double sum=getSum(flag,feature.feature);
-			/*
-			if(flag=='C'){
-				cSumList.add(sum);
-			}else if(flag=='J'){
-				jSumList.add(sum);
-			}else{
-				sSumList.add(sum);
-			}*/
+			
 			resList.add(new SortNode(feature.id, sum));
 		}
 		Collections.sort(resList, new Comparator<SortNode>(){

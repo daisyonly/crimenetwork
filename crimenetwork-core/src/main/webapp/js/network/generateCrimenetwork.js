@@ -1,70 +1,3 @@
-/*
- * {
-  "nodes" : {
-    "S8831" : {
-      "姓名" : "陈亚西",
-      "籍贯" : "未知",
-      "嫌疑人编号" : "R3209820000002003090003",
-      "身份证" : "111111111111111111"
-    },
-    "S8830" : {
-      "姓名" : "侯春楼",
-      "籍贯" : "未知",
-      "嫌疑人编号" : "R3209820000002003090002",
-      "身份证" : "111111111111111111"
-    },
-    "S8833" : {
-      "姓名" : "陈亚西",
-      "籍贯" : null,
-      "嫌疑人编号" : "R3209820020030910164181",
-      "身份证" : "111111111111111111"
-    },
-    "S8832" : {
-      "姓名" : "侯春楼",
-      "籍贯" : "江苏涟水县",
-      "嫌疑人编号" : "R3209820020030910164180",
-      "身份证" : "111111111111111111"
-    },
-    "C21232" : {
-      "案件编号" : "A3209820000002003090003",
-      "案发地点" : "无"
-    }
-  },
-  "edges" : [ {
-    "fromId" : "S8830",
-    "endId" : "C21232",
-    "attributes" : { }
-  }, {
-    "fromId" : "S8831",
-    "endId" : "C21232",
-    "attributes" : { }
-  }, {
-    "fromId" : "C21232",
-    "endId" : "S8831",
-    "attributes" : { }
-  }, {
-    "fromId" : "C21232",
-    "endId" : "S8832",
-    "attributes" : { }
-  }, {
-    "fromId" : "C21232",
-    "endId" : "S8830",
-    "attributes" : { }
-  }, {
-    "fromId" : "S8832",
-    "endId" : "C21232",
-    "attributes" : { }
-  }, {
-    "fromId" : "C21232",
-    "endId" : "S8833",
-    "attributes" : { }
-  }, {
-    "fromId" : "S8833",
-    "endId" : "C21232",
-    "attributes" : { }
-  } ]
-}
- */
 $(document).ready(function(){
 	
 	//var suspectId = $("input[name='suspect']").val();
@@ -126,8 +59,8 @@ function drawNetwork(rawData){
 		idMap[rawNodesKeys[i]]=i+1;
 		var curObject=rawNodes[rawNodesKeys[i]];
 		var name=curObject["姓名"];
-		if(name=="刘德琴") name="李四";
-		if(name=="赵明全") name="王五";
+		//if(name=="刘德琴") name="李四";
+		//if(name=="赵明全") name="王五";
 		var curSize=curObject["size"];
 		//var curSize=25;
 		var nodeType=rawNodesKeys[i].charAt(0);
@@ -146,7 +79,7 @@ function drawNetwork(rawData){
 			if(attributeKeys[j]=="size") continue;
 			if(curObject[attributeKeys[j]]==null)
 				curObject[attributeKeys[j]]="暂无";
-			curObject[attributeKeys[j]]="**************";
+			//curObject[attributeKeys[j]]="**************";
 			if(j==0){
 				titleString=titleString+attributeKeys[j]+":"+curObject[attributeKeys[j]];
 			}else{
