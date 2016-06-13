@@ -15,7 +15,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 
 
-
+/*
+ * core class
+ * the controller of searching without rank.
+ * ps: I think this class is the most important class, you can read the code start from here.
+ */
 @Controller
 public class SearchWithoutRankController{
 	
@@ -24,16 +28,12 @@ public class SearchWithoutRankController{
 	@Autowired
 	private SearchService searchService;
 	
-	@Autowired
-	private NodeSimService nodeSimService;
-
 	@RequestMapping(value = "/searchwithoutrank", method = RequestMethod.GET)
 	@ResponseBody
 	public NetworkModel loadScriptContent(@RequestParam("suspectId") String suspectId,
 			@RequestParam("caseId") String caseId,
 			@RequestParam("currencyId") String currencyId,
 			@RequestParam(value="pathLength", required=false) int pathLength) {
-		logger.debug("here!");
 		String id=null;
 		if(!suspectId.equals("")) id="S"+suspectId;
 		else if(!caseId.equals("")) id="C"+caseId;
@@ -41,7 +41,6 @@ public class SearchWithoutRankController{
 		System.out.println(id);
 		NetworkModel res=searchService.searchByObjectId(id, pathLength+1);
 		res.queryId=id;
-		System.out.println("hehe!!");
 		return res;
 	}
 

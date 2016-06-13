@@ -15,7 +15,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 
 
-
+/*
+ * core class
+ * the controller of searching with rank.
+ * when a network has too many nodes, it will be very slow
+ * ps: I think searching without rank is more useful when add in an real-time system.
+ */
 @Controller
 public class SearchController{
 	
@@ -33,7 +38,7 @@ public class SearchController{
 			@RequestParam("caseId") String caseId,
 			@RequestParam("currencyId") String currencyId,
 			@RequestParam(value="pathLength", required=false) int pathLength) {
-		logger.debug("here!");
+		
 		String id=null;
 		if(!suspectId.equals("")) id="S"+suspectId;
 		else if(!caseId.equals("")) id="C"+caseId;
@@ -41,8 +46,7 @@ public class SearchController{
 		System.out.println(id);
 		NetworkModel res=searchService.searchByObjectId(id, pathLength+1);
 		res.queryId=id;
-		nodeSimService.rank(res);
-		System.out.println("hehe!!");
+		nodeSimService.rank(res);//calculate the similarity
 		return res;
 	}
 
