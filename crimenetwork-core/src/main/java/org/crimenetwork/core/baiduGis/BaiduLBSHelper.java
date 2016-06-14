@@ -12,6 +12,11 @@ import org.springframework.http.client.ClientHttpRequest;
 import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
 
+/*
+ * using baidu LBS server need to connect o the Internet
+ * The api limit the times of request, so i think this class is also useless.
+ */
+
 //doc: http://lbsyun.baidu.com/index.php?title=webapi/guide/webservice-geocoding
 public class BaiduLBSHelper {
 	//2FtDE2Z7jP8ip24XGKwTdItgag8ujnmf

@@ -16,6 +16,12 @@ import org.crimenetwork.neo4j.repository.SuspectInfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * 
+ * @author Daisy
+ * 
+ *
+ */
 @Service("searchService")
 public class SearchService {
 	
@@ -40,7 +46,15 @@ public class SearchService {
 		
 		boolean sameAslastNode;
 	}
-	
+	/**
+	 * search all nodes in neo4j.
+	 * comment:the default way of findById method is find all nodes that connect to this node, but usually
+	 *         user point out the  path length, so i suggest you can use the '@Query' annotation of spring data neo4j and Cypher 
+	 *         to optimize efficiency.
+	 * @param id   node id in oracle and start with 'S'(suspect),'J'(money) or 'C'(case)
+	 * @param pathLength    
+	 * @return
+	 */
 	public NetworkModel searchByObjectId(String id,int pathLength){
 		Queue<SearchNode> queue= new LinkedList<SearchNode>();
 		HashSet<String> visitedSet =new HashSet<String>();
@@ -68,6 +82,14 @@ public class SearchService {
 		
 	}
 	
+	/**
+	 * use BFS to filter nodes. 
+	 * If use annotation and Cypher, this method will be useless.
+	 * @param queue
+	 * @param visitedSet
+	 * @param pathLength
+	 * @return
+	 */
 	private NetworkModel search(Queue<SearchNode> queue,HashSet<String> visitedSet,int pathLength){
 		NetworkModel  res = new NetworkModel();
 		while(!queue.isEmpty()&& pathLength--!=0){
