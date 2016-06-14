@@ -6,6 +6,11 @@ import org.crimenetwork.neo4j.entity.CounterfeitMoney;
 import org.crimenetwork.neo4j.entity.CrimeCase;
 import org.crimenetwork.neo4j.entity.SuspectInfo;
 
+/**
+ * config the attributes that need to transfer to the user end.
+ * @author Daisy
+ *
+ */
 public class EntityToMapConverter {
 	
 	public static HashMap<String, String> convert(SuspectInfo suspectInfo){

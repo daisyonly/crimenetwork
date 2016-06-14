@@ -7,6 +7,11 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
+/**
+ * useless
+ * @author Daisy
+ *
+ */
 public class ExeHelper {
 	
 	public static void train(String trainDataPath,String modelFilePath){

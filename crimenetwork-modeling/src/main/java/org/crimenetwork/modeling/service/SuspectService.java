@@ -13,6 +13,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+/**
+ * move all suspect data to neo4j
+ * @author Daisy
+ *
+ */
 @Service("suspectService")
 public class SuspectService {
 	

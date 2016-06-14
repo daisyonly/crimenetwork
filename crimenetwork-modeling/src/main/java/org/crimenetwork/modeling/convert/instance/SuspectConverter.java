@@ -34,7 +34,12 @@ public class SuspectConverter extends Converter<SuspectInfo, SuspectBaseInfo>{
 		if(oldOne!=null) return oldOne;
 		return newOne;
 	}
-	
+	/**
+	 * check whether this node has already exit in the neo4j.
+	 * @param newOne
+	 * @param from
+	 * @return
+	 */
 	private SuspectInfo checkEntity(SuspectInfo newOne,SuspectBaseInfo from){
 		Transaction tx = graphDatabase.beginTx();
 		try {
